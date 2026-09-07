@@ -1,0 +1,17 @@
+{
+  "khinkluka": "https://www.khinkluka.com/_next/image?url=%2Fassets%2Fkhinkluka-hero.png&w=3840&q=85&dpl=dpl_7gvL2X7TJoJVB2BMaUPFF5viWQzM",
+  "unifete": "https://www.unifete.com/_next/image?url=%2Fimages%2Freal-product%2Fcouple-home-hero.png&w=3840&q=75&dpl=dpl_3RpREJXdKJ7HTMg7y1H1uTMcfZi7",
+  "motquete": "https://www.motquete.fr/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2F845f5715ea164b5ff7c612150d11e916d69328dd5df2e741ea03c3a651efa3cb.1y7bpab3qskwj.png&w=3840&q=75",
+  "lgdm": "https://legrenierdumotard.com/opengraph-image?af8f4f005b301504",
+  "desktop_captures": {
+    "date": "2026-09-07",
+    "viewport": "1280x850",
+    "method": "Browser screenshot of public homepage",
+    "urls": [
+      "https://www.khinkluka.com/",
+      "https://www.unifete.com/",
+      "https://www.motquete.fr/",
+      "https://legrenierdumotard.com/"
+    ]
+  }
+}

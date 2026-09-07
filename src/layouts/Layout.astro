@@ -1,0 +1,138 @@
+---
+import "@fontsource-variable/manrope";
+import "../styles/global.css";
+import { homeCopy, type Locale } from "../data/i18n";
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: Locale;
+}
+const {
+  title = "Pierre Pluton — Design, ingénierie IA & data science",
+  description = "Design, développement full stack, ingénierie IA et data science. Découvrez mes réalisations web et mobiles et mes projets de machine learning.",
+  locale = "fr",
+} = Astro.props;
+const copy = homeCopy[locale];
+const homePath = locale === "en" ? "/en/" : "/";
+const currentPath = Astro.url.pathname;
+const frenchPath =
+  locale === "en"
+    ? currentPath.replace(/^\/en(?=\/|$)/, "") || "/"
+    : currentPath;
+const englishPath =
+  locale === "en"
+    ? currentPath
+    : `/en${currentPath === "/" ? "/" : currentPath}`;
+const alternatePath = locale === "en" ? frenchPath : englishPath;
+---
+
+<!doctype html>
+<html
+  lang={locale}
+  data-theme-dark-label={copy.darkTheme}
+  data-theme-light-label={copy.lightTheme}
+  data-motion-on-label={copy.motionOn}
+  data-motion-off-label={copy.motionOff}
+>
+  <head>
+    <meta charset="UTF-8" /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta name="description" content={description} /><meta
+      name="theme-color"
+      content="#e9e5ff"
+    />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href={new URL(frenchPath, Astro.site)}
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={new URL(englishPath, Astro.site)}
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(frenchPath, Astro.site)}
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} /><meta
+      property="og:description"
+      content={description}
+    /><meta property="og:type" content="website" />
+    <title>{title}</title>
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem("portfolio-theme");
+        document.documentElement.dataset.theme =
+          theme === "dark" ? "dark" : "light";
+        if (localStorage.getItem("portfolio-motion") === "off")
+          document.documentElement.dataset.motion = "off";
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">{copy.skip}</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <header class="site-header flex items-center justify-between">
+      <a
+        class="wordmark"
+        href={homePath}
+        aria-label={`Pierre Pluton, ${locale === "en" ? "home" : "accueil"}`}
+        >pierre<span class="brand-dot">.</span><br />pluton</a
+      >
+      <nav
+        class="desktop-nav flex items-center gap-8"
+        aria-label={copy.navLabel}
+      >
+        <a href={`${homePath}#projets`}>{copy.projects}</a><a
+          href={`${homePath}#approche`}>{copy.approach}</a
+        ><a href={`${homePath}#ia`}>{copy.ai}</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label={copy.darkTheme}
+          aria-pressed="false">☾</button
+        ><a
+          class="language-switch"
+          href={alternatePath}
+          lang={locale === "en" ? "fr" : "en"}
+          aria-label={locale === "en"
+            ? "View the French version"
+            : "Voir la version anglaise"}>{locale === "en" ? "FR" : "EN"}</a
+        ><a class="contact-pill" href={`${homePath}#contact`}
+          >{copy.contact} <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer
+      class="site-footer flex flex-wrap items-center justify-between gap-6"
+    >
+      <a href={homePath} class="footer-signature">Pierre Pluton</a><p>
+        {copy.signature}
+      </p><div class="flex flex-wrap gap-6">
+        <a
+          href="https://github.com/ppluton"
+          target="_blank"
+          rel="noopener noreferrer">GitHub ↗</a
+        ><a
+          href="https://www.malt.fr/profile/pierrepluton"
+          target="_blank"
+          rel="noopener noreferrer">Malt ↗</a
+        ><button id="motion-toggle" hidden aria-pressed="false"
+          >{copy.motionOn}</button
+        >
+      </div>
+    </footer>
+    <script>
+      import "../scripts/motion";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../data/projects";
+import { homeCopy, localizeProject, type Locale } from "../../data/i18n";
+interface Props {
+  project: (typeof projects)[number];
+  next: (typeof projects)[number];
+  locale?: Locale;
+}
+export function getStaticPaths() {
+  return projects.map((project, index) => ({
+    params: { slug: project.slug },
+    props: { project, next: projects[(index + 1) % projects.length] },
+  }));
+}
+const { project: sourceProject, next: sourceNext, locale = "fr" } = Astro.props;
+const project = localizeProject(sourceProject, locale);
+const next = localizeProject(sourceNext, locale);
+const copy = homeCopy[locale];
+---
+
+<Layout
+  locale={locale}
+  title={`${project.name} — ${locale === "en" ? "Pierre Pluton project" : "Projet de Pierre Pluton"}`}
+  description={project.description}
+>
+  <article class:list={["case-study", `case-${project.slug}`]}>
+    <div class="case-intro section-pad">
+      <a href={`${locale === "en" ? "/en/" : "/"}#projets`} class="back-link"
+        >{copy.caseBack}</a
+      ><p class="case-role">
+        {project.role}
+      </p><h1>{project.name}</h1><p class="case-tagline">{project.title}</p>
+    </div>
+    <div class="case-image" style={`--project-color:${project.color}`}>
+      <img src={project.image} alt={project.alt} />
+    </div>
+    <div class="case-content section-pad">
+      <div>
+        <h2>{project.title}</h2><p>{project.description}</p><p>
+          {project.context}
+        </p><a
+          class="contact-pill case-site"
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          >{copy.caseSite} <span aria-hidden="true">↗</span></a
+        >
+      </div><aside>
+        <h3>{copy.caseIntervention}</h3><ul>
+          {project.work.map((item) => <li>{item}</li>)}
+        </ul><p class="case-note">{project.note}</p>
+      </aside>
+    </div>
+    <a
+      class="next-project section-pad"
+      href={`${locale === "en" ? "/en" : ""}/projets/${next.slug}/`}
+      ><span>{copy.nextProject}</span><strong>{next.name}</strong><span
+        aria-hidden="true">↗</span
+      ></a
+    >
+  </article>
+</Layout>
