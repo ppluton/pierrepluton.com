@@ -66,6 +66,64 @@ const localizedAiProjects = aiProjects.slice(0, 2).map((project, index) => ({
       }
     </div>
   </section>
+  <section id="projets" class="work-section section-pad">
+    <div class="section-heading">
+      <h2 set:html={copy.workTitle} /><p set:html={copy.workDescription} />
+    </div>
+    <div class="project-grid">
+      {
+        localizedProjects.map((project) => (
+          <article
+            class:list={[
+              "project",
+              `project-${project.slug}`,
+              {
+                "project-featured": ["lgdm", "unifete"].includes(project.slug),
+              },
+            ]}
+          >
+            <>
+              <a
+                class="project-visual"
+                href={`${projectPath}/${project.slug}/`}
+                style={`--project-color:${project.color}`}
+                aria-label={`${copy.discover} ${project.name}`}
+              >
+                <div class="project-screen">
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    loading="lazy"
+                    width="1280"
+                    height={
+                      ["lgdm", "unifete"].includes(project.slug) ? "720" : "850"
+                    }
+                  />
+                </div>
+                <span class="project-open" aria-hidden="true">
+                  ↗
+                </span>
+              </a>
+              <div class="project-meta">
+                <>
+                  <h3>
+                    <a href={`${projectPath}/${project.slug}/`}>
+                      {project.name}
+                    </a>
+                  </h3>
+                  <span>{project.category}</span>
+                </>
+              </div>
+              <p class="project-role">{project.role}</p>
+              {["lgdm", "unifete"].includes(project.slug) && (
+                <p class="project-summary">{project.description}</p>
+              )}
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
   <section id="ia" class="ai-section ai-lab section-pad">
     <div class="section-heading">
       <h2 set:html={copy.aiTitle} /><div>
@@ -141,51 +199,6 @@ const localizedAiProjects = aiProjects.slice(0, 2).map((project, index) => ({
     <p class="ai-footnote">
       {copy.aiFootnote}
     </p>
-  </section>
-  <section id="projets" class="work-section section-pad">
-    <div class="section-heading">
-      <h2 set:html={copy.workTitle} /><p set:html={copy.workDescription} />
-    </div>
-    <div class="project-grid">
-      {
-        localizedProjects.map((project) => (
-          <article class:list={["project", `project-${project.slug}`]}>
-            <>
-              <a
-                class="project-visual"
-                href={`${projectPath}/${project.slug}/`}
-                style={`--project-color:${project.color}`}
-                aria-label={`${copy.discover} ${project.name}`}
-              >
-                <div class="project-screen">
-                  <img
-                    src={project.image}
-                    alt={project.alt}
-                    loading="lazy"
-                    width="1280"
-                    height="850"
-                  />
-                </div>
-                <span class="project-open" aria-hidden="true">
-                  ↗
-                </span>
-              </a>
-              <div class="project-meta">
-                <>
-                  <h3>
-                    <a href={`${projectPath}/${project.slug}/`}>
-                      {project.name}
-                    </a>
-                  </h3>
-                  <span>{project.category}</span>
-                </>
-              </div>
-              <p class="project-role">{project.role}</p>
-            </>
-          </article>
-        ))
-      }
-    </div>
   </section>
   <section id="approche" class="approach section-pad">
     <div class="approach-intro">

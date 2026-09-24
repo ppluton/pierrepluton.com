@@ -13,5 +13,14 @@
       "https://www.motquete.fr/",
       "https://legrenierdumotard.com/"
     ]
+  },
+  "featured_captures": {
+    "date": "2026-09-24",
+    "viewport": "1280x720",
+    "method": "In-app browser screenshot of public homepage",
+    "files": {
+      "lgdm-2026.png": "https://legrenierdumotard.com/",
+      "unifete-2026.png": "https://www.unifete.com/"
+    }
   }
 }
