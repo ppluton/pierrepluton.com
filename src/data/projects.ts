@@ -1,5 +1,49 @@
 export const projects = [
   {
+    slug: "lgdm",
+    name: "Le Grenier du Motard",
+    category: "Marketplace",
+    role: "CTO · architecture, web & mobile",
+    image: "/assets/lgdm-2026.png",
+    alt: "Page d’accueil actuelle du Grenier du Motard, marketplace d’équipement moto d’occasion",
+    url: "https://legrenierdumotard.com",
+    color: "#d8e3df",
+    year: "Web & mobile",
+    title: "Une marketplace pensée pour les motards.",
+    description:
+      "Marketplace de pièces et d’équipements moto d’occasion, accessible sur le web, iOS et Android. J’en pilote l’architecture et le développement en tant que CTO.",
+    work: [
+      "Direction technique et choix d’architecture",
+      "Développement de la marketplace web",
+      "Développement et suivi des applications iOS et Android",
+    ],
+    context:
+      "Relier parcours d’achat et de vente, paiement, livraison et applications mobiles dans un produit cohérent, au sein de l’équipe du Grenier du Motard.",
+    note: "Projet d’équipe. Capture de la page d’accueil publique, septembre 2026.",
+  },
+  {
+    slug: "unifete",
+    name: "Unifête",
+    category: "Plateforme mariage",
+    role: "Cofondateur · produit, design & développement",
+    image: "/assets/unifete-2026.png",
+    alt: "Page d’accueil actuelle d’Unifête, avec un couple et un aperçu de l’espace mariage sur téléphone",
+    url: "https://www.unifete.com",
+    color: "#e5e0f6",
+    year: "Produit web",
+    title: "Un espace pour tout le parcours du mariage.",
+    description:
+      "Unifête aide les couples à préparer leur mariage, réunir leurs invités et garder leurs souvenirs. Je conçois et développe le produit, de l’interface aux parcours web.",
+    work: [
+      "Cofondation et conception du produit",
+      "Design des parcours couple et invité",
+      "Développement de la plateforme web",
+    ],
+    context:
+      "Faire tenir ensemble l’invitation et les RSVP, l’organisation, les animations du jour J et les souvenirs partagés par les proches.",
+    note: "Produit proposé aux couples pilotes. Capture de la page d’accueil publique, septembre 2026.",
+  },
+  {
     slug: "khinkluka",
     name: "Khinkluka",
     category: "Site de restauration",
@@ -20,50 +64,6 @@ export const projects = [
     context:
       "Une présence en ligne qui prolonge le caractère de l’enseigne et permet de découvrir son offre avant de pousser la porte.",
     note: "Visuel issu du site public Khinkluka.",
-  },
-  {
-    slug: "unifete",
-    name: "Unifête",
-    category: "Plateforme événementielle",
-    role: "Cofondateur, designer & développeur",
-    image: "/assets/unifete-desktop.png",
-    alt: "Capture de la page d’accueil Unifête",
-    url: "https://www.unifete.com",
-    color: "#e5e0f6",
-    year: "Produit web",
-    title: "Le mariage, dans toutes ses dimensions.",
-    description:
-      "Une plateforme pour préparer un mariage, faire participer ses invités et retrouver les souvenirs. De la première impression aux interfaces du produit.",
-    work: [
-      "Cofondateur de la plateforme",
-      "Design de la landing et de l’application",
-      "Développement du produit web",
-    ],
-    context:
-      "Réunir les différents moments du mariage dans une expérience cohérente : préparation, participation des invités et souvenirs.",
-    note: "Capture produit publiée par Unifête. Le projet est présenté dans le cadre de son lancement.",
-  },
-  {
-    slug: "lgdm",
-    name: "Le Grenier du Motard",
-    category: "Marketplace",
-    role: "CTO, designer & développeur",
-    image: "/assets/lgdm-desktop.png",
-    alt: "Capture de la marketplace Le Grenier du Motard",
-    url: "https://legrenierdumotard.com",
-    color: "#d8e3df",
-    year: "Web & mobile",
-    title: "Une seconde vie. Une vraie plateforme.",
-    description:
-      "Une marketplace dédiée aux équipements et pièces moto d’occasion. Un travail de design et de développement au service des acheteurs comme des vendeurs.",
-    work: [
-      "Direction technique en tant que CTO",
-      "Design et développement web",
-      "Développement des applications iOS et Android",
-    ],
-    context:
-      "Construire une expérience de marketplace lisible, autour des informations qui comptent pour les motards : catégorie, état, caractéristiques et prix.",
-    note: "Un projet mené au sein de l’équipe du Grenier du Motard, en tant que CTO.",
   },
   {
     slug: "motquete",

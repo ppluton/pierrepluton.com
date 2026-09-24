@@ -2,7 +2,7 @@
 
 Merci d’être passé voir mon travail.
 
-Je suis designer et développeur full stack. J’aime imaginer des interfaces qui ont du caractère, puis construire ce qui leur donne vie : sites web, applications mobiles et outils intégrant de l’IA.
+Je suis ingénieur full stack et IA. Je conçois, développe et fais évoluer des produits web et mobile, avec une attention particulière à l’expérience, à la fiabilité et à la mise en production.
 
 Ce dépôt accueille le code de mon portfolio personnel, construit avec **Astro, Tailwind CSS et TypeScript**.
 
@@ -10,7 +10,7 @@ Ce dépôt accueille le code de mon portfolio personnel, construit avec **Astro,
 
 **[Rendez-vous sur pierrepluton.com](https://pierrepluton.com)**
 
-Le site est en cours de préparation. Vous y retrouverez notamment Unifête, Le Grenier du Motard, Khinkluka et MotQuête, avec mon rôle dans chaque projet, ainsi qu’une sélection de mes explorations en IA. La version anglaise sera accessible sur [pierrepluton.com/en](https://pierrepluton.com/en/) après le déploiement.
+Le site présente d’abord Le Grenier du Motard, dont je suis CTO, et Unifête, que j’ai cofondé. Il présente aussi Khinkluka, MotQuête et une sélection de projets IA personnels ou pédagogiques. La version anglaise est accessible sur [pierrepluton.com/en](https://pierrepluton.com/en/).
 
 Le français est la langue par défaut. Le sélecteur de langue conserve la page visitée : l’accueil français correspond à `/`, l’accueil anglais à `/en/`, et chaque étude de cas existe dans les deux versions. Les balises `hreflang` et les métadonnées sont générées pour les deux parcours.
 
