@@ -488,42 +488,102 @@ button {
   margin-top: 12px !important;
   font-size: 12px !important;
 }
-.ai-row {
+.ai-projects-grid {
   display: grid;
-  grid-template-columns: 160px 1fr 1.2fr 32px;
-  align-items: center;
-  gap: 25px;
-  padding: 30px 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  transition:
-    padding 0.25s,
-    color 0.25s;
+  margin-top: 46px;
 }
-.ai-row:hover {
-  padding-left: 12px;
-  color: var(--accent);
+.ai-project {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 32px;
+  border-right: 1px solid var(--line);
+}
+.ai-project:first-child {
+  padding-left: 0;
+}
+.ai-project:last-child {
+  border-right: 0;
+  padding-right: 0;
 }
 .ai-type {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
-.ai-row h3 {
-  font-size: 22px;
+.ai-project h3 {
+  font-size: clamp(22px, 2.1vw, 32px);
   font-weight: 650;
-  letter-spacing: -0.7px;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  margin: 18px 0 12px;
 }
-.ai-row p {
-  font-size: 13px;
+.ai-project p {
+  font-size: 14px;
   line-height: 1.7;
   color: var(--muted);
+  margin: 0 0 24px;
 }
-.ai-arrow {
-  font-size: 28px;
+.ai-stack {
+  display: block;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.ai-project-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.ai-project:hover .ai-project-link {
+  color: var(--accent);
 }
 .ai-footnote {
   font-size: 11px;
   color: var(--muted);
   margin-top: 24px;
+}
+.skills-section {
+  padding-top: 60px;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 7%;
+  border-top: 1px solid var(--line);
+}
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+.skill-group h3 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.skill-group p {
+  max-width: 48ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+.skill-group span {
+  margin-top: auto;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
 }
 .contact-section {
   background: var(--accent);
@@ -792,9 +852,18 @@ button {
   .approach {
     gap: 5%;
   }
-  .ai-row {
-    grid-template-columns: 100px 1fr 1fr 25px;
-    gap: 15px;
+  .ai-projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .ai-project,
+  .ai-project:first-child,
+  .ai-project:last-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  .ai-project:last-child {
+    border-bottom: 0;
   }
   .site-footer p {
     display: none;
@@ -959,26 +1028,17 @@ button {
   .services details {
     padding: 22px 0;
   }
-  .ai-row {
-    grid-template-columns: 1fr 26px;
-    gap: 8px;
-    padding: 23px 0;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
-  .ai-type {
-    grid-column: 1;
+  .skill-group {
+    padding: 24px 0;
   }
-  .ai-row h3 {
-    grid-column: 1;
-    font-size: 22px;
-    margin: 0;
+  .skill-group h3 {
+    font-size: 19px;
   }
-  .ai-row p {
-    grid-column: 1;
-    margin: 0;
-  }
-  .ai-arrow {
-    grid-column: 2;
-    grid-row: 1/4;
+  .skill-group p {
+    font-size: 12px;
   }
   .contact-section {
     margin: 0 8px;

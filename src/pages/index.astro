@@ -11,17 +11,9 @@ const projectPath = locale === "en" ? "/en/projets" : "/projets";
 const localizedProjects = projects.map((project) =>
   localizeProject(project, locale),
 );
-const localizedAiProjects = aiProjects.slice(0, 2).map((project, index) => ({
+const localizedAiProjects = aiProjects.map((project) => ({
   ...project,
-  name:
-    locale === "en"
-      ? ["Document assistant", "EchoScript"][index]
-      : project.name,
-  type: locale === "en" ? ["RAG", "Audio & AI"][index] : project.type,
-  description:
-    locale === "en"
-      ? [copy.ragDescription, copy.audioDescription][index]
-      : project.description,
+  ...project[locale],
 }));
 ---
 
@@ -175,23 +167,22 @@ const localizedAiProjects = aiProjects.slice(0, 2).map((project, index) => ({
         </div>
       </div>
     </a>
-    <div class="ai-list">
+    <div class="ai-projects-grid">
       {
         localizedAiProjects.map((project) => (
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="ai-row"
+            class="ai-project"
           >
-            <>
-              <span class="ai-type">{project.type}</span>
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              <span class="ai-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </>
+            <span class="ai-type">{project.type}</span>
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+            <span class="ai-stack">{project.stack}</span>
+            <span class="ai-project-link">
+              {copy.aiProjectLink} <span aria-hidden="true">↗</span>
+            </span>
           </a>
         ))
       }
@@ -199,6 +190,22 @@ const localizedAiProjects = aiProjects.slice(0, 2).map((project, index) => ({
     <p class="ai-footnote">
       {copy.aiFootnote}
     </p>
+  </section>
+  <section id="competences" class="skills-section section-pad">
+    <div class="section-heading">
+      <h2 set:html={copy.skillsTitle} /><p>{copy.skillsDescription}</p>
+    </div>
+    <div class="skills-grid">
+      {
+        copy.skills.map(([title, description, tools]) => (
+          <div class="skill-group">
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <span>{tools}</span>
+          </div>
+        ))
+      }
+    </div>
   </section>
   <section id="approche" class="approach section-pad">
     <div class="approach-intro">

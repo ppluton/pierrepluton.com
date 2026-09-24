@@ -10,7 +10,7 @@ Ce dépôt accueille le code de mon portfolio personnel, construit avec **Astro,
 
 **[Rendez-vous sur pierrepluton.com](https://pierrepluton.com)**
 
-Le site présente d’abord Le Grenier du Motard, dont je suis CTO, et Unifête, que j’ai cofondé. Il présente aussi Khinkluka, MotQuête et une sélection de projets IA personnels ou pédagogiques. La version anglaise est accessible sur [pierrepluton.com/en](https://pierrepluton.com/en/).
+Le site présente d’abord Le Grenier du Motard, dont je suis CTO, et Unifête, que j’ai cofondé. Il présente aussi Khinkluka, MotQuête, mes compétences et des projets IA publics : MLOps, RAG, transcription audio et POC LLM pédagogique. La version anglaise est accessible sur [pierrepluton.com/en](https://pierrepluton.com/en/).
 
 Le français est la langue par défaut. Le sélecteur de langue conserve la page visitée : l’accueil français correspond à `/`, l’accueil anglais à `/en/`, et chaque étude de cas existe dans les deux versions. Les balises `hreflang` et les métadonnées sont générées pour les deux parcours.
 
