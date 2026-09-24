@@ -9,7 +9,8 @@ export const homeCopy = {
     navLabel: "Navigation principale",
     projects: "Projets",
     approach: "Approche",
-    ai: "IA & data science",
+    ai: "Projets IA",
+    skillsNav: "Compétences",
     darkTheme: "Activer le thème sombre",
     lightTheme: "Activer le thème clair",
     contact: "Parlons de votre projet",
@@ -24,16 +25,16 @@ export const homeCopy = {
       "Je conçois, développe et fais évoluer des produits web et mobile. J’intègre l’IA quand elle apporte une valeur concrète, avec le même soin pour l’expérience, la fiabilité et la mise en production.",
     explore: "Explorer mes projets",
     strip: ["Produit", "Web & mobile", "Ingénierie", "IA appliquée"],
-    aiTitle: "Des données aux<BR>produits intelligents.",
+    aiTitle: "De l’idée au modèle.<BR>Du modèle au produit.",
     aiDescription:
-      "Machine learning, applications IA et MLOps : je relie le travail sur les données à la conception de produits utilisables.",
+      "Des projets publics qui montrent comment je prépare les données, développe des applications IA et vérifie ce que les modèles produisent.",
     education: "Parcours AI Engineer · OpenClassrooms",
     educationStatus: "Certification RNCP niveau 7 (bac+5) préparée.",
     educationEnd: "Fin de parcours prévue en novembre 2026.",
     studyLabel: "Étude de cas · Data science & MLOps",
     studyTitle: "Un modèle est<BR>un point de départ.",
     studyDescription:
-      "Préparer les données, entraîner un modèle, l’exposer via une API et suivre ses prédictions : un projet de formation qui couvre toute la chaîne.",
+      "Un projet OpenClassrooms de scoring crédit : préparation des données, comparaison de modèles, API de prédiction et suivi de la dérive. Une démonstration technique, pas un service de décision financière.",
     studyLink: "Explorer le projet sur GitHub ↗",
     pipelineLabel:
       "Architecture du projet : données, modèle, API et monitoring",
@@ -43,12 +44,34 @@ export const homeCopy = {
       ["Exposer", "FastAPI · Docker"],
       ["Suivre", "Monitoring · dérive des données"],
     ],
-    ragDescription:
-      "Explorer la documentation Bubble avec un assistant et des références aux sources.",
-    audioDescription:
-      "Un projet d’interface de transcription et de synthèse audio avec les modèles Mistral.",
+    aiProjectLink: "Voir le code sur GitHub",
     aiFootnote:
-      "Projets personnels et pédagogiques. Méthodes et code documentés sur GitHub.",
+      "Projets personnels et pédagogiques. Le POC médical ne constitue pas un dispositif de diagnostic et n’a pas été validé cliniquement.",
+    skillsTitle: "Des compétences qui<BR>se complètent.",
+    skillsDescription:
+      "Je relie les choix de produit, l’interface, les systèmes et les modèles. Chaque compétence est mise au service d’un usage concret.",
+    skills: [
+      [
+        "Produit & interfaces",
+        "Cadrage, parcours utilisateurs, design responsive, accessibilité et internationalisation.",
+        "UX · design d’interface · i18n",
+      ],
+      [
+        "Ingénierie full stack",
+        "Applications web, API, données et intégrations : concevoir l’ensemble et faire tenir les composants ensemble.",
+        "TypeScript · React · Next.js · PostgreSQL",
+      ],
+      [
+        "Mobile & livraison",
+        "Développement iOS et Android, tests de parcours, CI/CD et suivi des erreurs après mise en ligne.",
+        "React Native · Expo · Playwright · Sentry",
+      ],
+      [
+        "IA & données",
+        "RAG sourcé, préparation et évaluation des données, adaptation de modèles et suivi en exploitation.",
+        "Python · FastAPI · LoRA · MLflow",
+      ],
+    ],
     workTitle: "Des produits réels.<BR>Des responsabilités concrètes.",
     workDescription:
       "CTO du Grenier du Motard et cofondateur d’Unifête : deux produits suivis dans la durée, de la conception aux évolutions.",
@@ -87,6 +110,7 @@ export const homeCopy = {
     caseBack: "← Tous les projets",
     caseSite: "Voir le site",
     caseIntervention: "Mon intervention",
+    caseCto: "Mes responsabilités de CTO",
     nextProject: "Projet suivant",
   },
   en: {
@@ -97,7 +121,8 @@ export const homeCopy = {
     navLabel: "Main navigation",
     projects: "Projects",
     approach: "Approach",
-    ai: "AI & data science",
+    ai: "AI projects",
+    skillsNav: "Skills",
     darkTheme: "Enable dark theme",
     lightTheme: "Enable light theme",
     contact: "Let’s talk about your project",
@@ -112,9 +137,9 @@ export const homeCopy = {
       "I design, build and evolve web and mobile products. I apply AI where it solves a real problem, with the same care for user experience, reliability and delivery.",
     explore: "Explore my work",
     strip: ["Product", "Web & mobile", "Engineering", "Applied AI"],
-    aiTitle: "From data to<BR>intelligent products.",
+    aiTitle: "From idea to model.<BR>From model to product.",
     aiDescription:
-      "Machine learning, AI applications and MLOps: I connect data work to the design of products people can use.",
+      "Public projects showing how I prepare data, build AI applications and check what models actually produce.",
     education: "AI Engineer pathway · OpenClassrooms",
     educationStatus:
       "RNCP level 7 (master’s equivalent) certification in progress.",
@@ -122,7 +147,7 @@ export const homeCopy = {
     studyLabel: "Case study · Data science & MLOps",
     studyTitle: "A model is<BR>only a starting point.",
     studyDescription:
-      "Prepare data, train a model, expose it through an API and monitor its predictions: a training project covering the full chain.",
+      "An OpenClassrooms credit scoring project: data preparation, model comparison, a prediction API and drift monitoring. A technical demonstration, not a financial decision service.",
     studyLink: "Explore the project on GitHub ↗",
     pipelineLabel: "Project architecture: data, model, API and monitoring",
     pipeline: [
@@ -131,12 +156,34 @@ export const homeCopy = {
       ["Expose", "FastAPI · Docker"],
       ["Monitor", "Data drift · monitoring"],
     ],
-    ragDescription:
-      "Explore Bubble documentation with an assistant that cites its sources.",
-    audioDescription:
-      "An interface project for audio transcription and summaries using Mistral models.",
+    aiProjectLink: "View code on GitHub",
     aiFootnote:
-      "Personal and educational projects. Methods and code documented on GitHub.",
+      "Personal and educational projects. The medical POC is not a diagnostic device and has not been clinically validated.",
+    skillsTitle: "Skills that<BR>work together.",
+    skillsDescription:
+      "I connect product decisions, interfaces, systems and models. Each skill serves a concrete use case.",
+    skills: [
+      [
+        "Product & interfaces",
+        "Scoping, user journeys, responsive design, accessibility and internationalization.",
+        "UX · interface design · i18n",
+      ],
+      [
+        "Full stack engineering",
+        "Web applications, APIs, data and integrations: designing the whole system and making its parts work together.",
+        "TypeScript · React · Next.js · PostgreSQL",
+      ],
+      [
+        "Mobile & delivery",
+        "iOS and Android development, journey testing, CI/CD and error monitoring after release.",
+        "React Native · Expo · Playwright · Sentry",
+      ],
+      [
+        "AI & data",
+        "Source-grounded RAG, data preparation and evaluation, model adaptation and monitoring.",
+        "Python · FastAPI · LoRA · MLflow",
+      ],
+    ],
     workTitle: "Real products.<BR>Real responsibility.",
     workDescription:
       "CTO at Le Grenier du Motard and cofounder of Unifête: two products I help build and evolve over time.",
@@ -176,6 +223,7 @@ export const homeCopy = {
     caseBack: "← All projects",
     caseSite: "Visit the site",
     caseIntervention: "My contribution",
+    caseCto: "My CTO responsibilities",
     nextProject: "Next project",
   },
 } as const;
@@ -236,9 +284,10 @@ export const projectTranslations: Record<
       description:
         "A marketplace for second-hand motorcycle equipment and parts, available on web, iOS and Android. As CTO, I lead its architecture and development.",
       work: [
-        "Technical direction and architecture",
-        "Web marketplace development",
-        "iOS and Android app development and maintenance",
+        "Architecture decisions and technical product priorities",
+        "Coherent journeys across the web marketplace and iOS and Android apps",
+        "Payment and shipping journey integration",
+        "Quality, incident follow-up and release preparation",
       ],
       context:
         "Connecting buying and selling journeys, payments, shipping and mobile apps in one coherent product, as part of the Le Grenier du Motard team.",

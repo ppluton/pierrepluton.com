@@ -13,9 +13,10 @@ export const projects = [
     description:
       "Marketplace de pièces et d’équipements moto d’occasion, accessible sur le web, iOS et Android. J’en pilote l’architecture et le développement en tant que CTO.",
     work: [
-      "Direction technique et choix d’architecture",
-      "Développement de la marketplace web",
-      "Développement et suivi des applications iOS et Android",
+      "Arbitrages d’architecture et priorités techniques du produit",
+      "Cohérence des parcours entre la marketplace web et les applications iOS et Android",
+      "Intégration des parcours de paiement et de livraison",
+      "Qualité, suivi des incidents et préparation des mises en production",
     ],
     context:
       "Relier parcours d’achat et de vente, paiement, livraison et applications mobiles dans un produit cohérent, au sein de l’équipe du Grenier du Motard.",
@@ -90,24 +91,57 @@ export const projects = [
 ];
 export const aiProjects = [
   {
-    name: "Assistant documentaire",
-    type: "RAG",
-    description:
-      "Explorer la documentation Bubble avec un assistant et des références aux sources.",
+    slug: "medical",
+    url: "https://github.com/ppluton/medical-triage-llm-poc",
+    fr: {
+      type: "LLM · POC pédagogique",
+      name: "Triage médical expérimental",
+      description:
+        "Un POC bilingue qui explore l’adaptation d’un modèle par LoRA, puis encadre ses réponses par des règles, un audit et une décision humaine. Aucune validation clinique.",
+      stack: "Python · LoRA · FastAPI · évaluation",
+    },
+    en: {
+      type: "LLM · Educational POC",
+      name: "Experimental medical triage",
+      description:
+        "A bilingual POC exploring LoRA fine-tuning, with rule-based safeguards, audit and mandatory human judgment. Not clinically validated.",
+      stack: "Python · LoRA · FastAPI · evaluation",
+    },
+  },
+  {
+    slug: "bubble-rag",
     url: "https://github.com/ppluton/Bubble.io-rag",
+    fr: {
+      type: "RAG · Application",
+      name: "Assistant documentaire Bubble",
+      description:
+        "Une application qui retrouve les passages utiles dans la documentation Bubble et affiche les sources utilisées avec chaque réponse.",
+      stack: "TypeScript · Next.js · embeddings · citations",
+    },
+    en: {
+      type: "RAG · Application",
+      name: "Bubble documentation assistant",
+      description:
+        "An application that retrieves relevant Bubble documentation passages and shows the sources used for each answer.",
+      stack: "TypeScript · Next.js · embeddings · citations",
+    },
   },
   {
-    name: "EchoScript",
-    type: "Audio & IA",
-    description:
-      "Un projet d’interface de transcription et de synthèse audio avec les modèles Mistral.",
+    slug: "echoscript",
     url: "https://github.com/ppluton/EchoScript-AI-Powered-Audio-Transcription",
-  },
-  {
-    name: "Du modèle à l’API",
-    type: "Projet de formation",
-    description:
-      "Un projet MLOps OpenClassrooms : données, modèle, API et suivi des prédictions.",
-    url: "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline",
+    fr: {
+      type: "Audio · Application",
+      name: "EchoScript",
+      description:
+        "Une interface de transcription audio qui structure les prises de parole et génère un résumé avec les modèles Mistral.",
+      stack: "React · TypeScript · Voxtral · Mistral",
+    },
+    en: {
+      type: "Audio · Application",
+      name: "EchoScript",
+      description:
+        "An audio transcription interface that structures speaker turns and generates a summary using Mistral models.",
+      stack: "React · TypeScript · Voxtral · Mistral",
+    },
   },
 ];

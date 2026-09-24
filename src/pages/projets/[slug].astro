@@ -47,7 +47,9 @@ const copy = homeCopy[locale];
           >{copy.caseSite} <span aria-hidden="true">↗</span></a
         >
       </div><aside>
-        <h3>{copy.caseIntervention}</h3><ul>
+        <h3>
+          {project.slug === "lgdm" ? copy.caseCto : copy.caseIntervention}
+        </h3><ul>
           {project.work.map((item) => <li>{item}</li>)}
         </ul><p class="case-note">{project.note}</p>
       </aside>
