@@ -88,6 +88,52 @@ export const projects = [
       "Donner envie de jouer et de découvrir le patrimoine régional à travers un rituel simple : un mot, quelques essais et une histoire.",
     note: "Projet personnel autour du jeu et du patrimoine régional.",
   },
+  {
+    slug: "maxxbud",
+    name: "MaxxBud",
+    category: "Site d’artiste",
+    role: "Design & développement",
+    image: "/assets/maxxbud-desktop.png",
+    alt: "Page d’accueil de MaxxBud, avec le morceau « C’est de l’art ? » et les liens d’écoute",
+    url: "https://maxxbud.com",
+    color: "#e8dfd3",
+    year: "Site web",
+    title: "Un site au rythme des sorties.",
+    description:
+      "Un site pour le rappeur MaxxBud et son projet : un son par mois en 2026. J’ai conçu et développé une page qui rassemble ses morceaux, ses images et les liens pour l’écouter.",
+    work: [
+      "Design et développement du site responsive",
+      "Mise en avant du dernier morceau et des sorties mensuelles",
+      "Présentation de la discographie, des coulisses et de l’équipe",
+      "Accès aux plateformes d’écoute et aux réseaux de l’artiste",
+    ],
+    context:
+      "Prolonger l’univers visuel de l’artiste et donner un point de rendez-vous à ses auditeurs, du dernier single aux projets précédents.",
+    note: "Capture de la page d’accueil publique, octobre 2026.",
+  },
+  {
+    slug: "provoc",
+    name: "Prov’Oc",
+    category: "Caviste & bar à vin",
+    role: "Design & développement",
+    image: "/assets/provoc-desktop.png",
+    alt: "Page d’accueil de Prov’Oc, avec la façade de la cave et les informations pratiques à Marseille",
+    url: "https://provocmarseille.fr",
+    color: "#f5d8e8",
+    year: "Site web",
+    title: "Le caractère d’une cave de quartier, sur le web.",
+    description:
+      "Le site de Prov’Oc, caviste et bar à vin à La Plaine, à Marseille. J’ai repensé et développé sa présence en ligne autour de l’esprit du lieu, de sa sélection et des informations utiles pour venir.",
+    work: [
+      "Refonte visuelle et développement du site responsive",
+      "Présentation de la cave, de la sélection et des soirées",
+      "Organisation du blog et des contenus éditoriaux",
+      "Accès aux horaires, à l’itinéraire et au contact",
+    ],
+    context:
+      "Faire découvrir la cave avant la visite, avec une identité expressive et un parcours simple pour trouver les bonnes informations sur ordinateur comme sur téléphone.",
+    note: "Capture de la page d’accueil publique, octobre 2026.",
+  },
 ];
 export const aiProjects = [
   {

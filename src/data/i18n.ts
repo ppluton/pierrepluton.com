@@ -260,6 +260,40 @@ export const projectTranslations: Record<
         "An online presence that extends the brand’s character and lets people discover its offering before they walk through the door.",
       note: "Visual sourced from the public Khinkluka website.",
     },
+    maxxbud: {
+      category: "Artist website",
+      role: "Design & development",
+      alt: "MaxxBud homepage featuring the track C’est de l’art ? and listening links",
+      title: "A website that follows the releases.",
+      description:
+        "A website for rapper MaxxBud and his project: one track a month in 2026. I designed and built a page bringing together his music, imagery and listening links.",
+      work: [
+        "Responsive website design and development",
+        "Latest track and monthly release highlights",
+        "Discography, behind-the-scenes imagery and team presentation",
+        "Links to streaming platforms and the artist’s social profiles",
+      ],
+      context:
+        "Extending the artist’s visual identity and giving listeners a place to return to, from the latest single to earlier projects.",
+      note: "Public homepage screenshot, October 2026.",
+    },
+    provoc: {
+      category: "Wine shop & bar",
+      role: "Design & development",
+      alt: "Prov’Oc homepage featuring the wine shop’s facade and practical information in Marseille",
+      title: "A neighbourhood wine shop’s character, on the web.",
+      description:
+        "The website for Prov’Oc, a wine shop and bar in La Plaine, Marseille. I redesigned and built its online presence around the venue’s character, its selection and useful information for visitors.",
+      work: [
+        "Visual redesign and responsive website development",
+        "Wine shop, selection and evening events presentation",
+        "Blog and editorial content organization",
+        "Easy access to opening hours, directions and contact details",
+      ],
+      context:
+        "Introducing the wine shop before a visit, with an expressive identity and a clear path to practical information on desktop and mobile.",
+      note: "Public homepage screenshot, October 2026.",
+    },
     unifete: {
       category: "Wedding platform",
       role: "Cofounder · product, design & development",
