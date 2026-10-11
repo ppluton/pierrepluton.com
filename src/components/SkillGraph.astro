@@ -265,12 +265,28 @@ const edges = data.domains.flatMap((d, i) =>
     }
     nodes.forEach((n) =>
       n.addEventListener("click", (event) => {
-        event.preventDefault();
+        if (
+          event instanceof MouseEvent &&
+          (event.button !== 0 ||
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey ||
+            event.altKey)
+        )
+          return;
         select(n.dataset.domain!);
       }),
     );
     reset.addEventListener("click", () => select(null));
-    select("genai");
+    function linkedDomain() {
+      const id = window.location.hash.replace(/^#domain-/, "");
+      return [...nodes].find((node) => node.dataset.domain === id)?.dataset
+        .domain;
+    }
+    window.addEventListener("hashchange", () => {
+      select(linkedDomain() ?? "genai");
+    });
+    select(linkedDomain() ?? "genai");
     reset.hidden = false;
   }
 </script>
