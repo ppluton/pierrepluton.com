@@ -95,15 +95,15 @@
 .skill-node:hover {
   border-color: var(--accent);
 }
-.skill-node[aria-pressed="true"] {
+.skill-node[aria-current="true"] {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--on-accent);
 }
-.skill-node[aria-pressed="true"] small {
+.skill-node[aria-current="true"] small {
   color: var(--on-accent);
 }
-.skill-node[aria-pressed="true"] .node-point {
+.skill-node[aria-current="true"] .node-point {
   background: var(--on-accent);
 }
 .skill-reading {
