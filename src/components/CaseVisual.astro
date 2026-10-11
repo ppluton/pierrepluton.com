@@ -1,0 +1,30 @@
+---
+import type { Locale } from "../data/i18n";
+import CapabilityMark from "./CapabilityMark.astro";
+interface Props {
+  project: number;
+  locale: Locale;
+}
+const { project, locale } = Astro.props;
+const en = locale === "en";
+const rag = project === 7;
+const labels = rag
+  ? en
+    ? ["Request", "Retrieval", "Answer"]
+    : ["Demande", "Recherche", "Réponse"]
+  : en
+    ? ["Model", "API", "Monitoring"]
+    : ["Modèle", "API", "Suivi"];
+---
+
+<div class="case-visual" aria-hidden="true">
+  <span
+    ><CapabilityMark kind={rag ? "people" : "data"} /><b>{labels[0]}</b></span
+  >
+  <i>→</i><span
+    ><CapabilityMark kind={rag ? "ai" : "code"} /><b>{labels[1]}</b></span
+  >
+  <i>→</i><span
+    ><CapabilityMark kind={rag ? "interface" : "ai"} /><b>{labels[2]}</b></span
+  >
+</div>

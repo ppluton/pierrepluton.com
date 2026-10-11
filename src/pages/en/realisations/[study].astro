@@ -1,0 +1,13 @@
+---
+import SelectedCase from "../../../components/SelectedCase.astro";
+import { selectedCases } from "../../../data/selected-cases";
+export function getStaticPaths() {
+  return selectedCases.map((study) => ({
+    params: { study: study.slug },
+    props: { study },
+  }));
+}
+const { study } = Astro.props;
+---
+
+<SelectedCase study={study} locale="en" />

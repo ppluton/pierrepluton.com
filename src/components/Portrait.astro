@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../assets/pierre-pluton.png";
+interface Props {
+  loading?: "lazy" | "eager";
+  fetchpriority?: "high" | "auto";
+  sizes?: string;
+}
+const {
+  loading = "lazy",
+  fetchpriority = "auto",
+  sizes = "(max-width: 380px) 85vw, 320px",
+} = Astro.props;
+---
+
+<Image
+  src={portrait}
+  alt="Pierre Pluton"
+  width={1254}
+  height={1254}
+  widths={[240, 480, 768, 1254]}
+  sizes={sizes}
+  format="webp"
+  quality={80}
+  loading={loading}
+  fetchpriority={fetchpriority}
+/>

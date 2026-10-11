@@ -1,0 +1,78 @@
+---
+import type { Locale } from "../data/i18n";
+interface Props { locale?: Locale }
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const groups = [
+  { title: en ? "Languages" : "Langages", proof: "/parcours/", items: [
+    ["TypeScript", "typescript", "#3178c6"], ["Python", "python", "#3776ab"], ["SQL", "", "#4169a1"],
+  ] },
+  { title: "IA / ML", proof: "/realisations/rag-evenements/", items: [
+    ["OpenAI", "openai", "#5751a5"], ["Anthropic", "anthropic", "#a35b3b"], ["Mistral AI", "mistralai", "#bf5900"], ["LangChain", "langchain", "#23624d"], ["scikit-learn", "scikitlearn", "#aa6500"], ["MLflow", "mlflow", "#0877ba"],
+  ] },
+  { title: en ? "Data engineering" : "Ingénierie des données", proof: "/formation/p12/", items: [
+    ["Airflow", "apacheairflow", "#267b9c"], ["PostgreSQL", "postgresql", "#4169a1"],
+  ] },
+  { title: "Back-end & infra", proof: "/realisations/scoring-mlops/", items: [
+    ["FastAPI", "fastapi", "#008577"], ["NestJS", "nestjs", "#bd2445"], ["Docker", "docker", "#137bbb"], ["Neon", "neon", "#21845c"], ["Supabase", "supabase", "#21845c"], ["Railway", "railway", "#6955a4"],
+  ] },
+  { title: "Front-end & mobile", proof: "/projets/lgdm/", items: [
+    ["React", "react", "#087b95"], ["Next.js", "nextdotjs", "#333344"], ["Expo", "expo", "#333344"], ["Astro", "astro", "#a43aa8"],
+  ] },
+  { title: en ? "Monitoring & quality" : "Suivi & qualité", proof: "/projets/lgdm/", items: [
+    ["PostHog", "posthog", "#aa6500"], ["Sentry", "sentry", "#76538a"],
+  ] },
+  { title: en ? "AI-assisted development" : "Développement assisté par IA", proof: "/parcours/", items: [
+    ["Codex", "openai", "#5751a5"], ["Claude Code", "claude", "#a35b3b"],
+  ] },
+];
+---
+
+<section id="stack" class="technology-stack" aria-labelledby="stack-title">
+  <div class="stack-heading">
+    <span class="stack-symbol" aria-hidden="true">&#123; / &#125;</span>
+    <div>
+      <h2 id="stack-title">{en ? "My technical toolbox" : "Ma boîte à outils technique"}</h2>
+      <p>{en ? "Tools I use across product development, AI assistance and training projects." : "Les outils que je mobilise dans mes produits, le développement assisté par IA et mes projets de formation."}</p>
+    </div>
+  </div>
+  <dl class="stack-groups">
+    {groups.map((group) => (
+      <div class="stack-row">
+        <dt>{group.title}</dt>
+        <dd>
+          <ul class="technology-badges" aria-label={group.title}>
+            {group.items.map(([name, icon, color]) => (
+              <li class="technology-badge" style={`--brand:${color}`}>
+                {icon === "openai" || icon === "claude" ? <img src={`/images/brands/${icon}.svg`} width="16" height="16" alt="" loading="lazy" /> : icon ? <span class="technology-logo" style={`--logo:url('/images/technologies/${icon}.svg')`} aria-hidden="true" /> : <span class="sql-symbol" aria-hidden="true">⌘</span>}
+                <span>{name}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="stack-proof" href={`${prefix}${group.proof}`}>{en ? "Explore my work" : "Voir ma pratique"}<span aria-hidden="true"> ↗</span></a>
+        </dd>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<style>
+  .technology-stack { margin: 64px 0 72px; scroll-margin-top: 110px; }
+  .stack-heading { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 24px; }
+  .stack-heading h2 { margin: 0 0 12px; }
+  .stack-heading p { margin: 0; max-width: 62ch; line-height: 1.7; }
+  .stack-symbol { flex-shrink: 0; font-size: 18px; color: var(--accent); border: 1px solid var(--line); border-radius: 16px; padding: 14px 12px; }
+  .stack-groups { margin: 0; border-top: 1px solid var(--line); }
+  .stack-row { display: grid; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  dt { font-size: 14px; font-weight: 600; }
+  dd { margin: 0; min-width: 0; }
+  .technology-badges { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .technology-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; min-height: 36px; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); font-size: 13px; line-height: 1.2; white-space: nowrap; }
+  .technology-logo { display: inline-block; flex-shrink: 0; width: 16px; height: 16px; background: var(--brand); mask: var(--logo) center / contain no-repeat; }
+  .technology-badge img { background: white; border-radius: 3px; padding: 1px; }
+  .sql-symbol { color: var(--brand); font-size: 17px; }
+  .stack-proof { display: inline-block; margin-top: 12px; font-size: 12px; text-underline-offset: 4px; }
+  @media (min-width: 700px) { .stack-row { grid-template-columns: 190px minmax(0,1fr); gap: 24px; } dt { padding-top: 10px; } }
+  @media (max-width: 380px) { .stack-heading { gap: 12px; } .stack-symbol { font-size: 14px; padding: 10px 8px; } .technology-badge { padding: 8px 10px; } }
+</style>

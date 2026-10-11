@@ -1,0 +1,428 @@
+.journey {
+  padding: 70px 5% 100px;
+  max-width: 1500px;
+  margin: auto;
+}
+.journey h1 {
+  font-size: clamp(38px, 6vw, 80px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  max-width: 1000px;
+  margin: 30px 0;
+}
+.journey .intro {
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.6;
+  max-width: 800px;
+}
+.journey p,
+.journey li {
+  line-height: 1.75;
+}
+.journey p {
+  max-width: 75ch;
+}
+.journey-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin: 35px 0 65px;
+}
+.journey a:not(.contact-pill) {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.journey section {
+  margin: 65px 0;
+  scroll-margin-top: 30px;
+}
+.journey h2 {
+  font-size: clamp(28px, 3.5vw, 44px);
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.journey h3 {
+  font-size: 22px;
+}
+.journey-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 60px;
+}
+.journey-aside {
+  background: var(--soft);
+  padding: 28px;
+  align-self: start;
+  border-radius: 18px;
+}
+.journey-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.journey-timeline li {
+  border-left: 2px solid var(--accent);
+  padding: 0 0 35px 28px;
+}
+.journey-timeline h3 {
+  margin: 0 0 10px;
+}
+.journey-timeline p {
+  margin: 0;
+}
+.journey-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.journey-skill {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+}
+.journey-skill h3 {
+  margin: 0 0 12px;
+}
+.journey-skill ul {
+  padding-left: 20px;
+}
+.journey-status {
+  display: inline-block;
+  background: var(--soft);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.journey details {
+  border-block-end: 1px solid var(--line);
+  padding: 20px 0;
+}
+.journey summary {
+  font-size: 20px;
+  font-weight: 650;
+}
+.journey details p {
+  margin-bottom: 0;
+}
+.journey .resource-list {
+  list-style: none;
+  padding: 0;
+}
+.resource-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.journey-projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.journey-projects a {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: var(--soft);
+  border-radius: 12px;
+  text-decoration: none !important;
+}
+.journey-projects a:hover {
+  outline: 2px solid var(--accent);
+}
+.journey-projects small {
+  color: var(--muted);
+}
+.journey-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px 0;
+}
+.journey-entry {
+  padding: 38px 5%;
+  background: var(--soft);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.journey-entry p {
+  max-width: 65ch;
+  line-height: 1.7;
+}
+.journey-entry h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.journey-entry nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.journey-entry a {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.journey-note {
+  color: var(--muted);
+  font-size: 14px;
+}
+.journey-mobile-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 15px 5%;
+  background: var(--soft);
+}
+@media (max-width: 700px) {
+  .journey {
+    padding: 40px 6% 60px;
+  }
+  .journey-grid,
+  .journey-skills,
+  .journey-projects {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .journey section {
+    margin: 45px 0;
+  }
+  .journey-nav {
+    margin-bottom: 35px;
+  }
+}
+
+.journey-portrait-intro {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.journey-portrait {
+  margin: 0;
+}
+.journey-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 24px;
+}
+.journey-portrait figcaption {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+@media (max-width: 700px) {
+  .journey-portrait-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .journey-portrait {
+    max-width: 350px;
+  }
+}
+
+.selection-link {
+  padding: 0 6% 3rem;
+}
+.selection-link a {
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+#ia .ai-projects-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 700px) {
+  #ia .ai-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Shared page navigation and location cues. */
+.site-header .desktop-nav {
+  display: flex;
+  align-items: center;
+}
+.portfolio-nav {
+  gap: 22px;
+}
+.portfolio-nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 7px;
+}
+.mobile-menu,
+.portfolio-mobile-nav {
+  display: none;
+}
+.portfolio-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 6% 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.portfolio-breadcrumb a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.skills-map-link {
+  display: inline-block;
+  margin: 20px 0;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.skills-page .formation-map {
+  margin-top: 30px;
+}
+.skills-map-entry {
+  border-block: 1px solid var(--line);
+}
+@media (max-width: 1100px) {
+  .site-header .desktop-nav {
+    display: none;
+  }
+  .portfolio-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: calc(100dvh - 106px);
+    overflow-y: auto;
+    padding: 12px 6% 24px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    box-shadow: 0 16px 24px rgb(0 0 0 / 8%);
+    font-size: 18px;
+  }
+  .portfolio-mobile-nav > a {
+    padding: 16px 0;
+  }
+  .portfolio-mobile-nav .contact-pill {
+    margin-top: 12px;
+    padding: 16px 22px;
+    align-self: flex-start;
+  }
+  .header-actions {
+    margin-left: auto;
+  }
+  .header-actions > .contact-pill {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+    margin-left: 14px;
+  }
+  .mobile-menu summary {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    list-style: none;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .burger-icon {
+    position: relative;
+    width: 18px;
+    height: 16px;
+  }
+  .burger-icon i {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .burger-icon i:nth-child(1) {
+    top: 0;
+  }
+  .burger-icon i:nth-child(2) {
+    top: 7px;
+  }
+  .burger-icon i:nth-child(3) {
+    top: 14px;
+  }
+  .mobile-menu[open] .burger-icon i:nth-child(1) {
+    top: 7px;
+    transform: rotate(45deg);
+  }
+  .mobile-menu[open] .burger-icon i:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu[open] .burger-icon i:nth-child(3) {
+    top: 7px;
+    transform: rotate(-45deg);
+  }
+}
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 102px;
+  }
+  .portfolio-mobile-nav {
+    max-height: calc(100dvh - 86px);
+  }
+}
+
+.interface-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+.interface-skills-grid article {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.interface-skills-grid h3 {
+  font-size: 23px;
+  margin-bottom: 14px;
+}
+.interface-skills-grid small {
+  color: var(--muted);
+}
+.interface-skills-grid nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 20px;
+}
+.interface-skills-grid a,
+.mobile-case-focus a {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.mobile-case-focus {
+  border-top: 1px solid var(--line);
+}
+.mobile-case-focus h2 {
+  font-size: clamp(28px, 4vw, 46px);
+  margin-bottom: 24px;
+}
+.mobile-case-focus p {
+  max-width: 70ch;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+@media (min-width: 900px) {
+  .interface-skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

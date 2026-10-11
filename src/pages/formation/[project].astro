@@ -1,0 +1,13 @@
+---
+import Project from "../../components/TrainingProject.astro";
+import data from "../../data/formation.json";
+export function getStaticPaths() {
+  return data.projects.map((project) => ({
+    params: { project: `p${project.n}` },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+---
+
+<Project project={project} locale="fr" />

@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import InterfaceSkills from "./InterfaceSkills.astro";
+import SkillGraph from "./SkillGraph.astro";
+import CapabilityMark from "./CapabilityMark.astro";
+import TechnologyStack from "./TechnologyStack.astro";
+import HighlightedText from "./HighlightedText.astro";
+import "../styles/formation.css";
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+---
+
+<Layout
+  locale={locale}
+  title={en
+    ? "Skills map — Pierre Pluton"
+    : "Carte des compétences — Pierre Pluton"}
+>
+  <article class="journey skills-page">
+    <h1>
+      <HighlightedText
+        text={en
+          ? "Skills, connected to projects."
+          : "Des compétences reliées aux projets."}
+        highlight={en ? "projects" : "projets"}
+      />
+    </h1>
+    <p class="intro">
+      {
+        en
+          ? "From design and mobile-first development to AI engineering: explore the skills I use and the projects supporting them."
+          : "Du design et du développement mobile first à l’ingénierie IA : découvre les compétences que je mobilise, avec les projets qui les étayent."
+      }
+    </p>
+    <nav
+      class="journey-nav skills-entry-nav"
+      aria-label={en ? "Explore skills" : "Explorer les compétences"}
+    >
+      <a href="#stack"
+        >{en ? "Technical toolbox" : "Boîte à outils technique"}</a
+      >
+      <a href="#interfaces"
+        ><CapabilityMark kind="interface" /><span
+          >{en ? "Frontend & design" : "Front-end & design"}<small
+            >{
+              en
+                ? "Interfaces, web and mobile products"
+                : "Interfaces, produits web et mobiles"
+            }</small
+          ></span
+        ><b aria-hidden="true">↘</b></a
+      >
+      <a href="#carte"
+        ><CapabilityMark kind="ai" /><span
+          >{en ? "AI skills graph" : "Graphe des acquis IA"}<small
+            >{
+              en
+                ? "Domains connected to project evidence"
+                : "Domaines reliés aux preuves des projets"
+            }</small
+          ></span
+        ><b aria-hidden="true">↘</b></a
+      >
+      <a href={`${prefix}/realisations/`}
+        >{en ? "Selected work" : "Réalisations sélectionnées"}</a
+      ><a href={`${prefix}/formation/`}
+        >{
+          en
+            ? "Skill origins & learning report"
+            : "Origine des acquis & bilan de formation"
+        }</a
+      >
+    </nav>
+    <TechnologyStack locale={locale} />
+    <InterfaceSkills locale={locale} />
+    <section id="carte" class="formation-map">
+      <h2>
+        {
+          en
+            ? "AI engineering: the interactive graph"
+            : "Ingénierie IA : le graphe interactif"
+        }
+      </h2><p>
+        {
+          en
+            ? "Select a domain to see the skills and OpenClassrooms projects supporting it."
+            : "Sélectionne un domaine pour explorer les compétences et les projets OpenClassrooms associés."
+        }
+      </p>
+      <SkillGraph locale={locale} />
+    </section>
+  </article></Layout
+>

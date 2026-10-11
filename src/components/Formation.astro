@@ -1,0 +1,230 @@
+---
+import HighlightedText from "./HighlightedText.astro";
+import Layout from "../layouts/Layout.astro";
+import CapabilityMark from "./CapabilityMark.astro";
+import "../styles/journey.css";
+import "../styles/formation.css";
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+const groups = [
+  {
+    title: t(
+      "Avant et en dehors d’OpenClassrooms",
+      "Before and outside OpenClassrooms",
+    ),
+    text: t(
+      "Des apprentissages autonomes, des formations antérieures et des expériences professionnelles. Ces catégories décrivent l’origine des compétences, pas une frontière stricte dans le temps.",
+      "Independent learning, earlier training and professional experience. These categories describe skill origins, rather than a strict boundary in time.",
+    ),
+    skills: [
+      "Bubble · no-code · API · Postman",
+      "Python · TypeScript · React · Next.js · NestJS",
+      "Expo · Docker · PostgreSQL",
+      "Neon · Supabase · Convex",
+      t(
+        "Design, scraping et intégrations",
+        "Design, scraping and integrations",
+      ),
+    ],
+  },
+  {
+    title: t(
+      "Approfondies pendant le parcours AI Engineer",
+      "Developed through the AI Engineer programme",
+    ),
+    text: t(
+      "Des projets pédagogiques qui apportent des preuves de pratique, des résultats enregistrés et des retours d’évaluation.",
+      "Educational projects providing evidence of practice, recorded results and evaluation feedback.",
+    ),
+    skills: [
+      t(
+        "ML supervisé, validation et explicabilité",
+        "Supervised ML, validation and explainability",
+      ),
+      "RAG · embeddings · LangGraph",
+      "MLflow · CI/CD · monitoring · ONNX",
+      t(
+        "Vision, semi-supervision et apprentissage par renforcement",
+        "Vision, semi-supervision and reinforcement learning",
+      ),
+      "ETL multimodal · SFT · LoRA · DPO",
+    ],
+  },
+];
+const gaps = [
+  [
+    t("Authentification et autorisation", "Authentication and authorisation"),
+    t(
+      "La compétence d’authentification du P5 n’est pas validée dans le retour OC, malgré le statut global du projet. Mes expériences professionnelles constituent un autre contexte ; elles ne remplacent pas cette validation pédagogique.",
+      "The P5 authentication competency was not validated in OC feedback, despite the overall project status. Professional experience is a different context and does not replace that assessment.",
+    ),
+  ],
+  [
+    t(
+      "Évaluation indépendante et fidélité du RAG",
+      "Independent evaluation and RAG faithfulness",
+    ),
+    t(
+      "Renforcer la séparation entre sélection et test final, la couverture des questions et l’analyse des erreurs. Une réponse ou un score ne suffit pas à démontrer la fiabilité.",
+      "Strengthen the separation between selection and final testing, question coverage and error analysis. A response or score alone does not establish reliability.",
+    ),
+  ],
+  [
+    t("Exploitation et autonomie", "Operations and autonomy"),
+    t(
+      "Rattacher les performances aux versions et aux environnements, documenter les coûts et la maintenance. Mon autonomie par compétence et mes niveaux de langue restent à préciser dans mon autoévaluation.",
+      "Connect performance with versions and environments, and document costs and maintenance. My autonomy by skill and language levels remain to be specified in my self-assessment.",
+    ),
+  ],
+];
+---
+
+<Layout
+  locale={locale}
+  title={t(
+    "Compétences et formation — Pierre Pluton",
+    "Skills and training — Pierre Pluton",
+  )}
+  description={t(
+    "Mon bilan AI Engineer : compétences antérieures, acquis de formation, projets et axes de progression.",
+    "My AI Engineer report: prior skills, learning outcomes, projects and areas for development.",
+  )}
+>
+  <article class="journey">
+    <a href={prefix + "/parcours/"}
+      >{t("Découvrir mon parcours", "Explore my background")}</a
+    ><h1>
+      <HighlightedText
+        text={t(
+          "Des compétences reliées à des réalisations.",
+          "Skills connected to real work.",
+        )}
+        highlight={t("réalisations", "real work")}
+      />
+    </h1><p class="intro">
+      {
+        t(
+          "Je relie mon expérience de création de produits aux acquis de la formation AI Engineer. Choisis un domaine, découvre les projets, puis explore les résultats et les limites.",
+          "I connect my product-building experience with the AI Engineer programme. Choose a domain, discover the projects, then explore their results and limitations.",
+        )
+      }
+    </p>
+    <nav
+      class="journey-nav"
+      aria-label={t("Explorer le bilan", "Explore the report")}
+    >
+      <a href="#origines">{t("Origine des compétences", "Skill origins")}</a><a
+        href={prefix + "/competences/"}
+        >{t("Carte interactive", "Interactive map")}</a
+      ><a href={prefix + "/competences/#carte"}
+        >{t("Tous les projets OC", "All OC projects")}</a
+      ><a href="#progression"
+        >{t("Axes de progression", "Areas for development")}</a
+      ><a href="#ressources">{t("Bilan du parcours", "Learning report")}</a>
+    </nav>
+    <section id="origines">
+      <h2>
+        {
+          t(
+            "Des apprentissages qui se complètent",
+            "Complementary learning experiences",
+          )
+        }
+      </h2><div class="journey-skills formation-origins">
+        {
+          groups.map((g, index) => (
+            <div class="journey-skill">
+              <>
+                <CapabilityMark kind={index === 0 ? "product" : "ai"} />
+                <h3>{g.title}</h3>
+                <p>{g.text}</p>
+                <ul>
+                  {g.skills.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </>
+            </div>
+          ))
+        }
+      </div><p class="journey-note">
+        {
+          t(
+            "Les compétences antérieures reflètent mon parcours déclaré et mes projets professionnels. Le bilan OC distingue code consulté, résultats enregistrés et retours du jury, sans pourcentage de maîtrise inventé.",
+            "Prior skills reflect my stated background and professional work. The OC report distinguishes inspected code, recorded results and assessor feedback, without invented proficiency percentages.",
+          )
+        }
+      </p>
+    </section>
+    <section id="carte" class="formation-map">
+      <h2>
+        {
+          t(
+            "Ce que les projets m’ont appris",
+            "What I learned through project work",
+          )
+        }
+      </h2><p>
+        {
+          t(
+            "Du cadrage à l’exploitation, chaque domaine ouvre les projets et les compétences qui le soutiennent.",
+            "From scoping to operations, each domain opens the projects and skills supporting it.",
+          )
+        }
+      </p><a class="skills-map-link" href={prefix + "/competences/"}
+        >{
+          t(
+            "Ouvrir le graphe interactif des compétences ↗",
+            "Open the interactive skills map ↗",
+          )
+        }</a
+      >
+    </section>
+    <section id="progression">
+      <h2>
+        {t("Ce que je souhaite consolider", "What I want to strengthen")}
+      </h2>{
+        gaps.map(([title, text]) => (
+          <details>
+            <>
+              <summary>{title}</summary>
+              <p>{text}</p>
+            </>
+          </details>
+        ))
+      }
+    </section>
+    <section>
+      <h2>
+        {t("Le prochain projet personnel", "The next personal project")}
+      </h2><span class="journey-status"
+        >{t("En cadrage — POC à venir", "Being scoped — POC planned")}</span
+      ><p>
+        {
+          t(
+            "Un assistant de préparation de comptes rendus sur des dossiers patients entièrement synthétiques : transcription, recherche dans l’historique, brouillon sourcé et validation humaine. Son rapport, ses mesures et son déploiement seront ajoutés une fois réalisés.",
+            "A report-drafting assistant using entirely synthetic patient records: transcription, retrieval from patient history, sourced drafts and human review. Its report, measurements and deployment will be added once completed.",
+          )
+        }
+      </p>
+    </section>
+    <section id="ressources">
+      <h2>{t("Le bilan du parcours", "The learning report")}</h2><p>
+        {
+          t(
+            "Une lecture des acquis, des choix techniques et des axes de progression, à travers les projets réalisés.",
+            "An overview of learning, technical decisions and areas for development through completed projects.",
+          )
+        }
+      </p><a class="skills-map-link" href={prefix + "/formation/bilan/"}
+        >{t("Lire le bilan en ligne ↗", "Read the learning report ↗")}</a
+      >
+    </section>
+  </article></Layout
+>
