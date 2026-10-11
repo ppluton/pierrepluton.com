@@ -1,0 +1,277 @@
+---
+import data from "../data/formation.json";
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const positions = [
+  [18, 17],
+  [49, 10],
+  [80, 20],
+  [16, 47],
+  [51, 40],
+  [84, 49],
+  [22, 79],
+  [55, 76],
+  [84, 83],
+];
+const title = (d: (typeof data.domains)[number]) => (en ? d.title_en : d.title);
+const related = (id: string) =>
+  data.projects.filter((p) => p.domains.includes(id));
+const edges = data.domains.flatMap((d, i) =>
+  data.domains.slice(i + 1).flatMap((other, j) => {
+    const count = data.projects.filter(
+      (p) => p.domains.includes(d.id) && p.domains.includes(other.id),
+    ).length;
+    return count
+      ? [
+          {
+            a: d.id,
+            b: other.id,
+            from: positions[i],
+            to: positions[i + j + 1],
+            count,
+          },
+        ]
+      : [];
+  }),
+);
+---
+
+<div class="skill-explorer" data-skill-explorer>
+  <div class="skill-toolbar">
+    <p>
+      {
+        en
+          ? "Select a domain to explore its projects."
+          : "Choisis un domaine pour explorer ses projets."
+      }
+    </p><button type="button" data-reset
+      >{en ? "Show everything" : "Tout afficher"}</button
+    >
+  </div>
+  <div class="skill-explorer-layout">
+    <div
+      class="skill-network"
+      aria-label={en
+        ? "Connections between learning domains"
+        : "Relations entre les domaines d’acquis"}
+    >
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"
+        ><defs
+          ><radialGradient id="network-glow"
+            ><stop stop-color="var(--hero)"></stop><stop
+              offset="1"
+              stop-color="var(--paper)"></stop></radialGradient
+          ></defs
+        ><rect width="100" height="100" fill="url(#network-glow)"></rect>{
+          edges.map((e) => (
+            <line
+              x1={e.from[0]}
+              y1={e.from[1]}
+              x2={e.to[0]}
+              y2={e.to[1]}
+              data-edge-a={e.a}
+              data-edge-b={e.b}
+            />
+          ))
+        }</svg
+      >
+      {
+        data.domains.map((d, i) => (
+          <button
+            type="button"
+            class="skill-node"
+            data-domain={d.id}
+            style={`--x:${positions[i][0]}%;--y:${positions[i][1]}%`}
+            aria-pressed={d.id === "genai"}
+            aria-controls={`domain-${d.id}`}
+          >
+            <>
+              <span class="node-point" aria-hidden="true" />
+              <strong>{title(d)}</strong>
+              <small>
+                {related(d.id).length}{" "}
+                {en
+                  ? related(d.id).length === 1
+                    ? "project"
+                    : "projects"
+                  : related(d.id).length === 1
+                    ? "projet"
+                    : "projets"}
+              </small>
+            </>
+          </button>
+        ))
+      }
+    </div><div class="skill-reading" aria-live="polite">
+      <div data-overview hidden>
+        <p class="skill-kicker">
+          {en ? "The complete learning map" : "La carte du parcours"}
+        </p><h3>
+          {
+            en
+              ? "Different skills, connected through practice."
+              : "Des acquis qui se croisent dans la pratique."
+          }
+        </h3><p>
+          {
+            en
+              ? "A connection means that two domains appear in the same project. It is not a proficiency score."
+              : "Un trait relie deux domaines présents dans un même projet. Il ne représente pas un niveau de maîtrise."
+          }
+        </p><p>
+          {
+            en
+              ? "Select a node, or explore the project profiles below."
+              : "Sélectionne un nœud ou parcours les études de cas ci-dessous."
+          }
+        </p>
+      </div>
+      {
+        data.domains.map((d) => (
+          <section
+            id={`domain-${d.id}`}
+            data-domain-panel={d.id}
+            hidden={d.id !== "genai"}
+          >
+            <p class="skill-kicker">
+              {en ? "Skills in practice" : "Les compétences mobilisées"}
+            </p>
+            <h3>{title(d)}</h3>
+            <ul>
+              {data.skills
+                .filter((skill) => skill.domain === d.id)
+                .map((skill) => (
+                  <li>{skill.name}</li>
+                ))}
+            </ul>
+            <p class="skill-caveat">{d.caveat}</p>
+            {en && (
+              <small>
+                Detailed evidence and limitations are preserved in French.
+              </small>
+            )}
+            <div class="skill-project-index">
+              {related(d.id).map((p) => (
+                <a
+                  href={`${prefix}/formation/p${p.n}/`}
+                  aria-label={`P${p.n} — ${p.short_title[locale]}`}
+                >
+                  P{p.n}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+  <p class="skill-legend">
+    {
+      en
+        ? "Connections come from the same evidence as the 55-skill matrix. No proficiency percentages are inferred."
+        : "Les relations proviennent des mêmes preuves que la matrice des 55 compétences. Aucun pourcentage de maîtrise n’est déduit."
+    }
+  </p>
+  <div class="project-reading-heading">
+    <h3>{en ? "Project studies" : "Les études de cas"}</h3><span
+      data-project-count></span>
+  </div>
+  <div class="oc-project-list">
+    {
+      data.projects.map((p) => (
+        <article data-project-domains={p.domains.join(" ")}>
+          <>
+            <div class="oc-project-number">
+              P{String(p.n).padStart(2, "0")}
+              <small>
+                {p.status === "Validé"
+                  ? en
+                    ? "Validated"
+                    : "Validé"
+                  : en
+                    ? "Pending"
+                    : "En attente"}
+              </small>
+            </div>
+            <div>
+              <>
+                <a
+                  class="oc-project-title"
+                  href={`${prefix}/formation/p${p.n}/`}
+                >
+                  <h4>{p.short_title[locale]}</h4>
+                </a>
+                <p>{p.intro[locale]}</p>
+                <div class="oc-domain-labels">
+                  {p.domains.map((id) => (
+                    <span>{title(data.domains.find((d) => d.id === id)!)}</span>
+                  ))}
+                </div>
+              </>
+            </div>
+            <a
+              class="oc-project-open"
+              href={`${prefix}/formation/p${p.n}/`}
+              aria-label={`${en ? "Read" : "Lire"} ${p.short_title[locale]}`}
+            >
+              <span aria-hidden="true">↗</span>
+            </a>
+          </>
+        </article>
+      ))
+    }
+  </div>
+</div>
+<script>
+  for (const explorer of document.querySelectorAll<HTMLElement>(
+    "[data-skill-explorer]",
+  )) {
+    const nodes = explorer.querySelectorAll<HTMLButtonElement>("[data-domain]");
+    const panels = explorer.querySelectorAll<HTMLElement>(
+      "[data-domain-panel]",
+    );
+    const projects = explorer.querySelectorAll<HTMLElement>(
+      "[data-project-domains]",
+    );
+    const count = explorer.querySelector<HTMLElement>("[data-project-count]")!;
+    const reset = explorer.querySelector<HTMLButtonElement>("[data-reset]")!;
+    const overview = explorer.querySelector<HTMLElement>("[data-overview]")!;
+    const en = document.documentElement.lang === "en";
+    function select(id: string | null) {
+      nodes.forEach((n) =>
+        n.setAttribute("aria-pressed", String(n.dataset.domain === id)),
+      );
+      panels.forEach((p) => (p.hidden = p.dataset.domainPanel !== id));
+      overview.hidden = id !== null;
+      explorer
+        .querySelectorAll<SVGLineElement>("line[data-edge-a]")
+        .forEach((edge) =>
+          edge.classList.toggle(
+            "selected-edge",
+            Boolean(
+              id && (edge.dataset.edgeA === id || edge.dataset.edgeB === id),
+            ),
+          ),
+        );
+      let visible = 0;
+      projects.forEach((p) => {
+        p.hidden = Boolean(
+          id && !p.dataset.projectDomains!.split(" ").includes(id),
+        );
+        if (!p.hidden) visible++;
+      });
+      count.textContent = `${visible} ${en ? "projects" : "projets"}`;
+      reset.setAttribute("aria-pressed", String(id === null));
+    }
+    nodes.forEach((n) =>
+      n.addEventListener("click", () => select(n.dataset.domain!)),
+    );
+    reset.addEventListener("click", () => select(null));
+    select("genai");
+  }
+</script>

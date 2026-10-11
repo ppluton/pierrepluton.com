@@ -1,0 +1,2015 @@
+{
+  "domains": [
+    {
+      "id": "cadrage",
+      "title": "Cadrage & produit",
+      "skills": [
+        "Besoins métier",
+        "Faisabilité",
+        "User stories",
+        "Planning et ressources",
+        "Risques et éthique"
+      ],
+      "level": "Validé et réinvesti",
+      "caveat": "La performance commerciale et la conduite d’une équipe réelle ne sont pas mesurées par ces projets.",
+      "title_en": "Product scoping"
+    },
+    {
+      "id": "data",
+      "title": "Données & pipelines",
+      "skills": [
+        "Exploration et nettoyage",
+        "Feature engineering",
+        "Collecte API et scraping",
+        "ETL Airflow",
+        "Schémas, provenance et qualité"
+      ],
+      "level": "Pratique répétée",
+      "caveat": "La volumétrie réelle ingérée et l’exploitation durable doivent rester rattachées à un run et à un environnement.",
+      "title_en": "Data & pipelines"
+    },
+    {
+      "id": "ml",
+      "title": "ML supervisé",
+      "skills": [
+        "Régression et classification",
+        "Pipelines scikit-learn",
+        "Validation croisée",
+        "Coûts métier et seuils",
+        "SHAP et explicabilité"
+      ],
+      "level": "Pratique répétée",
+      "caveat": "Séparer systématiquement apprentissage, sélection et test final indépendant.",
+      "title_en": "Supervised ML"
+    },
+    {
+      "id": "vision",
+      "title": "Vision & semi-supervisé",
+      "skills": [
+        "Segmentation et IoU",
+        "Embeddings et transfert",
+        "Clustering",
+        "Propagation de labels",
+        "Self-training et preprocessing"
+      ],
+      "level": "Expérience expérimentale validée",
+      "caveat": "Les résultats IRM restent exploratoires ; la vision vidéo d’échecs reste un démonstrateur.",
+      "title_en": "Vision & semi-supervision"
+    },
+    {
+      "id": "rl",
+      "title": "Apprentissage par renforcement",
+      "skills": [
+        "États, actions et récompenses",
+        "PPO et DQN",
+        "Hyperparamètres",
+        "Évaluation en simulation"
+      ],
+      "level": "Projet dédié validé",
+      "caveat": "Le résultat LunarLander ne prouve pas une robustesse hors simulation ou sur plusieurs entraînements indépendants.",
+      "title_en": "Reinforcement learning"
+    },
+    {
+      "id": "genai",
+      "title": "RAG, agents & LLM",
+      "skills": [
+        "Embeddings et recherche",
+        "RAG et routage",
+        "Orchestration LangGraph",
+        "LoRA et SFT",
+        "DPO et analyse des générations"
+      ],
+      "level": "RAG, agents et LLM : projets validés",
+      "caveat": "MCP reste une cible ; ni la fidélité générale du RAG ni la fiabilité clinique du LLM ne sont démontrées.",
+      "title_en": "RAG, agents & LLMs"
+    },
+    {
+      "id": "integration",
+      "title": "API & applications",
+      "skills": [
+        "FastAPI et contrats",
+        "SQLAlchemy et SQL",
+        "Interfaces React/Angular/Streamlit",
+        "Services externes et replis",
+        "Tests de composants et API"
+      ],
+      "level": "Pratique répétée",
+      "caveat": "Une interface utilisable ne démontre pas l’authentification, la sécurité des accès ou une adoption utilisateur.",
+      "title_en": "APIs & applications"
+    },
+    {
+      "id": "ops",
+      "title": "MLOps & exploitation",
+      "skills": [
+        "MLflow et tracking",
+        "Docker et CI/CD",
+        "Versionnement et artefacts",
+        "Logs et data drift",
+        "Benchmark ONNX"
+      ],
+      "level": "Axe fort validé",
+      "caveat": "Registry MLflow, cohérence modèle/seuil et preuve d’exploitation actuelle restent à préciser.",
+      "title_en": "MLOps & operations"
+    },
+    {
+      "id": "communication",
+      "title": "Communication & recul",
+      "skills": [
+        "Présentation des architectures",
+        "Justification des choix",
+        "Documentation",
+        "Vulgarisation métier",
+        "Analyse des limites"
+      ],
+      "level": "Retours jury récurrents",
+      "caveat": "Le degré d’autonomie personnel et les langues doivent être autoévalués, sans score déduit du nombre de dépôts.",
+      "title_en": "Communication & reflection"
+    }
+  ],
+  "projects": [
+    {
+      "n": 1,
+      "oc": 3157,
+      "title": "Découvrez le métier d’AI Engineer",
+      "date": "2025-07-04",
+      "repo": null,
+      "domains": [
+        "cadrage",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Poser le cadre de la formation, comprendre le métier et organiser son apprentissage. Ce premier projet prépare la trajectoire professionnelle et la relation avec le mentor.",
+      "work": [
+        "Le bilan OC confirme la compréhension du fonctionnement de la formation et la création d’un document réunissant les informations importantes.",
+        "Le projet n’exige pas de modèle entraîné : sa valeur réside dans la clarification des objectifs et l’organisation du travail."
+      ],
+      "artifacts": [
+        "Document de cadrage et bilan visibles comme livrable déposé sur OC. Son contenu exact n’a pas été extrait du ZIP."
+      ],
+      "results": [
+        "Projet validé le 4 juillet 2025. Le commentaire de compétence conserve la formule de gabarit « Validé / Non validé » ; le statut global est bien « Projet validé »."
+      ],
+      "jury": "Bonne compréhension de la formation ; création d’une documentation des informations importantes.",
+      "limits": [
+        "Aucun dépôt public n’a été associé de façon certaine au livrable de cadrage. template-project-datascience-1 est un squelette de projet data science et ne démontre pas à lui seul les acquis du P1."
+      ],
+      "reflection": "Le portfolio peut expliquer comment ton objectif initial a évolué vers l’ingénierie de solutions complètes. Cette évolution personnelle reste à formuler avec tes propres mots.",
+      "recommendations": [
+        "Conserver une courte introduction de parcours : point de départ, objectif actuel et rôle recherché. Ne pas transformer ce projet d’orientation en expérience de développement."
+      ],
+      "sources": [],
+      "local_url": "projet-p01.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3157/project-evaluation",
+      "repo_url": null,
+      "source_links": [],
+      "short_title": {
+        "fr": "Construire mon parcours IA",
+        "en": "Building my AI learning path"
+      },
+      "intro": {
+        "fr": "Définir mon objectif professionnel et organiser les étapes de ma formation.",
+        "en": "Defining my professional goal and organising my training."
+      },
+      "steps": {
+        "fr": [
+          "Objectif",
+          "Organisation",
+          "Progression"
+        ],
+        "en": [
+          "Goal",
+          "Planning",
+          "Progress"
+        ]
+      }
+    },
+    {
+      "n": 2,
+      "oc": 3158,
+      "title": "Requêtez des services IA",
+      "date": "2025-08-02",
+      "repo": "Clothe-segmentation-AI-ML",
+      "domains": [
+        "vision",
+        "integration",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Réaliser un POC de segmentation de vêtements à partir d’images en exploitant un modèle déjà entraîné disponible via Hugging Face.",
+      "work": [
+        "Le dépôt sépare la préparation des images, les appels d’inférence, le décodage des masques, leur combinaison et la visualisation.",
+        "predict.py envoie les images à l’API et traite les réponses non 200 ; features.py décode les masques base64, les redimensionne et associe les classes aux pixels.",
+        "Le notebook juxtapose images, vérité terrain et prédictions, puis calcule l’IoU par image et par classe. Le modèle préentraîné est utilisé, pas entraîné dans ce projet."
+      ],
+      "artifacts": [
+        "Notebook rapport.ipynb ; modules features.py et modeling/predict.py ; documentation de l’environnement et des visualisations."
+      ],
+      "results": [
+        "Les sorties sauvegardées montrent des IoU très variables selon les images et les classes. Aucun score unique n’est repris ici comme performance générale du modèle.",
+        "Le calcul d’IoU ignore le fond et parcourt les classes présentes dans la vérité terrain : il faut documenter cette convention pour comparer les résultats à un benchmark externe."
+      ],
+      "jury": "Choix du modèle Hugging Face et environnement validés ; visualisations et présentation appréciées.",
+      "limits": [
+        "L’appel requests.post ne définit pas de timeout ni de stratégie de retry : l’intégration API est présente, sa robustesse opérationnelle n’est pas démontrée.",
+        "La disponibilité actuelle du service externe et la reproduction des scores n’ont pas été testées."
+      ],
+      "reflection": "Passage de l’utilisation d’un modèle à l’évaluation de ses sorties : un service IA ne se juge pas seulement sur une image réussie.",
+      "recommendations": [
+        "Présenter un triptyque image/masque attendu/masque prédit, avec un cas réussi et un cas difficile. Expliquer la convention IoU et la dépendance au service externe."
+      ],
+      "sources": [
+        "notebooks/rapport.ipynb",
+        "src/features.py",
+        "src/modeling/predict.py"
+      ],
+      "local_url": "projet-p02.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3158/project-evaluation",
+      "repo_url": "https://github.com/ppluton/Clothe-segmentation-AI-ML",
+      "source_links": [
+        {
+          "path": "notebooks/rapport.ipynb",
+          "url": "https://github.com/ppluton/Clothe-segmentation-AI-ML/blob/dd15bbf94ad0e20295b0feb239cc3c3acc58e927/notebooks/rapport.ipynb"
+        },
+        {
+          "path": "src/features.py",
+          "url": "https://github.com/ppluton/Clothe-segmentation-AI-ML/blob/dd15bbf94ad0e20295b0feb239cc3c3acc58e927/src/features.py"
+        },
+        {
+          "path": "src/modeling/predict.py",
+          "url": "https://github.com/ppluton/Clothe-segmentation-AI-ML/blob/dd15bbf94ad0e20295b0feb239cc3c3acc58e927/src/modeling/predict.py"
+        }
+      ],
+      "short_title": {
+        "fr": "Segmenter des vêtements",
+        "en": "Clothing segmentation"
+      },
+      "intro": {
+        "fr": "Exploiter un modèle préentraîné et interpréter ses masques de segmentation.",
+        "en": "Using a pretrained model and interpreting its segmentation masks."
+      },
+      "steps": {
+        "fr": [
+          "Image",
+          "Segmentation",
+          "Masque"
+        ],
+        "en": [
+          "Image",
+          "Segmentation",
+          "Mask"
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "oc": 3145,
+      "title": "Anticipez les besoins en consommations de bâtiments",
+      "date": "2025-09-05",
+      "repo": null,
+      "domains": [
+        "data",
+        "ml",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Prédire la consommation énergétique de bâtiments à partir de leurs caractéristiques, après exploration et préparation des données.",
+      "work": [
+        "Le jury décrit une analyse exploratoire avec distributions, boxplots et tests statistiques.",
+        "Des variables ont été préparées avec encodage et mise à l’échelle ; régression linéaire, bagging et boosting ont été comparés.",
+        "La sélection combine validation croisée et recherche de paramètres sur 80 % des données, avec 20 % réservés au test final ; l’environnement Poetry est mentionné."
+      ],
+      "artifacts": [
+        "Notebook et présentation attendus par la mission ; ZIP de livraison identifié dans l’évaluation OC, sans inspection de son contenu."
+      ],
+      "results": [
+        "Compétences de préparation, entraînement, évaluation et environnement validées. Aucune valeur de R² ou d’erreur n’est inventée en l’absence de notebook public identifié."
+      ],
+      "jury": "Code clair et commenté ; présentation simple avec des graphiques utiles ; bonne vulgarisation de notions avancées. Amélioration : expliquer les outils à un public métier non data scientist.",
+      "limits": [
+        "Aucun des 26 dépôts publics actuels n’a été associé avec certitude à ce projet. Cela ne prouve pas que le code n’existe pas ailleurs.",
+        "Le rapport s’appuie ici sur le retour pédagogique, pas sur une revue directe du code soumis."
+      ],
+      "reflection": "Le choix d’un modèle doit rester compréhensible par le destinataire : impact d’une erreur, compromis de simplicité et usage de la prédiction.",
+      "recommendations": [
+        "Retrouver le notebook remis puis préparer une étude de cas courte : données disponibles, baseline, comparaison, test final et intérêt métier."
+      ],
+      "sources": [],
+      "local_url": "projet-p03.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3145/project-evaluation",
+      "repo_url": null,
+      "source_links": [],
+      "short_title": {
+        "fr": "Prévoir la consommation des bâtiments",
+        "en": "Predicting building energy use"
+      },
+      "intro": {
+        "fr": "Comparer des approches de régression à partir des données de bâtiments.",
+        "en": "Comparing regression approaches using building data."
+      },
+      "steps": {
+        "fr": [
+          "Bâtiments",
+          "Régression",
+          "Évaluation"
+        ],
+        "en": [
+          "Buildings",
+          "Regression",
+          "Evaluation"
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "oc": 3146,
+      "title": "Classifiez automatiquement des informations",
+      "date": "2025-11-18",
+      "repo": "Model-classification-turnover-full-analysis",
+      "domains": [
+        "data",
+        "ml",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Prédire le départ d’employés à partir de données RH, en tenant compte du déséquilibre de classes et du compromis entre détection et fausses alertes.",
+      "work": [
+        "Exploration et rapprochement de trois sources RH ; préparation des variables dans un pipeline ; comparaison de régression logistique, SVM, LightGBM, KNN et dummy.",
+        "Sélection fondée sur la validation croisée ; analyse des métriques de classification et production d’un modèle exporté.",
+        "SHAP et un dashboard permettent d’expliquer les facteurs associés aux prédictions. Une importance de variable ne constitue pas une preuve de causalité."
+      ],
+      "artifacts": [
+        "01_exploration.ipynb ; 02_modelisation.ipynb ; dashboard_shap.py ; artefact de pipeline exporté référencé par le notebook."
+      ],
+      "results": [
+        "Le notebook consulté rapporte pour la régression logistique une AUC CV d’environ 0,832 et une AUC test d’environ 0,788.",
+        "Sur son split de 368 lignes, la matrice de confusion indique 31 vrais positifs et 17 faux négatifs : rappel de 31/48, soit environ 64,6 %. Ce résultat appartient à ce split, pas à toutes les versions du projet."
+      ],
+      "jury": "Les cinq compétences évaluées sont validées ; bon choix de métriques rappel/F-score, pipeline de nettoyage et transformation et maîtrise de la classification asymétrique.",
+      "limits": [
+        "Le README de l’API P5 évoque un autre jeu de test : ne pas mélanger les chiffres des deux versions.",
+        "Les facteurs SHAP doivent provenir du notebook ou du dashboard, sans reprendre automatiquement une liste générique du README."
+      ],
+      "reflection": "La performance n’est pas un pourcentage unique : un modèle peut avoir une AUC correcte et manquer encore une partie importante des départs.",
+      "recommendations": [
+        "Afficher le compromis précision/rappel, la matrice de confusion et un exemple d’explication. Décrire les limites d’une utilisation RH réelle et l’absence de causalité."
+      ],
+      "sources": [
+        "notebooks/01_exploration.ipynb",
+        "notebooks/02_modelisation.ipynb",
+        "notebooks/dashboard_shap.py"
+      ],
+      "local_url": "projet-p04.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3146/project-evaluation",
+      "repo_url": "https://github.com/ppluton/Model-classification-turnover-full-analysis",
+      "source_links": [
+        {
+          "path": "notebooks/01_exploration.ipynb",
+          "url": "https://github.com/ppluton/Model-classification-turnover-full-analysis/blob/7eeb461ced9225ad9575040d46c3e69883fd42fe/notebooks/01_exploration.ipynb"
+        },
+        {
+          "path": "notebooks/02_modelisation.ipynb",
+          "url": "https://github.com/ppluton/Model-classification-turnover-full-analysis/blob/7eeb461ced9225ad9575040d46c3e69883fd42fe/notebooks/02_modelisation.ipynb"
+        },
+        {
+          "path": "notebooks/dashboard_shap.py",
+          "url": "https://github.com/ppluton/Model-classification-turnover-full-analysis/blob/7eeb461ced9225ad9575040d46c3e69883fd42fe/notebooks/dashboard_shap.py"
+        }
+      ],
+      "short_title": {
+        "fr": "Comprendre l’attrition",
+        "en": "Understanding employee attrition"
+      },
+      "intro": {
+        "fr": "Comparer des classifieurs et expliquer leurs prédictions dans un contexte d’attrition.",
+        "en": "Comparing classifiers and explaining predictions in an attrition use case."
+      },
+      "steps": {
+        "fr": [
+          "Données",
+          "Classification",
+          "Explication"
+        ],
+        "en": [
+          "Data",
+          "Classification",
+          "Explanation"
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "oc": 3148,
+      "title": "Déployez un modèle de Machine Learning",
+      "date": "2026-01-09",
+      "repo": "api-attrition",
+      "domains": [
+        "integration",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Rendre le modèle d’attrition exploitable via une API et une interface, avec stockage de données, conteneurisation et automatisation de la qualité.",
+      "work": [
+        "FastAPI expose les routes de consultation et de prédiction ; des schémas définissent les entrées et sorties ; SQLAlchemy formalise la table employees.",
+        "Le projet prévoit PostgreSQL en local et SQLite dans l’environnement de déploiement documenté, ainsi qu’une interface Streamlit.",
+        "Docker et GitHub Actions organisent les tests et le déploiement vers Hugging Face Spaces ; la version scikit-learn attendue est explicitement contrôlée au chargement initial."
+      ],
+      "artifacts": [
+        "main.py ; api/schemas.py ; database/models.py ; app.py ; workflow ci-cd.yml et documentation d’installation."
+      ],
+      "results": [
+        "Le README annonce 13 tests et environ 60 % de couverture : données historiques déclarées, non réexécutées lors de cet audit.",
+        "Le code démontre le branchement modèle/API et les contrats. Aucune requête n’a été envoyée à l’API déployée pour vérifier son état actuel."
+      ],
+      "jury": "Projet global validé ; environnement, stockage, tests, SGBD, infrastructure et modèle de données validés. La compétence d’authentification est explicitement NON VALIDÉE. Le jury demande authentification/autorisation et durcissement des contraintes, index et imports.",
+      "limits": [
+        "Les routes consultées n’établissent pas un contrôle d’accès utilisateur. La bonne gestion d’un secret CI ne remplace pas l’authentification de l’application.",
+        "Le code remplit certaines features absentes par des valeurs par défaut ; la cohérence avec les transformations de l’entraînement mérite un contrôle dédié.",
+        "Des liens historiques utilisent un ancien nom de compte dans la documentation."
+      ],
+      "reflection": "Le passage du notebook à un service introduit de nouvelles responsabilités : contrat d’entrée, cohérence des features, version du modèle, stockage et accès aux données.",
+      "recommendations": [
+        "Présenter ce projet comme première mise en service d’un modèle. Placer la sécurité applicative parmi les acquis à consolider, sans la masquer derrière le statut global validé."
+      ],
+      "sources": [
+        "main.py",
+        "api/schemas.py",
+        "database/models.py",
+        "app.py",
+        ".github/workflows/ci-cd.yml"
+      ],
+      "local_url": "projet-p05.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3148/project-evaluation",
+      "repo_url": "https://github.com/ppluton/api-attrition",
+      "source_links": [
+        {
+          "path": "main.py",
+          "url": "https://github.com/ppluton/api-attrition/blob/c06574d8f9b6c831a7eb06d7c2d239959f5bfdbc/main.py"
+        },
+        {
+          "path": "api/schemas.py",
+          "url": "https://github.com/ppluton/api-attrition/blob/c06574d8f9b6c831a7eb06d7c2d239959f5bfdbc/api/schemas.py"
+        },
+        {
+          "path": "database/models.py",
+          "url": "https://github.com/ppluton/api-attrition/blob/c06574d8f9b6c831a7eb06d7c2d239959f5bfdbc/database/models.py"
+        },
+        {
+          "path": "app.py",
+          "url": "https://github.com/ppluton/api-attrition/blob/c06574d8f9b6c831a7eb06d7c2d239959f5bfdbc/app.py"
+        },
+        {
+          "path": ".github/workflows/ci-cd.yml",
+          "url": "https://github.com/ppluton/api-attrition/blob/c06574d8f9b6c831a7eb06d7c2d239959f5bfdbc/.github/workflows/ci-cd.yml"
+        }
+      ],
+      "short_title": {
+        "fr": "Servir un modèle par API",
+        "en": "Serving a model through an API"
+      },
+      "intro": {
+        "fr": "Relier prédiction, stockage et contrats de données dans une API.",
+        "en": "Connecting predictions, storage and data contracts in an API."
+      },
+      "steps": {
+        "fr": [
+          "Requête",
+          "FastAPI",
+          "Prédiction"
+        ],
+        "en": [
+          "Request",
+          "FastAPI",
+          "Prediction"
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "oc": 3149,
+      "title": "Initiez-vous au MLOps — partie 1",
+      "date": "2026-01-23",
+      "repo": "Credit-Scoring-End-to-End-MLOps-Pipeline",
+      "domains": [
+        "data",
+        "ml",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Construire un scoring de crédit en traçant les expériences, en comparant les modèles et en choisissant un seuil cohérent avec le coût des erreurs métier.",
+      "work": [
+        "Agrégation de huit tables Home Credit en un jeu client ; le projet documente 307 511 clients et 419 features.",
+        "MLflow trace les essais et GridSearchCV organise la recherche d’hyperparamètres. Les features métier et les méthodes de contrôle du sur/sous-apprentissage sont discutées.",
+        "Une fonction de coût attribue un poids de 10 au faux négatif contre 1 au faux positif ; l’optimisation du seuil est séparée de la seule comparaison d’AUC."
+      ],
+      "artifacts": [
+        "Notebook 03_modeling_with_MLFLOW.ipynb ; src/metrics.py ; modèle et métadonnées exportés. Dépôt partagé avec le P8."
+      ],
+      "results": [
+        "Le notebook rapporte une AUC CV d’environ 0,7814 et une AUC de validation d’environ 0,7852 pour LightGBM sur le split documenté.",
+        "Les métadonnées indiquent un seuil de 0,5145, tandis qu’un résultat du notebook utilise environ 0,494 : ce sont des sorties différentes à rattacher à leur run avant publication d’un chiffre final."
+      ],
+      "jury": "Compétences de gestion du sur/sous-apprentissage, hyperparamètres, fonctions d’activation et qualité des features validées ; GridSearchCV, features métier et organisation du code relevés.",
+      "limits": [
+        "Un intitulé de compétence OC ne prouve pas l’usage d’une technique dans le modèle final : LightGBM ne suffit pas à revendiquer une maîtrise générale des réseaux neuronaux.",
+        "src/modeling.py est vide dans le snapshot ; une partie importante du travail de modélisation réside dans le notebook.",
+        "Le volume de lignes des tables sources ne doit pas être présenté comme le nombre d’exemples du modèle."
+      ],
+      "reflection": "Passage de « trouver un bon modèle » à « conserver une expérience traçable et décider selon le coût d’une erreur ».",
+      "recommendations": [
+        "Réunir P6 et P8 dans une étude de cas, en distinguant clairement les étapes entraînement/tracking et service/monitoring. Associer modèle, run, features et seuil dans une fiche unique."
+      ],
+      "sources": [
+        "notebooks/03_modeling_with_MLFLOW.ipynb",
+        "src/metrics.py",
+        "artifacts/model_metadata.json"
+      ],
+      "local_url": "projet-p06.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3149/project-evaluation",
+      "repo_url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline",
+      "source_links": [
+        {
+          "path": "notebooks/03_modeling_with_MLFLOW.ipynb",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/notebooks/03_modeling_with_MLFLOW.ipynb"
+        },
+        {
+          "path": "src/metrics.py",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/src/metrics.py"
+        },
+        {
+          "path": "artifacts/model_metadata.json",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/artifacts/model_metadata.json"
+        }
+      ],
+      "short_title": {
+        "fr": "Tracer les expériences de scoring",
+        "en": "Tracking credit-scoring experiments"
+      },
+      "intro": {
+        "fr": "Documenter les expériences et choisir un modèle de scoring en tenant compte du coût métier.",
+        "en": "Tracking experiments and selecting a credit-scoring model using business costs."
+      },
+      "steps": {
+        "fr": [
+          "Données",
+          "MLflow",
+          "Sélection"
+        ],
+        "en": [
+          "Data",
+          "MLflow",
+          "Selection"
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "oc": 3163,
+      "title": "Concevez et déployez un système RAG",
+      "date": "2026-02-06",
+      "repo": "Projet-RAG-Assistant-Intelligent-Events",
+      "domains": [
+        "genai",
+        "integration",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Permettre à un utilisateur de trouver des événements culturels en langage naturel, en reliant un modèle de langage à une base d’informations événementielles.",
+      "work": [
+        "Pipeline LangChain/LCEL, embeddings Mistral, recherche FAISS et génération avec Mistral ; distinction entre conversation simple et recherche documentaire.",
+        "API FastAPI et frontend React/TypeScript ; persistance des sessions PostgreSQL et monitoring, ajoutés au-delà du minimum demandé selon le jury.",
+        "Un script d’évaluation et des résultats sauvegardés permettent d’examiner les recherches simples, filtres et contraintes temporelles."
+      ],
+      "artifacts": [
+        "engine.py ; evaluate_rag.py ; résultats JSON ; rapport d’évaluation et dossier de livrables ; interface et documentation dans le dépôt."
+      ],
+      "results": [
+        "Le fichier du 16 janvier 2026 contient 12 questions : 9 requêtes RAG et 3 conversations. Latence moyenne enregistrée : 2,412 s ; couverture moyenne de mots-clés : 0,815.",
+        "ragas_scores est vide. Les deux questions temporelles ont une couverture moyenne de 0,5. La présence de mots-clés ne garantit ni exactitude ni fidélité à la source."
+      ],
+      "jury": "Tests, API et choix du modèle validés. Le jury rapporte 80 % de couverture, apprécie le frontend, la persistance, le monitoring et l’explication globale. Il recommande de synthétiser une documentation trop abondante et répétitive.",
+      "limits": [
+        "Échantillon d’évaluation réduit ; pas de mesure générale établie d’hallucinations, de rappel du retrieval ou de qualité humaine.",
+        "Les résultats enregistrés ne prouvent pas la latence actuelle du service, ni sa capacité sous charge."
+      ],
+      "reflection": "La qualité d’un RAG dépend aussi de la fraîcheur des données et de la recherche : citer une source ne suffit pas à rendre une réponse correcte.",
+      "recommendations": [
+        "Mettre ce projet en avant avec une architecture lisible et trois exemples : recherche réussie, contrainte temporelle difficile, absence de réponse. Étendre ultérieurement l’évaluation à retrieval, fidélité et fraîcheur, sans promettre des scores non mesurés."
+      ],
+      "sources": [
+        "backend/src/rag/engine.py",
+        "backend/scripts/evaluate_rag.py",
+        "backend/docs/livrables/04-RESULTATS-EVALUATION.md",
+        "backend/docs/livrables/donnees-evaluation/evaluation-results.json"
+      ],
+      "local_url": "projet-p07.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3163/project-evaluation",
+      "repo_url": "https://github.com/ppluton/Projet-RAG-Assistant-Intelligent-Events",
+      "source_links": [
+        {
+          "path": "backend/src/rag/engine.py",
+          "url": "https://github.com/ppluton/Projet-RAG-Assistant-Intelligent-Events/blob/aa707df9205540cd02fc3c7fc34f04bced21c19f/backend/src/rag/engine.py"
+        },
+        {
+          "path": "backend/scripts/evaluate_rag.py",
+          "url": "https://github.com/ppluton/Projet-RAG-Assistant-Intelligent-Events/blob/aa707df9205540cd02fc3c7fc34f04bced21c19f/backend/scripts/evaluate_rag.py"
+        },
+        {
+          "path": "backend/docs/livrables/04-RESULTATS-EVALUATION.md",
+          "url": "https://github.com/ppluton/Projet-RAG-Assistant-Intelligent-Events/blob/aa707df9205540cd02fc3c7fc34f04bced21c19f/backend/docs/livrables/04-RESULTATS-EVALUATION.md"
+        },
+        {
+          "path": "backend/docs/livrables/donnees-evaluation/evaluation-results.json",
+          "url": "https://github.com/ppluton/Projet-RAG-Assistant-Intelligent-Events/blob/aa707df9205540cd02fc3c7fc34f04bced21c19f/backend/docs/livrables/donnees-evaluation/evaluation-results.json"
+        }
+      ],
+      "short_title": {
+        "fr": "Retrouver des événements avec un RAG",
+        "en": "Finding events with RAG"
+      },
+      "intro": {
+        "fr": "Relier une demande en langage naturel à un corpus d’événements, puis évaluer les réponses.",
+        "en": "Connecting a natural-language request to an events corpus and evaluating responses."
+      },
+      "steps": {
+        "fr": [
+          "Question",
+          "Recherche",
+          "Réponse"
+        ],
+        "en": [
+          "Question",
+          "Retrieval",
+          "Answer"
+        ]
+      }
+    },
+    {
+      "n": 8,
+      "oc": 3150,
+      "title": "Confirmez vos compétences en MLOps — partie 2",
+      "date": "2026-02-27",
+      "repo": "Credit-Scoring-End-to-End-MLOps-Pipeline",
+      "domains": [
+        "integration",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Prolonger le scoring par une chaîne de service, de déploiement et de surveillance du modèle, en analysant la dérive et les contraintes d’inférence.",
+      "work": [
+        "API conteneurisée, pipeline CI/CD GitHub Actions, journalisation des prédictions et interface de monitoring.",
+        "Analyse de data drift avec outils statistiques et Evidently ; propositions de maintenance et suivi du cycle de vie.",
+        "Comparaison locale de l’inférence LightGBM et ONNX, avec mesure des temps et de l’écart de probabilités."
+      ],
+      "artifacts": [
+        "api/predict.py ; monitoring/drift.py ; workflow ci-cd.yml ; notebook 06_inference_optimization.ipynb ; inference_benchmark.json."
+      ],
+      "results": [
+        "Le benchmark sauvegardé annonce environ 57,7× d’accélération et un écart de probabilités de 7,31e-8 sur son protocole local.",
+        "Cette comparaison oppose des chemins de calcul différents et ne mesure pas une requête HTTP complète, le démarrage cloud ni la charge concurrente."
+      ],
+      "jury": "Chaîne MLOps et suivi du cycle de vie validés ; retours très positifs sur l’architecture, le monitoring et la démonstration. Amélioration : mettre davantage en avant MLflow, en particulier le model registry.",
+      "limits": [
+        "Même dépôt et même cas métier que P6 : deux validations pédagogiques, une seule solution de portfolio.",
+        "La documentation et le benchmark doivent préserver le périmètre des chiffres. La configuration de seuil utilisée par le service reste à relier à la version exportée.",
+        "Aucun état de déploiement ou de drift actuel n’a été contrôlé pendant l’audit."
+      ],
+      "reflection": "Une solution ML continue de vivre après le déploiement : versions, observabilité, dérive, coûts et décisions de maintenance font partie du produit.",
+      "recommendations": [
+        "En faire une étude de cas principale. Montrer le cycle de vie complet et une interprétation de drift. Présenter le benchmark ONNX comme optimisation d’un composant, avec son protocole."
+      ],
+      "sources": [
+        "api/predict.py",
+        "monitoring/drift.py",
+        ".github/workflows/ci-cd.yml",
+        "notebooks/06_inference_optimization.ipynb",
+        "artifacts/inference_benchmark.json"
+      ],
+      "local_url": "projet-p08.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3150/project-evaluation",
+      "repo_url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline",
+      "source_links": [
+        {
+          "path": "api/predict.py",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/api/predict.py"
+        },
+        {
+          "path": "monitoring/drift.py",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/monitoring/drift.py"
+        },
+        {
+          "path": ".github/workflows/ci-cd.yml",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/.github/workflows/ci-cd.yml"
+        },
+        {
+          "path": "notebooks/06_inference_optimization.ipynb",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/notebooks/06_inference_optimization.ipynb"
+        },
+        {
+          "path": "artifacts/inference_benchmark.json",
+          "url": "https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline/blob/18c4c700e11620f33aa6f5025ae96fe6c6a2a317/artifacts/inference_benchmark.json"
+        }
+      ],
+      "short_title": {
+        "fr": "Déployer et suivre le scoring",
+        "en": "Deploying and monitoring scoring"
+      },
+      "intro": {
+        "fr": "Faire passer la solution de scoring du notebook à une application suivie et testée.",
+        "en": "Moving the scoring solution from a notebook to a monitored, tested application."
+      },
+      "steps": {
+        "fr": [
+          "Modèle",
+          "API",
+          "Monitoring"
+        ],
+        "en": [
+          "Model",
+          "API",
+          "Monitoring"
+        ]
+      }
+    },
+    {
+      "n": 9,
+      "oc": 3165,
+      "title": "Réalisez le cadrage d’un projet IA",
+      "date": "2026-03-13",
+      "repo": null,
+      "domains": [
+        "cadrage",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Cadrer une solution IA de recommandation : expliciter les besoins, établir la faisabilité, définir les ressources et le suivi, analyser les risques et présenter les décisions.",
+      "work": [
+        "Le jury confirme des user stories priorisées selon les intérêts du client et des features descriptives.",
+        "Ressources techniques, humaines et financières identifiées ; méthode agile et planning de sprints établis.",
+        "RGPD, enjeux éthiques et analyse de risques pris en compte ; faisabilité technique évaluée et présentation conforme."
+      ],
+      "artifacts": [
+        "Dossier de cadrage et présentation remis dans un ZIP OC identifié. Leur contenu exact n’a pas été extrait ; la preuve principale est l’évaluation détaillée."
+      ],
+      "results": [
+        "Les six compétences de coordination, planification, faisabilité, opportunités, risques et présentation sont validées. Aucun budget chiffré ni résultat de prototype n’est reconstruit sans accès aux livrables."
+      ],
+      "jury": "Présentation claire ; bonne prise en compte du client, des ressources et des risques. Amélioration : préciser les besoins humains entre freelance et CDI/CDD.",
+      "limits": [
+        "Dépôt public correspondant non retrouvé dans l’inventaire actuel.",
+        "La validation d’un exercice de cadrage ne mesure pas une coordination réelle d’équipe ou une rentabilité effectivement obtenue."
+      ],
+      "reflection": "Le rôle d’AI Engineer inclut le choix de ce qu’il faut construire, sous quelles contraintes et avec quels critères d’arrêt ou de réussite.",
+      "recommendations": [
+        "Réintroduire ce projet dans le portfolio même sans application visible. Une page présentant le problème, les options, le planning, les risques et les décisions apporte une preuve de maturité produit."
+      ],
+      "sources": [],
+      "local_url": "projet-p09.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3165/project-evaluation",
+      "repo_url": null,
+      "source_links": [],
+      "short_title": {
+        "fr": "Cadrer un projet IA",
+        "en": "Scoping an AI project"
+      },
+      "intro": {
+        "fr": "Transformer une intention métier en périmètre, ressources et décisions de projet.",
+        "en": "Turning a business intention into project scope, resources and decisions."
+      },
+      "steps": {
+        "fr": [
+          "Besoin",
+          "Options",
+          "Décision"
+        ],
+        "en": [
+          "Need",
+          "Options",
+          "Decision"
+        ]
+      }
+    },
+    {
+      "n": 10,
+      "oc": 3151,
+      "title": "Labellisez et appliquez des approches semi-supervisées en traitement d’images",
+      "date": "2026-04-15",
+      "repo": "brain-mri-semi-supervised",
+      "domains": [
+        "data",
+        "ml",
+        "vision",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Exploiter un petit ensemble d’IRM labellisées et un ensemble non labellisé pour comparer des stratégies de classification et de semi-supervision.",
+      "work": [
+        "Dataset documenté de 1 506 images : 100 labels forts et 1 406 images non labellisées ; 50 labels forts pour l’apprentissage et 50 pour l’évaluation du protocole.",
+        "Embeddings ResNet-18/ImageNet et comparaison avec ResNet-50/RadImageNet ; clustering, propagation de labels, self-training et entraînement des têtes de classification.",
+        "Préparation spécifique des IRM ajoutée avec masque Otsu, Z-score et CLAHE ; métrique F5 justifiée pour privilégier le rappel."
+      ],
+      "artifacts": [
+        "Notebooks 05_semi_supervise et 06_comparaison_modeles ; src/dataset.py ; src/preprocessing.py ; modules d’entraînement référencés par les notebooks."
+      ],
+      "results": [
+        "Le notebook rapporte notamment un F5 d’environ 0,954 pour la stratégie C, avec rappel 0,96 et accuracy 0,88 sur le protocole documenté.",
+        "Une variante RadImageNet atteint un rappel de 1 avec une précision de 0,625 et une accuracy de 0,70. Ces chiffres ne constituent pas une validation clinique."
+      ],
+      "jury": "Modélisation et préparation validées ; comparaison de cinq stratégies, code modulaire, analyse du passage à l’échelle et comparaison des backbones appréciées. Améliorations : validation croisée, ROC, weight decay et rédaction plus concise.",
+      "limits": [
+        "Les features des exemples dits test participent au traitement transductif sans leurs labels ; cela doit être explicitement distingué d’une évaluation sur données nouvelles.",
+        "Le même jeu dit test sert à comparer des configurations et à suivre les epochs, avec affichage du meilleur F5 test : il n’est pas un test final indépendant.",
+        "50 images et l’absence de validation externe ne permettent pas de conclure sur la généralisation clinique."
+      ],
+      "reflection": "Une performance élevée ne remplace pas un protocole indépendant. La distinction validation/test et le statut transductif font partie de l’explication scientifique.",
+      "recommendations": [
+        "Valoriser le raisonnement expérimental et le travail avec peu de labels. Prévoir ultérieurement un split validation/test indépendant, un regroupement par patient si pertinent et des intervalles d’incertitude."
+      ],
+      "sources": [
+        "notebooks/05_semi_supervise.ipynb",
+        "notebooks/06_comparaison_modeles.ipynb",
+        "src/dataset.py",
+        "src/preprocessing.py"
+      ],
+      "local_url": "projet-p10.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3151/project-evaluation",
+      "repo_url": "https://github.com/ppluton/brain-mri-semi-supervised",
+      "source_links": [
+        {
+          "path": "notebooks/05_semi_supervise.ipynb",
+          "url": "https://github.com/ppluton/brain-mri-semi-supervised/blob/a73036703b992b2094e43c13c9f9cf9235475af9/notebooks/05_semi_supervise.ipynb"
+        },
+        {
+          "path": "notebooks/06_comparaison_modeles.ipynb",
+          "url": "https://github.com/ppluton/brain-mri-semi-supervised/blob/a73036703b992b2094e43c13c9f9cf9235475af9/notebooks/06_comparaison_modeles.ipynb"
+        },
+        {
+          "path": "src/dataset.py",
+          "url": "https://github.com/ppluton/brain-mri-semi-supervised/blob/a73036703b992b2094e43c13c9f9cf9235475af9/src/dataset.py"
+        },
+        {
+          "path": "src/preprocessing.py",
+          "url": "https://github.com/ppluton/brain-mri-semi-supervised/blob/a73036703b992b2094e43c13c9f9cf9235475af9/src/preprocessing.py"
+        }
+      ],
+      "short_title": {
+        "fr": "Apprendre avec peu de labels",
+        "en": "Learning with few labels"
+      },
+      "intro": {
+        "fr": "Explorer la classification d’IRM en mobilisant embeddings et semi-supervision.",
+        "en": "Exploring MRI classification using embeddings and semi-supervised learning."
+      },
+      "steps": {
+        "fr": [
+          "IRM",
+          "Embeddings",
+          "Labels"
+        ],
+        "en": [
+          "MRI",
+          "Embeddings",
+          "Labels"
+        ]
+      }
+    },
+    {
+      "n": 11,
+      "oc": 3167,
+      "title": "Entraînez votre agent RL — Eagle-1",
+      "date": "2026-05-15",
+      "repo": "Learn---Reinforcement-Learning-",
+      "domains": [
+        "rl",
+        "integration",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Apprendre une politique d’atterrissage dans LunarLander, après des exercices introductifs, en comparant une baseline, PPO optimisé et DQN.",
+      "work": [
+        "Les tutoriels du dépôt ne sont pas toute la mission : MISSION contient exploration, optimisation PPO, comparaison DQN et évaluation finale.",
+        "États, actions et récompenses sont explorés ; learning rate, gamma et n_steps sont ajustés ; une interface, une API, un dashboard et une vidéo sont référencés.",
+        "L’évaluation finale porte sur 100 épisodes en simulation. La vidéo de démonstration est choisie parmi plusieurs tentatives et n’est pas une estimation moyenne."
+      ],
+      "artifacts": [
+        "Quatre notebooks MISSION ; SOUTENANCE_QA.md ; fichiers d’API/interface/dashboard et support Eagle-1 présents dans l’arborescence."
+      ],
+      "results": [
+        "Sorties enregistrées : PPO final 247,0 ± 49,9 sur 100 épisodes ; 91/100 épisodes dépassent le seuil de récompense 200.",
+        "Le notebook de comparaison rapporte environ 243,7 pour PPO contre 115,0 pour DQN. Le document de questions/réponses affirmant que tous les DQN restent négatifs ne reflète pas ce résultat final."
+      ],
+      "jury": "Bonne réalisation des exercices et du projet ; bonne connaissance théorique et usage maîtrisé des concepts et du vocabulaire RL.",
+      "limits": [
+        "Le seuil reward > 200 est la définition de réussite utilisée par le projet, pas une preuve de sécurité physique.",
+        "Pas de démonstration multi-seed établie ni d’application hors simulation. Les écarts mesurent les épisodes du protocole, pas plusieurs entraînements indépendants."
+      ],
+      "reflection": "L’agent apprend par interaction et récompense : la comparaison doit inclure variabilité, budget d’entraînement et protocole d’évaluation.",
+      "recommendations": [
+        "Garder un encadré dédié au RL dans le portfolio. Montrer la progression de la baseline au modèle final et distinguer vidéo choisie, moyenne et taux selon le seuil."
+      ],
+      "sources": [
+        "MISSION/01_exploration_baseline.ipynb",
+        "MISSION/02_optimisation_ppo.ipynb",
+        "MISSION/03_comparaison_dqn.ipynb",
+        "MISSION/04_evaluation_finale.ipynb",
+        "MISSION/SOUTENANCE_QA.md"
+      ],
+      "local_url": "projet-p11.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3167/project-evaluation",
+      "repo_url": "https://github.com/ppluton/Learn---Reinforcement-Learning-",
+      "source_links": [
+        {
+          "path": "MISSION/01_exploration_baseline.ipynb",
+          "url": "https://github.com/ppluton/Learn---Reinforcement-Learning-/blob/c0b6e4bcab2804143bfad0b598ece3ba7409ab56/MISSION/01_exploration_baseline.ipynb"
+        },
+        {
+          "path": "MISSION/02_optimisation_ppo.ipynb",
+          "url": "https://github.com/ppluton/Learn---Reinforcement-Learning-/blob/c0b6e4bcab2804143bfad0b598ece3ba7409ab56/MISSION/02_optimisation_ppo.ipynb"
+        },
+        {
+          "path": "MISSION/03_comparaison_dqn.ipynb",
+          "url": "https://github.com/ppluton/Learn---Reinforcement-Learning-/blob/c0b6e4bcab2804143bfad0b598ece3ba7409ab56/MISSION/03_comparaison_dqn.ipynb"
+        },
+        {
+          "path": "MISSION/04_evaluation_finale.ipynb",
+          "url": "https://github.com/ppluton/Learn---Reinforcement-Learning-/blob/c0b6e4bcab2804143bfad0b598ece3ba7409ab56/MISSION/04_evaluation_finale.ipynb"
+        },
+        {
+          "path": "MISSION/SOUTENANCE_QA.md",
+          "url": "https://github.com/ppluton/Learn---Reinforcement-Learning-/blob/c0b6e4bcab2804143bfad0b598ece3ba7409ab56/MISSION/SOUTENANCE_QA.md"
+        }
+      ],
+      "short_title": {
+        "fr": "Entraîner un agent LunarLander",
+        "en": "Training a LunarLander agent"
+      },
+      "intro": {
+        "fr": "Comparer PPO et DQN dans une simulation, avec une évaluation sur plusieurs épisodes.",
+        "en": "Comparing PPO and DQN in simulation across multiple evaluation episodes."
+      },
+      "steps": {
+        "fr": [
+          "État",
+          "Politique",
+          "Récompense"
+        ],
+        "en": [
+          "State",
+          "Policy",
+          "Reward"
+        ]
+      }
+    },
+    {
+      "n": 12,
+      "oc": 3168,
+      "title": "Extrayez des données multimodales de sites web",
+      "date": "2026-07-02",
+      "repo": "checkit-pipeline",
+      "domains": [
+        "data",
+        "integration",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Construire la chaîne d’acquisition et de préparation de données nécessaires à un futur détecteur multimodal de désinformation.",
+      "work": [
+        "Le DAG relie quatre extracteurs — Fakeddit, Guardian, Snopes et LIAR — à la transformation, la construction du dataset, l’acquisition des images, le chargement PostgreSQL et le reporting des indicateurs.",
+        "Neuf tâches, planification quotidienne, limites de concurrence et retry documentés ; schéma Pydantic et standardisation des données.",
+        "La provenance, les labels, les images manquantes et la qualité des sources sont des dimensions importantes du pipeline. FakeNewsNet et NewsCLIPpings figurent dans l’exploration/backlog, pas parmi les quatre extracteurs actifs constatés."
+      ],
+      "artifacts": [
+        "dags/checkit_pipeline_dag.py ; src/transformation/schema.py ; architecture, rapport de sources et monitoring."
+      ],
+      "results": [
+        "Le jury valide extraction, transformation, stockage et indicateurs, et mentionne une démonstration live.",
+        "Aucun volume de run actuel, uptime Airflow ou performance d’un classifieur de fake news n’a été mesuré dans cet audit."
+      ],
+      "jury": "Quatre sources et modalités texte/image ; standardisation dans une table ; explication claire des outils Airflow/ETL et exécution montrée en soutenance.",
+      "limits": [
+        "LIAR est textuel ; toutes les lignes ne doivent pas être décrites comme paires texte/image.",
+        "Guardian ne fournit pas de label de vérité. La documentation doit éviter de confondre réputation éditoriale et annotation factuelle.",
+        "Un pipeline d’entraînement n’est pas un modèle de détection livré."
+      ],
+      "reflection": "La qualité du modèle futur dépend de la qualité et de la sémantique de ses données : provenance et absence de label sont des informations à conserver.",
+      "recommendations": [
+        "En faire une étude de cas data engineering principale. Montrer le DAG, le schéma et un exemple de contrôle de qualité, avec une séparation entre sources explorées et effectivement intégrées."
+      ],
+      "sources": [
+        "dags/checkit_pipeline_dag.py",
+        "src/transformation/schema.py",
+        "docs/architecture.md",
+        "docs/rapport_sources.md",
+        "docs/monitoring.md"
+      ],
+      "local_url": "projet-p12.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3168/project-evaluation",
+      "repo_url": "https://github.com/ppluton/checkit-pipeline",
+      "source_links": [
+        {
+          "path": "dags/checkit_pipeline_dag.py",
+          "url": "https://github.com/ppluton/checkit-pipeline/blob/f590766868852b8f87aafb178aff452eecbfa31a/dags/checkit_pipeline_dag.py"
+        },
+        {
+          "path": "src/transformation/schema.py",
+          "url": "https://github.com/ppluton/checkit-pipeline/blob/f590766868852b8f87aafb178aff452eecbfa31a/src/transformation/schema.py"
+        },
+        {
+          "path": "docs/architecture.md",
+          "url": "https://github.com/ppluton/checkit-pipeline/blob/f590766868852b8f87aafb178aff452eecbfa31a/docs/architecture.md"
+        },
+        {
+          "path": "docs/rapport_sources.md",
+          "url": "https://github.com/ppluton/checkit-pipeline/blob/f590766868852b8f87aafb178aff452eecbfa31a/docs/rapport_sources.md"
+        },
+        {
+          "path": "docs/monitoring.md",
+          "url": "https://github.com/ppluton/checkit-pipeline/blob/f590766868852b8f87aafb178aff452eecbfa31a/docs/monitoring.md"
+        }
+      ],
+      "short_title": {
+        "fr": "Construire un pipeline multimodal",
+        "en": "Building a multimodal pipeline"
+      },
+      "intro": {
+        "fr": "Collecter et normaliser des sources hétérogènes dans un pipeline orchestré.",
+        "en": "Collecting and normalising heterogeneous sources in an orchestrated pipeline."
+      },
+      "steps": {
+        "fr": [
+          "Sources",
+          "Airflow",
+          "Données"
+        ],
+        "en": [
+          "Sources",
+          "Airflow",
+          "Data"
+        ]
+      }
+    },
+    {
+      "n": 13,
+      "oc": 3169,
+      "title": "Mettez en place un Agent IA — IA Chess",
+      "date": "2026-08-28",
+      "repo": "ia-chess-oc",
+      "domains": [
+        "cadrage",
+        "vision",
+        "genai",
+        "integration",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Créer un assistant pédagogique d’échecs orchestrant recherche de coups, analyse moteur, contexte documentaire et recommandations vidéo, puis étudier une extension vidéo/MCP.",
+      "work": [
+        "Le StateGraph LangGraph enchaîne Lichess, repli Stockfish, contexte RAG et recherche de vidéos ; les indisponibilités sont représentées par des avertissements et des replis.",
+        "FastAPI, Angular, Milvus et MongoDB composent une architecture de POC ; le catalogue vidéo et l’analyse de positions sont séparés.",
+        "Une note de conception examine faisabilité, coût, droits, limites et architecture cible incluant MCP."
+      ],
+      "artifacts": [
+        "backend/app/services/agent_graph.py ; video_vision.py ; note-conception-analyse-video-mcp.md ; verification-livrables.md ; architecture et présentation."
+      ],
+      "results": [
+        "La vérification sauvegardée du 23 août rapporte 34 tests backend, 6 tests Angular et un build réussi. Ces checks historiques n’ont pas été relancés.",
+        "Le README rapporte environ 61–63 % de reconnaissance par case sur un court exemple vidéo synthétique : c’est un résultat de démonstrateur, pas une robustesse générale."
+      ],
+      "jury": "Besoin identifié, architecture explicite, RAG et intégration YouTube adaptés ; vision produit et impact métier travaillés ; présentation claire.",
+      "limits": [
+        "Le graphe consulté suit une orchestration définie ; le résumé est construit de façon déterministe. Ne pas présenter un planificateur LLM autonome général.",
+        "MCP/FastMCP est une cible, pas un service livré. Pas d’authentification utilisateur ni de preuve de montée en charge.",
+        "L’étude chiffre 44 jours-personnes et environ 28 550 € HT avant marge, 32 833 € avec 15 % de réserve : estimations, pas dépenses réelles."
+      ],
+      "reflection": "La valeur d’un agent vient aussi de contrats clairs, de composants spécialisés et de replis maîtrisés ; toutes les décisions n’ont pas besoin d’être générées par un LLM.",
+      "recommendations": [
+        "Montrer un scénario de bout en bout et un scénario où Lichess est indisponible. Séparer la réalisation actuelle de l’extension vidéo/MCP et afficher les limites de vision."
+      ],
+      "sources": [
+        "backend/app/services/agent_graph.py",
+        "backend/app/services/video_vision.py",
+        "docs/note-conception-analyse-video-mcp.md",
+        "docs/verification-livrables.md"
+      ],
+      "local_url": "projet-p13.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3169/project-evaluation",
+      "repo_url": "https://github.com/ppluton/ia-chess-oc",
+      "source_links": [
+        {
+          "path": "backend/app/services/agent_graph.py",
+          "url": "https://github.com/ppluton/ia-chess-oc/blob/14e15bea4e2d1ede5cbd3365b2a4e56046538458/backend/app/services/agent_graph.py"
+        },
+        {
+          "path": "backend/app/services/video_vision.py",
+          "url": "https://github.com/ppluton/ia-chess-oc/blob/14e15bea4e2d1ede5cbd3365b2a4e56046538458/backend/app/services/video_vision.py"
+        },
+        {
+          "path": "docs/note-conception-analyse-video-mcp.md",
+          "url": "https://github.com/ppluton/ia-chess-oc/blob/14e15bea4e2d1ede5cbd3365b2a4e56046538458/docs/note-conception-analyse-video-mcp.md"
+        },
+        {
+          "path": "docs/verification-livrables.md",
+          "url": "https://github.com/ppluton/ia-chess-oc/blob/14e15bea4e2d1ede5cbd3365b2a4e56046538458/docs/verification-livrables.md"
+        }
+      ],
+      "short_title": {
+        "fr": "Orchestrer un assistant d’échecs",
+        "en": "Orchestrating a chess assistant"
+      },
+      "intro": {
+        "fr": "Relier Lichess, Stockfish, recherche documentaire et vidéos dans un graphe de traitement.",
+        "en": "Connecting Lichess, Stockfish, document retrieval and videos in a processing graph."
+      },
+      "steps": {
+        "fr": [
+          "Demande",
+          "LangGraph",
+          "Outils"
+        ],
+        "en": [
+          "Request",
+          "LangGraph",
+          "Tools"
+        ]
+      }
+    },
+    {
+      "n": 14,
+      "oc": 3421,
+      "title": "Fine-tunez votre propre LLM — POC médical",
+      "date": null,
+      "repo": "medical-triage-llm-poc",
+      "domains": [
+        "cadrage",
+        "data",
+        "genai",
+        "integration",
+        "ops",
+        "communication"
+      ],
+      "status": "Validé",
+      "mission": "Construire et évaluer un POC bilingue fondé sur un LLM adapté par SFT/LoRA, puis comparer une étape DPO et intégrer le modèle derrière un contrat de sortie et des garde-fous.",
+      "work": [
+        "Qwen3-1.7B-Base ; corpus de 4 700 paires FR/EN réparties en 3 721 apprentissages, 479 validations et 500 tests QA. Le corpus ne contient pas de labels de triage.",
+        "SFT v39 à 150 étapes et DPO v41 à 20 étapes ; comparaison Base/SFT/DPO et réserve finale de 18 scénarios synthétiques.",
+        "Rapport technique, code d’entraînement, API, schémas et garde-fous ; infrastructure d’inférence décrite, sans contrôle live pendant cet audit."
+      ],
+      "artifacts": [
+        "RAPPORT_TECHNIQUE_POC.md ; LIVRABLES.md ; guardrails.py et dpo.py ; COMPARISON_V43_RESULT et SELECTED_RESERVE_V46_RESULT."
+      ],
+      "results": [
+        "NLL sur les 479 validations : Base 1,532045 ; SFT 0,830098 ; DPO 0,828884. Cette baisse mesure l’apprentissage des réponses QA, pas l’exactitude d’une priorité médicale.",
+        "Sur la réserve de 18 scénarios, le SFT brut donne 0/18 JSON conformes ; 17/18 générations atteignent 512 tokens. Des faits patient non étayés sont documentés.",
+        "Le DPO n’a pas été retenu. Le résultat final est explicitement négatif pour une sortie de triage autonome fiable."
+      ],
+      "jury": "Projet validé : confirmation de Pierre reçue le 11 octobre 2026. Le détail du retour du jury n’a pas été consulté à nouveau ; les résultats techniques restent ceux de l’audit du 9 octobre.",
+      "limits": [
+        "Scénarios synthétiques, pas une validation clinique. Une sortie JSON conforme obtenue avec des garde-fous ne prouve pas la correction de la décision.",
+        "Le RAG est une ouverture proposée dans le contexte de soutenance, pas une fonctionnalité médicale livrée et évaluée.",
+        "La disponibilité actuelle de l’inférence, les coûts effectifs et les performances sous charge ne sont pas vérifiés."
+      ],
+      "reflection": "Ce projet montre la capacité à reconnaître un résultat négatif et à limiter le rôle du modèle. La métrique d’entraînement et l’utilité de la tâche finale sont deux objets différents.",
+      "recommendations": [
+        "En faire une étude de cas expérimentale avec sa conclusion négative clairement visible. Conserver la décision humaine et distinguer modèle brut, garde-fous et intégration. Conserver les limites techniques malgré la validation pédagogique."
+      ],
+      "sources": [
+        "reports/RAPPORT_TECHNIQUE_POC.md",
+        "reports/LIVRABLES.md",
+        "src/triage_poc/guardrails.py",
+        "src/triage_poc/dpo.py",
+        "docs/evidence/COMPARISON_V43_RESULT_2026-09-16.md",
+        "docs/evidence/SELECTED_RESERVE_V46_RESULT_2026-09-16.md"
+      ],
+      "local_url": "projet-p14.html",
+      "evaluation_url": "https://openclassrooms.com/fr/paths/2053/projects/3421",
+      "repo_url": "https://github.com/ppluton/medical-triage-llm-poc",
+      "source_links": [
+        {
+          "path": "reports/RAPPORT_TECHNIQUE_POC.md",
+          "url": "https://github.com/ppluton/medical-triage-llm-poc/blob/c5d7a2dd39464f37b45d4d616fd819a84db4b025/reports/RAPPORT_TECHNIQUE_POC.md"
+        },
+        {
+          "path": "reports/LIVRABLES.md",
+          "url": "https://github.com/ppluton/medical-triage-llm-poc/blob/c5d7a2dd39464f37b45d4d616fd819a84db4b025/reports/LIVRABLES.md"
+        },
+        {
+          "path": "src/triage_poc/guardrails.py",
+          "url": "https://github.com/ppluton/medical-triage-llm-poc/blob/c5d7a2dd39464f37b45d4d616fd819a84db4b025/src/triage_poc/guardrails.py"
+        },
+        {
+          "path": "src/triage_poc/dpo.py",
+          "url": "https://github.com/ppluton/medical-triage-llm-poc/blob/c5d7a2dd39464f37b45d4d616fd819a84db4b025/src/triage_poc/dpo.py"
+        },
+        {
+          "path": "docs/evidence/COMPARISON_V43_RESULT_2026-09-16.md",
+          "url": "https://github.com/ppluton/medical-triage-llm-poc/blob/c5d7a2dd39464f37b45d4d616fd819a84db4b025/docs/evidence/COMPARISON_V43_RESULT_2026-09-16.md"
+        },
+        {
+          "path": "docs/evidence/SELECTED_RESERVE_V46_RESULT_2026-09-16.md",
+          "url": "https://github.com/ppluton/medical-triage-llm-poc/blob/c5d7a2dd39464f37b45d4d616fd819a84db4b025/docs/evidence/SELECTED_RESERVE_V46_RESULT_2026-09-16.md"
+        }
+      ],
+      "short_title": {
+        "fr": "Adapter un LLM médical",
+        "en": "Adapting a medical LLM"
+      },
+      "intro": {
+        "fr": "Comparer SFT et DPO, puis analyser les limites d’un modèle sur une tâche médicale pédagogique.",
+        "en": "Comparing SFT and DPO and examining model limitations on an educational medical task."
+      },
+      "steps": {
+        "fr": [
+          "Corpus",
+          "Adaptation",
+          "Évaluation"
+        ],
+        "en": [
+          "Corpus",
+          "Adaptation",
+          "Evaluation"
+        ]
+      },
+      "validation_confirmation": {
+        "confirmed_on": "2026-10-11",
+        "source": "Pierre’s direct confirmation",
+        "jury_feedback_rechecked": false
+      }
+    }
+  ],
+  "skills": [
+    {
+      "domain": "cadrage",
+      "name": "Identifier et formaliser un besoin",
+      "projects": [
+        1,
+        9,
+        13
+      ],
+      "proof": "J",
+      "proof_by_project": {
+        "1": "J",
+        "9": "J",
+        "13": "J"
+      },
+      "note": "Besoins et contexte confirmés par les bilans OC."
+    },
+    {
+      "domain": "cadrage",
+      "name": "Étudier la faisabilité technique",
+      "projects": [
+        9,
+        13
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "9": "J",
+        "13": "J+C"
+      },
+      "note": "Faisabilité P9 validée ; note d’extension vidéo/MCP P13."
+    },
+    {
+      "domain": "cadrage",
+      "name": "Prioriser des user stories",
+      "projects": [
+        9
+      ],
+      "proof": "J",
+      "proof_by_project": {
+        "9": "J"
+      },
+      "note": "Priorisation selon les intérêts du client dans l’évaluation P9."
+    },
+    {
+      "domain": "cadrage",
+      "name": "Planifier ressources, budget et sprints",
+      "projects": [
+        9,
+        13
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "9": "J",
+        "13": "J+C"
+      },
+      "note": "Planning P9 ; estimations de l’étude P13, pas coûts réels."
+    },
+    {
+      "domain": "cadrage",
+      "name": "Analyser risques, éthique et RGPD",
+      "projects": [
+        9,
+        13,
+        14
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "9": "J",
+        "13": "J+C",
+        "14": "C"
+      },
+      "note": "Cadrage validé P9 ; limites, droits et garde-fous documentés P13/P14."
+    },
+    {
+      "domain": "data",
+      "name": "Explorer et nettoyer des données",
+      "projects": [
+        3,
+        4,
+        6,
+        10
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "3": "J",
+        "4": "J+C",
+        "6": "J+C",
+        "10": "J+C"
+      },
+      "note": "EDA et préparation ; code public absent pour P3."
+    },
+    {
+      "domain": "data",
+      "name": "Encoder et transformer les variables",
+      "projects": [
+        3,
+        4,
+        6
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "3": "J",
+        "4": "J+C",
+        "6": "J+C"
+      },
+      "note": "Pipelines, encodage, mise à l’échelle et features."
+    },
+    {
+      "domain": "data",
+      "name": "Construire des features métier",
+      "projects": [
+        4,
+        6
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "4": "J+C",
+        "6": "J+C"
+      },
+      "note": "Attrition et scoring ; validation explicite P6."
+    },
+    {
+      "domain": "data",
+      "name": "Collecter via API et scraping",
+      "projects": [
+        12
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "12": "J+C"
+      },
+      "note": "Quatre extracteurs actifs du pipeline multimodal."
+    },
+    {
+      "domain": "data",
+      "name": "Orchestrer un ETL avec Airflow",
+      "projects": [
+        12
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "12": "J+C"
+      },
+      "note": "DAG de neuf tâches et démonstration mentionnée par le jury."
+    },
+    {
+      "domain": "data",
+      "name": "Normaliser, valider et conserver la provenance",
+      "projects": [
+        12
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "12": "C"
+      },
+      "note": "Schéma Pydantic et documents de qualité ; vigilance sur les labels Guardian."
+    },
+    {
+      "domain": "data",
+      "name": "Préparer un corpus FR/EN et des splits",
+      "projects": [
+        14
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "14": "C"
+      },
+      "note": "4 700 paires QA ; absence de labels de triage explicitée."
+    },
+    {
+      "domain": "ml",
+      "name": "Comparer des modèles de régression",
+      "projects": [
+        3
+      ],
+      "proof": "J",
+      "proof_by_project": {
+        "3": "J"
+      },
+      "note": "Régression linéaire, bagging, boosting : évaluation OC."
+    },
+    {
+      "domain": "ml",
+      "name": "Comparer des classifieurs",
+      "projects": [
+        4,
+        6
+      ],
+      "proof": "J+C+R",
+      "proof_by_project": {
+        "4": "J+C+R",
+        "6": "J+C+R"
+      },
+      "note": "LR/SVM/LGBM/KNN/dummy et scoring crédit."
+    },
+    {
+      "domain": "ml",
+      "name": "Utiliser validation croisée et GridSearchCV",
+      "projects": [
+        3,
+        4,
+        6
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "3": "J",
+        "4": "J+C",
+        "6": "J+C"
+      },
+      "note": "Contrôle de sélection ; P3 décrit par le jury."
+    },
+    {
+      "domain": "ml",
+      "name": "Interpréter précision, rappel et F-score",
+      "projects": [
+        4,
+        10
+      ],
+      "proof": "J+C+R",
+      "proof_by_project": {
+        "4": "J+C+R",
+        "10": "J+C+R"
+      },
+      "note": "Classification asymétrique et F5 ; limites du protocole P10."
+    },
+    {
+      "domain": "ml",
+      "name": "Choisir un seuil selon un coût métier",
+      "projects": [
+        6
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "6": "C+R"
+      },
+      "note": "FN ×10 et FP ×1 ; versions de seuil à réconcilier."
+    },
+    {
+      "domain": "ml",
+      "name": "Expliquer les prédictions avec SHAP",
+      "projects": [
+        4
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "4": "C"
+      },
+      "note": "Dashboard et notebook ; importance non causale."
+    },
+    {
+      "domain": "vision",
+      "name": "Exploiter un modèle de segmentation préentraîné",
+      "projects": [
+        2
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "2": "J+C"
+      },
+      "note": "Hugging Face ; pas d’entraînement du modèle dans P2."
+    },
+    {
+      "domain": "vision",
+      "name": "Décoder les masques et calculer l’IoU",
+      "projects": [
+        2
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "2": "C+R"
+      },
+      "note": "Masques base64 et conventions de classes/fond."
+    },
+    {
+      "domain": "vision",
+      "name": "Extraire des embeddings et transférer un backbone",
+      "projects": [
+        10
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "10": "J+C"
+      },
+      "note": "ResNet/ImageNet et comparaison RadImageNet."
+    },
+    {
+      "domain": "vision",
+      "name": "Comparer clustering et propagation de labels",
+      "projects": [
+        10
+      ],
+      "proof": "J+C+R",
+      "proof_by_project": {
+        "10": "J+C+R"
+      },
+      "note": "Approche transductive explicitée ; test non indépendant."
+    },
+    {
+      "domain": "vision",
+      "name": "Appliquer le self-training",
+      "projects": [
+        10
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "10": "C+R"
+      },
+      "note": "Ensemble de features inclus dans le protocole semi-supervisé."
+    },
+    {
+      "domain": "vision",
+      "name": "Prétraiter des IRM",
+      "projects": [
+        10
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "10": "J+C"
+      },
+      "note": "Otsu, Z-score, CLAHE et transformations d’images."
+    },
+    {
+      "domain": "vision",
+      "name": "Explorer la reconnaissance de positions en vidéo",
+      "projects": [
+        13
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "13": "C+R"
+      },
+      "note": "Démonstrateur synthétique ; qualité générale non prouvée."
+    },
+    {
+      "domain": "rl",
+      "name": "Modéliser états, actions et récompense",
+      "projects": [
+        11
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "11": "J+C"
+      },
+      "note": "LunarLander et exercices d’introduction."
+    },
+    {
+      "domain": "rl",
+      "name": "Entraîner et comparer PPO/DQN",
+      "projects": [
+        11
+      ],
+      "proof": "J+C+R",
+      "proof_by_project": {
+        "11": "J+C+R"
+      },
+      "note": "Notebooks MISSION et sorties enregistrées."
+    },
+    {
+      "domain": "rl",
+      "name": "Ajuster les hyperparamètres RL",
+      "projects": [
+        11
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "11": "C+R"
+      },
+      "note": "learning_rate, gamma, n_steps ; essais documentés."
+    },
+    {
+      "domain": "rl",
+      "name": "Évaluer une politique en simulation",
+      "projects": [
+        11
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "11": "C+R"
+      },
+      "note": "100 épisodes ; pas de preuve multi-seed ou hors simulation."
+    },
+    {
+      "domain": "genai",
+      "name": "Indexer et rechercher par embeddings",
+      "projects": [
+        7,
+        13
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "7": "C",
+        "13": "C"
+      },
+      "note": "FAISS pour les événements ; Milvus pour le contexte d’échecs."
+    },
+    {
+      "domain": "genai",
+      "name": "Construire un RAG avec routage",
+      "projects": [
+        7
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "7": "J+C"
+      },
+      "note": "Pipeline LangChain/LCEL et routage conversation/recherche."
+    },
+    {
+      "domain": "genai",
+      "name": "Évaluer les réponses d’un RAG",
+      "projects": [
+        7
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "7": "C+R"
+      },
+      "note": "12 questions ; mots-clés et latence, RAGAS non renseigné."
+    },
+    {
+      "domain": "genai",
+      "name": "Orchestrer des outils avec LangGraph",
+      "projects": [
+        13
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "13": "J+C"
+      },
+      "note": "Graphe déterminé Lichess/Stockfish/contexte/vidéos."
+    },
+    {
+      "domain": "genai",
+      "name": "Adapter un LLM par SFT/LoRA",
+      "projects": [
+        14
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "14": "C+R"
+      },
+      "note": "SFT v39 ; résultat QA distinct du triage."
+    },
+    {
+      "domain": "genai",
+      "name": "Comparer une étape DPO",
+      "projects": [
+        14
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "14": "C+R"
+      },
+      "note": "DPO v41 non retenu ; NLL et revue qualitative."
+    },
+    {
+      "domain": "genai",
+      "name": "Analyser sorties, hallucinations et contrat JSON",
+      "projects": [
+        14
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "14": "C+R"
+      },
+      "note": "Réserve 18 scénarios et 0/18 JSON conformes du SFT brut."
+    },
+    {
+      "domain": "genai",
+      "name": "Concevoir une extension MCP",
+      "projects": [
+        13
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "13": "C"
+      },
+      "note": "Étude de conception uniquement ; service MCP non livré."
+    },
+    {
+      "domain": "integration",
+      "name": "Consommer une API d’inférence",
+      "projects": [
+        2
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "2": "J+C"
+      },
+      "note": "Appel HTTP Hugging Face ; timeout/retry à améliorer."
+    },
+    {
+      "domain": "integration",
+      "name": "Exposer un modèle via FastAPI",
+      "projects": [
+        5,
+        7,
+        8,
+        13,
+        14
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "5": "J+C",
+        "7": "J+C",
+        "8": "J+C",
+        "13": "J+C",
+        "14": "C"
+      },
+      "note": "Sources de service ; état de fonctionnement actuel non testé."
+    },
+    {
+      "domain": "integration",
+      "name": "Définir des contrats et schémas de données",
+      "projects": [
+        5,
+        12,
+        13,
+        14
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "5": "C",
+        "12": "C",
+        "13": "C",
+        "14": "C"
+      },
+      "note": "Pydantic, réponses API et validation des structures."
+    },
+    {
+      "domain": "integration",
+      "name": "Modéliser et utiliser SQL/SQLAlchemy",
+      "projects": [
+        5
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "5": "J+C"
+      },
+      "note": "Table employees, PostgreSQL/SQLite."
+    },
+    {
+      "domain": "integration",
+      "name": "Intégrer SQL, MongoDB et Milvus",
+      "projects": [
+        7,
+        12,
+        13
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "7": "J+C",
+        "12": "J+C",
+        "13": "J+C"
+      },
+      "note": "Sessions SQL, stockage ETL, contexte vectoriel et catalogue."
+    },
+    {
+      "domain": "integration",
+      "name": "Construire des interfaces de démonstration",
+      "projects": [
+        5,
+        7,
+        8,
+        11,
+        13
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "5": "C",
+        "7": "C",
+        "8": "C",
+        "11": "C",
+        "13": "C"
+      },
+      "note": "Streamlit/React/Angular ; adoption non mesurée."
+    },
+    {
+      "domain": "integration",
+      "name": "Prévoir des replis de services",
+      "projects": [
+        13
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "13": "C"
+      },
+      "note": "Stockfish et catalogue local avec avertissements."
+    },
+    {
+      "domain": "ops",
+      "name": "Tracer les expériences avec MLflow",
+      "projects": [
+        6
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "6": "J+C"
+      },
+      "note": "Tracking d’essais ; registry à mieux mettre en évidence."
+    },
+    {
+      "domain": "ops",
+      "name": "Conteneuriser et décrire les environnements",
+      "projects": [
+        5,
+        8,
+        12,
+        13
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "5": "J+C",
+        "8": "J+C",
+        "12": "J+C",
+        "13": "J+C"
+      },
+      "note": "Docker et configurations ; aucun conteneur lancé dans l’audit."
+    },
+    {
+      "domain": "ops",
+      "name": "Automatiser tests et déploiement CI/CD",
+      "projects": [
+        5,
+        7,
+        8,
+        14
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "5": "J+C",
+        "7": "J+C",
+        "8": "J+C",
+        "14": "C"
+      },
+      "note": "Workflows et preuves historiques ; pas de nouveau run."
+    },
+    {
+      "domain": "ops",
+      "name": "Journaliser et surveiller le data drift",
+      "projects": [
+        8
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "8": "J+C"
+      },
+      "note": "Logging, monitoring et analyse de dérive."
+    },
+    {
+      "domain": "ops",
+      "name": "Mesurer une optimisation d’inférence ONNX",
+      "projects": [
+        8
+      ],
+      "proof": "C+R",
+      "proof_by_project": {
+        "8": "C+R"
+      },
+      "note": "Microbenchmark local ≈57,7× ; pas latence HTTP."
+    },
+    {
+      "domain": "ops",
+      "name": "Versionner code et artefacts",
+      "projects": [
+        4,
+        6,
+        8,
+        14
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "4": "C",
+        "6": "C",
+        "8": "C",
+        "14": "C"
+      },
+      "note": "Liens à préciser entre modèle, données, seuil et run."
+    },
+    {
+      "domain": "communication",
+      "name": "Présenter simplement une architecture",
+      "projects": [
+        7,
+        12,
+        13
+      ],
+      "proof": "J",
+      "proof_by_project": {
+        "7": "J",
+        "12": "J",
+        "13": "J"
+      },
+      "note": "Retours récurrents sur la clarté des explications."
+    },
+    {
+      "domain": "communication",
+      "name": "Justifier le choix d’un modèle",
+      "projects": [
+        3,
+        4,
+        6,
+        10,
+        11
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "3": "J",
+        "4": "J+C",
+        "6": "J+C",
+        "10": "J+C",
+        "11": "J+C"
+      },
+      "note": "Comparaison, contraintes et métriques."
+    },
+    {
+      "domain": "communication",
+      "name": "Documenter un projet technique",
+      "projects": [
+        1,
+        2,
+        5,
+        7,
+        10,
+        13
+      ],
+      "proof": "J+C",
+      "proof_by_project": {
+        "1": "J",
+        "2": "J+C",
+        "5": "J+C",
+        "7": "J+C",
+        "10": "J+C",
+        "13": "J+C"
+      },
+      "note": "Documentation appréciée ; répétitions à réduire."
+    },
+    {
+      "domain": "communication",
+      "name": "Expliquer aux interlocuteurs métier",
+      "projects": [
+        3,
+        8,
+        9
+      ],
+      "proof": "J",
+      "proof_by_project": {
+        "3": "J",
+        "8": "J",
+        "9": "J"
+      },
+      "note": "Forces en P8/P9 ; recommandation de vulgarisation en P3."
+    },
+    {
+      "domain": "communication",
+      "name": "Déclarer les limites et résultats négatifs",
+      "projects": [
+        10,
+        13,
+        14
+      ],
+      "proof": "C",
+      "proof_by_project": {
+        "10": "C",
+        "13": "C",
+        "14": "C"
+      },
+      "note": "Protocole IRM, démonstrateur vision et réserve LLM."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+---
+interface Props {
+  kind: "people" | "interface" | "code" | "ai" | "data" | "product";
+}
+const { kind } = Astro.props;
+---
+
+<svg
+  class="capability-mark"
+  viewBox="0 0 80 80"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  {
+    kind === "people" && (
+      <>
+        <>
+          <circle cx="40" cy="24" r="9" />
+          <path d="M23 61v-7a17 17 0 0 1 34 0v7M16 30a7 7 0 0 0 0 14m48-14a7 7 0 0 1 0 14M11 59v-4m58 4v-4" />
+        </>
+      </>
+    )
+  }
+  {
+    kind === "interface" && (
+      <>
+        <>
+          <rect x="12" y="16" width="56" height="48" rx="5" />
+          <path d="M12 29h56M20 23h1m5 0h1M21 39h15v16H21zm24 0h14m-14 8h14m-14 8h9" />
+        </>
+      </>
+    )
+  }
+  {
+    kind === "code" && (
+      <>
+        <path d="m27 25-15 15 15 15m26-30 15 15-15 15M45 18 35 62" />
+      </>
+    )
+  }
+  {
+    kind === "ai" && (
+      <>
+        <>
+          <circle cx="40" cy="40" r="10" />
+          <circle cx="18" cy="18" r="5" />
+          <circle cx="62" cy="18" r="5" />
+          <circle cx="18" cy="62" r="5" />
+          <circle cx="62" cy="62" r="5" />
+          <path d="m22 22 11 11m14 14 11 11m-36 7 11-11m14-14 11-11" />
+        </>
+      </>
+    )
+  }
+  {
+    kind === "data" && (
+      <>
+        <>
+          <ellipse cx="40" cy="20" rx="23" ry="8" />
+          <path d="M17 20v40c0 11 46 11 46 0V20M17 39c0 11 46 11 46 0" />
+        </>
+      </>
+    )
+  }
+  {
+    kind === "product" && (
+      <>
+        <>
+          <rect x="12" y="17" width="40" height="32" rx="4" />
+          <path d="M32 49v13m-12 0h24" />
+          <rect x="49" y="31" width="20" height="33" rx="4" />
+          <path d="M57 57h4" />
+        </>
+      </>
+    )
+  }
+</svg>

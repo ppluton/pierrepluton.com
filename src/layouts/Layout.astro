@@ -1,20 +1,26 @@
 ---
 import "@fontsource-variable/manrope";
 import "../styles/global.css";
+import "../styles/journey.css";
+import "../styles/portfolio-graphics.css";
 import { homeCopy, type Locale } from "../data/i18n";
+import { getPageSeo, normalizePath } from "../data/seo";
 interface Props {
   title?: string;
   description?: string;
   locale?: Locale;
+  noindex?: boolean;
 }
-const {
-  title = "Pierre Pluton — Ingénieur full stack & IA",
-  description = "Ingénieur full stack et IA, de la conception produit à la mise en ligne. Découvrez mon travail sur Le Grenier du Motard et Unifête.",
-  locale = "fr",
-} = Astro.props;
+const { locale = "fr", noindex = false } = Astro.props;
+const metadata = getPageSeo(Astro.url.pathname);
+const title = metadata?.title ?? Astro.props.title ?? homeCopy[locale].title;
+const description =
+  metadata?.description ??
+  Astro.props.description ??
+  homeCopy[locale].description;
 const copy = homeCopy[locale];
 const homePath = locale === "en" ? "/en/" : "/";
-const currentPath = Astro.url.pathname;
+const currentPath = normalizePath(Astro.url.pathname);
 const frenchPath =
   locale === "en"
     ? currentPath.replace(/^\/en(?=\/|$)/, "") || "/"
@@ -24,6 +30,104 @@ const englishPath =
     ? currentPath
     : `/en${currentPath === "/" ? "/" : currentPath}`;
 const alternatePath = locale === "en" ? frenchPath : englishPath;
+const prefix = locale === "en" ? "/en" : "";
+const navigation = [
+  { path: "/", label: locale === "en" ? "Home" : "Accueil" },
+  { path: "/realisations/", label: locale === "en" ? "Work" : "Réalisations" },
+  { path: "/parcours/", label: locale === "en" ? "Background" : "Parcours" },
+  {
+    path: "/competences/",
+    label: locale === "en" ? "Skills map" : "Compétences",
+  },
+  {
+    path: "/formation/",
+    label: locale === "en" ? "Training & learning" : "Formation & acquis",
+  },
+];
+const sectionPath = frenchPath.startsWith("/projets/")
+  ? "/realisations/"
+  : frenchPath;
+const active = (path: string) =>
+  path === "/" ? sectionPath === "/" : sectionPath.startsWith(path);
+const section = navigation.find((item) => active(item.path));
+const canonical = new URL(currentPath, Astro.site).href;
+const absolute = (path: string) => new URL(path, Astro.site).href;
+const image = absolute(metadata?.image ?? "/images/pierre-pluton.png");
+const personId = absolute("/#person");
+const websiteId = absolute("/#website");
+const pageName = title.replace(/ — Pierre Pluton$/, "");
+const breadcrumbs =
+  frenchPath === "/"
+    ? []
+    : [
+        { name: locale === "en" ? "Home" : "Accueil", url: absolute(homePath) },
+        ...(section && frenchPath !== section.path
+          ? [{ name: section.label, url: absolute(`${prefix}${section.path}`) }]
+          : []),
+        {
+          name:
+            section && frenchPath === section.path ? section.label : pageName,
+          url: canonical,
+        },
+      ];
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Pierre Pluton",
+      url: absolute("/"),
+      image: absolute("/images/pierre-pluton.png"),
+      jobTitle:
+        locale === "en"
+          ? "AI and full-stack engineer"
+          : "Ingénieur IA et développeur full stack",
+      sameAs: [
+        "https://github.com/ppluton",
+        "https://www.malt.fr/profile/pierrepluton",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: "Pierre Pluton",
+      url: absolute("/"),
+      inLanguage: ["fr", "en"],
+      publisher: { "@id": personId },
+    },
+    {
+      "@type": metadata?.type ?? "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: locale,
+      isPartOf: { "@id": websiteId },
+      author: { "@id": personId },
+      ...(metadata?.type === "ProfilePage"
+        ? { mainEntity: { "@id": personId } }
+        : { about: { "@id": personId } }),
+      ...(breadcrumbs.length
+        ? { breadcrumb: { "@id": `${canonical}#breadcrumb` } }
+        : {}),
+    },
+    ...(breadcrumbs.length
+      ? [
+          {
+            "@type": "BreadcrumbList",
+            "@id": `${canonical}#breadcrumb`,
+            itemListElement: breadcrumbs.map((item, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: item.name,
+              item: item.url,
+            })),
+          },
+        ]
+      : []),
+  ],
+};
 ---
 
 <!doctype html>
@@ -43,27 +147,68 @@ const alternatePath = locale === "en" ? frenchPath : englishPath;
       name="theme-color"
       content="#e9e5ff"
     />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href={new URL(frenchPath, Astro.site)}
+    <meta
+      name="robots"
+      content={noindex
+        ? "noindex, follow"
+        : "index, follow, max-image-preview:large"}
     />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href={new URL(englishPath, Astro.site)}
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href={new URL(frenchPath, Astro.site)}
-    />
+    {
+      !noindex && (
+        <>
+          <link rel="canonical" href={canonical} />
+          <link
+            rel="alternate"
+            hreflang="fr"
+            href={new URL(frenchPath, Astro.site)}
+          />
+          <link
+            rel="alternate"
+            hreflang="en"
+            href={new URL(englishPath, Astro.site)}
+          />
+          <link
+            rel="alternate"
+            hreflang="x-default"
+            href={new URL(frenchPath, Astro.site)}
+          />
+        </>
+      )
+    }
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content={title} /><meta
       property="og:description"
       content={description}
     /><meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Pierre Pluton" />
+    <meta property="og:locale" content={locale === "en" ? "en_US" : "fr_FR"} />
+    <meta
+      property="og:locale:alternate"
+      content={locale === "en" ? "fr_FR" : "en_US"}
+    />
+    <meta property="og:image" content={image} />
+    <meta
+      property="og:image:alt"
+      content={metadata?.imageAlt ?? "Pierre Pluton"}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta
+      name="twitter:image:alt"
+      content={metadata?.imageAlt ?? "Pierre Pluton"}
+    />
+    {
+      !noindex && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+        />
+      )
+    }
     <title>{title}</title>
     <script is:inline>
       try {
@@ -85,13 +230,17 @@ const alternatePath = locale === "en" ? frenchPath : englishPath;
         aria-label={`Pierre Pluton, ${locale === "en" ? "home" : "accueil"}`}
         >pierre<span class="brand-dot">.</span><br />pluton</a
       >
-      <nav
-        class="desktop-nav flex items-center gap-8"
-        aria-label={copy.navLabel}
-      >
-        <a href={`${homePath}#projets`}>{copy.projects}</a><a
-          href={`${homePath}#ia`}>{copy.ai}</a
-        ><a href={`${homePath}#competences`}>{copy.skillsNav}</a>
+      <nav class="desktop-nav portfolio-nav" aria-label={copy.navLabel}>
+        {
+          navigation.map((item) => (
+            <a
+              href={`${prefix}${item.path}`}
+              aria-current={active(item.path) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
       </nav>
       <div class="header-actions">
         <button
@@ -99,25 +248,91 @@ const alternatePath = locale === "en" ? frenchPath : englishPath;
           id="theme-toggle"
           aria-label={copy.darkTheme}
           aria-pressed="false">☾</button
-        ><a
-          class="language-switch"
-          href={alternatePath}
-          lang={locale === "en" ? "fr" : "en"}
-          aria-label={locale === "en"
-            ? "View the French version"
-            : "Voir la version anglaise"}>{locale === "en" ? "FR" : "EN"}</a
-        ><a class="contact-pill" href={`${homePath}#contact`}
+        >{
+          !noindex && (
+            <a
+              class="language-switch"
+              href={alternatePath}
+              lang={locale === "en" ? "fr" : "en"}
+              aria-label={
+                locale === "en"
+                  ? "View the French version"
+                  : "Voir la version anglaise"
+              }
+            >
+              {locale === "en" ? "FR" : "EN"}
+            </a>
+          )
+        }
+        <a class="contact-pill" href={`${homePath}#contact`}
           >{copy.contact} <span aria-hidden="true">↗</span></a
         >
       </div>
+      <details class="mobile-menu">
+        <summary
+          aria-label={locale === "en"
+            ? "Navigation menu"
+            : "Menu de navigation"}
+        >
+          <span class="burger-icon" aria-hidden="true"
+            ><i></i><i></i><i></i></span
+          >
+        </summary>
+        <nav
+          class="portfolio-mobile-nav portfolio-nav"
+          aria-label={copy.navLabel}
+        >
+          {
+            navigation.map((item) => (
+              <a
+                href={`${prefix}${item.path}`}
+                aria-current={active(item.path) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+          <a class="contact-pill" href={`${homePath}#contact`}
+            >{copy.contact} <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </details>
     </header>
-    <main id="main"><slot /></main>
+    <main id="main">
+      {
+        frenchPath !== "/" && (
+          <nav
+            class="portfolio-breadcrumb"
+            aria-label={locale === "en" ? "Breadcrumb" : "Fil d’Ariane"}
+          >
+            <a href={homePath}>{locale === "en" ? "Home" : "Accueil"}</a>
+            <span aria-hidden="true">/</span>
+            {section && frenchPath !== section.path ? (
+              <>
+                <a href={`${prefix}${section.path}`}>{section.label}</a>
+                <span aria-hidden="true">/</span>
+                <span aria-current="page">
+                  {title.replace(" — Pierre Pluton", "")}
+                </span>
+              </>
+            ) : (
+              <span aria-current="page">
+                {section?.label || title.replace(" — Pierre Pluton", "")}
+              </span>
+            )}
+          </nav>
+        )
+      }
+      <slot />
+    </main>
     <footer
       class="site-footer flex flex-wrap items-center justify-between gap-6"
     >
       <a href={homePath} class="footer-signature">Pierre Pluton</a><p>
         {copy.signature}
-      </p><div class="flex flex-wrap gap-6">
+      </p><a href={`${locale === "en" ? "/en" : ""}/formation/`}
+        >{locale === "en" ? "Training & learning" : "Formation & acquis"}</a
+      ><div class="flex flex-wrap gap-6">
         <a
           href="https://github.com/ppluton"
           target="_blank"
@@ -133,6 +348,25 @@ const alternatePath = locale === "en" ? frenchPath : englishPath;
     </footer>
     <script>
       import "../scripts/motion";
+      const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
+      menu?.addEventListener("click", (event) => {
+        if (event.target instanceof Element && event.target.closest("a"))
+          menu.open = false;
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menu?.open) {
+          menu.open = false;
+          menu.querySelector("summary")?.focus();
+        }
+      });
+      document.addEventListener("click", (event) => {
+        if (
+          menu?.open &&
+          event.target instanceof Node &&
+          !menu.contains(event.target)
+        )
+          menu.open = false;
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,68 @@
+---
+import type { Locale } from "../data/i18n";
+import Portrait from "./Portrait.astro";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+---
+
+<section
+  id="presentation"
+  class="home-introduction section-pad"
+  aria-labelledby="meet-pierre"
+>
+  <a
+    class="home-introduction-photo"
+    href={`${prefix}/parcours/`}
+    aria-label={en
+      ? "Explore Pierre’s background"
+      : "Découvrir le parcours de Pierre"}
+  >
+    <Portrait />
+    <span aria-hidden="true">↗</span>
+  </a>
+  <div>
+    <span class="small-label"
+      >{en ? "Behind the projects" : "Derrière les projets"}</span
+    >
+    <h2 id="meet-pierre">
+      {
+        en
+          ? "Pierre. People, products and code."
+          : "Pierre. Des usages, des produits et du code."
+      }
+    </h2>
+    <p>
+      {
+        en
+          ? "My background starts in political science and sociology. I learned to build with no-code, then developed a full-stack and AI engineering practice through real products."
+          : "Mon parcours commence en sciences politiques et en sociologie. J’ai appris à construire avec le no-code, puis développé une pratique du full stack et de l’ingénierie IA à travers des produits réels."
+      }
+    </p>
+    <p>
+      {
+        en
+          ? "Today, I’m CTO of Le Grenier du Motard and cofounder of Unifête. I enjoy understanding a need, shaping the interface and seeing the product used."
+          : "Aujourd’hui, je suis CTO du Grenier du Motard et cofondateur d’Unifête. J’aime comprendre un besoin, imaginer l’interface et voir le produit utilisé."
+      }
+    </p>
+    <a class="home-introduction-link" href={`${prefix}/parcours/`}
+      >{en ? "Explore my background" : "Découvrir mon parcours"}
+      <span aria-hidden="true">↗</span></a
+    >
+    <a class="qualification-badge" href={`${prefix}/formation/`}
+      ><span aria-hidden="true">✦</span><span
+        >AI Engineer · OpenClassrooms<small
+          >{
+            en
+              ? "Graduate · RNCP level 7 · Bac+5"
+              : "Diplômé · RNCP niveau 7 · Bac+5"
+          }</small
+        ></span
+      ></a
+    >
+  </div>
+</section>

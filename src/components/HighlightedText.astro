@@ -1,0 +1,20 @@
+---
+interface Props {
+  text: string;
+  highlight: string;
+}
+const { text, highlight } = Astro.props;
+const index = text.indexOf(highlight);
+---
+
+{
+  index < 0 ? (
+    text
+  ) : (
+    <>
+      {text.slice(0, index)}
+      <mark class="text-highlight">{highlight}</mark>
+      {text.slice(index + highlight.length)}
+    </>
+  )
+}

@@ -1,6 +1,10 @@
 ---
+import HomeIntroduction from "../components/HomeIntroduction.astro";
+import Portrait from "../components/Portrait.astro";
+import ProductPrinciples from "../components/ProductPrinciples.astro";
+import { selectedCases } from "../data/selected-cases";
 import Layout from "../layouts/Layout.astro";
-import { projects, aiProjects } from "../data/projects";
+import { projects } from "../data/projects";
 import { homeCopy, localizeProject, type Locale } from "../data/i18n";
 interface Props {
   locale?: Locale;
@@ -8,17 +12,18 @@ interface Props {
 const { locale = "fr" } = Astro.props;
 const copy = homeCopy[locale];
 const projectPath = locale === "en" ? "/en/projets" : "/projets";
-const localizedProjects = projects.map((project) =>
-  localizeProject(project, locale),
-);
-const localizedAiProjects = aiProjects.map((project) => ({
-  ...project,
-  ...project[locale],
-}));
+const localizedProjects = projects
+  .filter((project) => ["lgdm", "unifete"].includes(project.slug))
+  .map((project) => localizeProject(project, locale));
+const prefix = locale === "en" ? "/en" : "";
+const aiWord = locale === "en" ? "AI" : "IA";
+const fullStackWord = locale === "en" ? "full-stack" : "full stack";
+const firstLine = copy.heroTitleFirst.split(aiWord);
+const secondLine = copy.heroTitleSecond.split(fullStackWord);
 ---
 
 <Layout locale={locale} title={copy.title} description={copy.description}>
-  <section class="hero">
+  <section class="hero hero-with-portrait">
     <div class="hero-topline">
       <span>{copy.heroTopline}</span><span class="hero-location"
         >{copy.heroLocation}</span
@@ -26,14 +31,50 @@ const localizedAiProjects = aiProjects.map((project) => ({
     </div>
     <div class="hero-title-wrap">
       <h1>
-        <span class="line"><span>{copy.heroTitleFirst}</span></span><span
-          class="line"><span>{copy.heroTitleSecond}</span></span
+        <span class="line"
+          ><span
+            >{firstLine[0]}<mark class="hero-highlight">{aiWord}</mark>{
+              `${firstLine[1]} `
+            }</span
+          ></span
         >
-      </h1><div class="sculpture" aria-hidden="true">
+        <span class="line"
+          ><span
+            >{secondLine[0]}<mark class="hero-highlight">{fullStackWord}</mark>{
+              secondLine[1]
+            }</span
+          ></span
+        >
+      </h1>
+      <div class="sculpture" aria-hidden="true">
         <div class="orbit">
           <i></i><i></i><i></i><i></i><i></i><i></i><span></span>
         </div>
       </div>
+      <figure class="hero-person">
+        <a
+          href={`${prefix}/parcours/`}
+          aria-label={locale === "en"
+            ? "Meet Pierre Pluton"
+            : "Découvrir Pierre Pluton"}
+        >
+          <Portrait
+            loading="eager"
+            fetchpriority="high"
+            sizes="(max-width: 699px) 64px, 72px"
+          />
+        </a>
+        <figcaption>
+          <strong>Pierre Pluton</strong><a href={`${prefix}/parcours/`}
+            >{
+              locale === "en"
+                ? "Meet me & explore my background"
+                : "Ma présentation & mon parcours"
+            }
+            <span aria-hidden="true">↗</span></a
+          >
+        </figcaption>
+      </figure>
     </div>
     <div class="hero-bottom">
       <p>
@@ -58,6 +99,7 @@ const localizedAiProjects = aiProjects.map((project) => ({
       }
     </div>
   </section>
+  <HomeIntroduction locale={locale} />
   <section id="projets" class="work-section section-pad">
     <div class="section-heading">
       <h2 set:html={copy.workTitle} /><p set:html={copy.workDescription} />
@@ -116,81 +158,93 @@ const localizedAiProjects = aiProjects.map((project) => ({
       }
     </div>
   </section>
-  <section id="ia" class="ai-section ai-lab section-pad">
+  <p class="selection-link">
+    <a href={`${prefix}/realisations/`}
+      >{
+        locale === "en"
+          ? "Explore all selected work ↗"
+          : "Découvrir toutes les réalisations ↗"
+      }</a
+    >
+  </p>
+  <section id="ia" class="ai-section section-pad">
     <div class="section-heading">
-      <h2 set:html={copy.aiTitle} /><div>
-        <p>{copy.aiDescription}</p><p class="education">
-          {copy.education}<br />{copy.educationStatus}<br />{copy.educationEnd}
+      <h2>
+        {
+          locale === "en"
+            ? "AI, from data to application."
+            : "L’IA, des données à l’application."
+        }
+      </h2><p>
+        {
+          locale === "en"
+            ? "Two technical case studies: connecting a model to useful information, then serving and monitoring predictions."
+            : "Deux études de cas techniques : relier un modèle à des informations utiles, puis servir et suivre des prédictions."
+        }
+      </p>
+    </div>
+    <div class="ai-tools">
+      <div>
+        <span class="small-label"
+          >{
+            locale === "en" ? "AI assistance tools" : "Outils d’assistance IA"
+          }</span
+        ><p>
+          {
+            locale === "en"
+              ? "Supporting my work in design, development and verification."
+              : "Pour accompagner mon travail de conception, de développement et de vérification."
+          }
         </p>
       </div>
+      <div class="ai-tools-logos">
+        <span
+          ><img
+            src="/images/brands/openai.svg"
+            alt=""
+            width="36"
+            height="36"
+            loading="lazy"
+          /> GPT / OpenAI</span
+        ><span
+          ><img
+            src="/images/brands/claude.svg"
+            alt=""
+            width="36"
+            height="36"
+            loading="lazy"
+          /> Claude</span
+        >
+      </div>
     </div>
-    <a
-      class="ml-feature"
-      href="https://github.com/ppluton/Credit-Scoring-End-to-End-MLOps-Pipeline"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div class="ml-copy">
-        <span class="study-label">{copy.studyLabel}</span><h3
-          set:html={copy.studyTitle}
-        /><p>
-          {copy.studyDescription}
-        </p><span class="study-link">{copy.studyLink}</span>
-      </div>
-      <div class="pipeline" aria-label={copy.pipelineLabel}>
-        <div class="pipeline-step">
-          <span class="pipeline-symbol" aria-hidden="true">≋</span><div>
-            <strong>{copy.pipeline[0][0]}</strong><span
-              >{copy.pipeline[0][1]}</span
-            >
-          </div>
-        </div><div class="pipeline-step">
-          <span class="pipeline-symbol" aria-hidden="true">⨯</span><div>
-            <strong>{copy.pipeline[1][0]}</strong><span
-              >{copy.pipeline[1][1]}</span
-            >
-          </div>
-        </div><div class="pipeline-step">
-          <span class="pipeline-symbol pipeline-api" aria-hidden="true"
-            >API</span
-          ><div>
-            <strong>{copy.pipeline[2][0]}</strong><span
-              >{copy.pipeline[2][1]}</span
-            >
-          </div>
-        </div><div class="pipeline-step">
-          <span class="pipeline-symbol" aria-hidden="true">⌁</span><div>
-            <strong>{copy.pipeline[3][0]}</strong><span
-              >{copy.pipeline[3][1]}</span
-            >
-          </div>
-        </div>
-      </div>
-    </a>
     <div class="ai-projects-grid">
       {
-        localizedAiProjects.map((project) => (
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="ai-project"
-          >
-            <span class="ai-type">{project.type}</span>
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <span class="ai-stack">{project.stack}</span>
-            <span class="ai-project-link">
-              {copy.aiProjectLink} <span aria-hidden="true">↗</span>
-            </span>
+        selectedCases.map((c) => (
+          <a class="ai-project" href={`${prefix}/realisations/${c.slug}/`}>
+            <>
+              <span class="ai-type">{c.stack}</span>
+              <h3>{c.title[locale]}</h3>
+              <p>{c.intro[locale]}</p>
+              <span class="ai-project-link">
+                {locale === "en"
+                  ? "Read the case study"
+                  : "Lire l’étude de cas"}{" "}
+                ↗
+              </span>
+            </>
           </a>
         ))
       }
     </div>
     <p class="ai-footnote">
-      {copy.aiFootnote}
+      {
+        locale === "en"
+          ? "Projects developed within the OpenClassrooms programme, presented here through their technical choices and recorded results."
+          : "Projets réalisés dans le cadre du parcours OpenClassrooms, présentés ici à travers leurs choix techniques et leurs résultats enregistrés."
+      }
     </p>
   </section>
+  <ProductPrinciples locale={locale} />
   <section id="competences" class="skills-section section-pad">
     <div class="section-heading">
       <h2 set:html={copy.skillsTitle} /><p>{copy.skillsDescription}</p>
@@ -206,6 +260,29 @@ const localizedAiProjects = aiProjects.map((project) => ({
         ))
       }
     </div>
+  </section>
+  <section class="journey-entry skills-map-entry">
+    <div>
+      <h2>
+        {
+          locale === "en"
+            ? "Explore the skills map"
+            : "Explorer la carte des compétences"
+        }
+      </h2><p>
+        {
+          locale === "en"
+            ? "An interactive view of the links between AI, data, applications and MLOps, with projects behind each domain."
+            : "Une vue interactive des liens entre IA, données, applications et MLOps, avec les projets qui soutiennent chaque domaine."
+        }
+      </p>
+    </div><a href={`${prefix}/competences/`}
+      >{
+        locale === "en"
+          ? "Open the interactive graph ↗"
+          : "Ouvrir le graphe interactif ↗"
+      }</a
+    >
   </section>
   <section id="approche" class="approach section-pad">
     <div class="approach-intro">

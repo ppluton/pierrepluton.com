@@ -1,0 +1,165 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/formation.json";
+import "../styles/formation.css";
+import type { Locale } from "../data/i18n";
+interface Props {
+  project: (typeof data.projects)[number];
+  locale?: Locale;
+}
+const { project: p, locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+const domainTitle = (id: string) => {
+  const d = data.domains.find((d) => d.id === id)!;
+  return en ? d.title_en : d.title;
+};
+const skills = data.skills.filter((s) => s.projects.includes(p.n));
+---
+
+<Layout
+  locale={locale}
+  title={`${p.short_title[locale]} — Pierre Pluton`}
+  description={p.intro[locale]}
+>
+  <article class="journey oc-case">
+    <a href={prefix + "/competences/#carte"}
+      >{
+        t(
+          "Retour aux compétences et aux projets",
+          "Back to skills and projects",
+        )
+      }</a
+    ><p class="case-role">
+      OpenClassrooms · P{p.n} · {
+        p.status === "Validé"
+          ? t("Projet validé", "Validated project")
+          : t("Validation en attente", "Validation pending")
+      }
+    </p>{
+      p.n === 14 && (
+        <p class="journey-note">
+          {t(
+            "Validation confirmée par Pierre le 11 octobre 2026. Le retour détaillé du jury n’a pas été relu.",
+            "Validation confirmed by Pierre on 11 October 2026. Detailed assessor feedback has not been rechecked.",
+          )}
+        </p>
+      )
+    }<h1>{p.short_title[locale]}</h1><p class="case-lead">
+      {p.intro[locale]}
+    </p><div
+      class="case-pipeline"
+      aria-label={t("Les étapes du projet", "Project stages")}
+    >
+      {
+        p.steps[locale].map((step, i) => (
+          <>
+            {i > 0 && <b aria-hidden="true">→</b>}
+            <span>{step}</span>
+          </>
+        ))
+      }
+    </div>
+    <div class="oc-case-grid">
+      <div>
+        <section>
+          <h2>{t("Le travail réalisé", "The work")}</h2><p>{p.mission}</p><ul>
+            {p.work.slice(0, 2).map((item) => <li>{item}</li>)}
+          </ul>
+        </section><section>
+          <h2>{t("Les résultats disponibles", "Available results")}</h2><ul>
+            {p.results.slice(0, 2).map((item) => <li>{item}</li>)}
+          </ul>{
+            p.results.length > 2 && (
+              <details>
+                <>
+                  <summary>
+                    {t(
+                      "Autres résultats et observations",
+                      "Additional results and observations",
+                    )}
+                  </summary>
+                  <ul>
+                    {p.results.slice(2).map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              </details>
+            )
+          }<p class="journey-note">
+            {
+              t(
+                "Résultats et retours conservés dans l’audit du 9 octobre 2026. Ils n’ont pas été reproduits lors de la préparation de ce portfolio.",
+                "Results and feedback preserved in the 9 October 2026 audit. They were not reproduced while preparing this portfolio.",
+              )
+            }
+          </p>
+        </section><section>
+          <h2>{t("Ce que j’en retiens", "What I take away")}</h2><p>
+            {p.reflection}
+          </p><details>
+            <summary
+              >{
+                t(
+                  "Limites et pistes d’amélioration",
+                  "Limitations and next steps",
+                )
+              }</summary
+            ><ul>{p.limits.map((item) => <li>{item}</li>)}</ul>
+          </details>
+        </section>
+      </div>
+      <aside>
+        <h2>{t("Compétences mobilisées", "Skills used")}</h2><div
+          class="oc-domain-labels"
+        >
+          {p.domains.map((id) => <span>{domainTitle(id)}</span>)}
+        </div><ul>{skills.map((s) => <li>{s.name}</li>)}</ul><h2>
+          {t("Code et références", "Code and references")}
+        </h2><div class="case-proof-links">
+          {
+            p.repo_url && (
+              <a href={p.repo_url} target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+              </a>
+            )
+          }
+        </div><details>
+          <summary
+            >{
+              t("Sources techniques consultées", "Inspected technical sources")
+            }</summary
+          >{
+            p.source_links.length ? (
+              <ul>
+                {p.source_links.map((s) => (
+                  <li>
+                    <a href={s.url}>{s.path}</a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>
+                {t(
+                  "Pas de dépôt de livrable associé avec certitude : la preuve disponible est le retour OC.",
+                  "No delivery repository confidently matched: available evidence comes from OC feedback.",
+                )}
+              </p>
+            )
+          }
+        </details>{
+          en && (
+            <p class="journey-note">
+              Technical evidence, recorded results and reflection are retained
+              in their original French wording.
+            </p>
+          )
+        }
+      </aside>
+    </div><a class="return-formation" href={prefix + "/formation/bilan/"}
+      >{t("Lire le bilan du parcours", "Read the learning report")}</a
+    >
+  </article></Layout
+>

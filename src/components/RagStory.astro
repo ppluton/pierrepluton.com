@@ -1,0 +1,306 @@
+---
+import HighlightedText from "./HighlightedText.astro";
+import type { Locale } from "../data/i18n";
+import { selectedCases } from "../data/selected-cases";
+import evidence from "../data/formation.json";
+import "../styles/rag-story.css";
+interface Props {
+  study: (typeof selectedCases)[number];
+  locale: Locale;
+}
+const { study, locale } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+const project = evidence.projects.find((p) => p.n === 7)!;
+const steps = [
+  {
+    title: t("Comprendre la demande", "Understand the request"),
+    tool: "React → FastAPI",
+    text: t(
+      "L’interface transmet la question et la session. Le routage distingue une conversation d’une recherche dans le corpus culturel.",
+      "The interface sends the question and session. Routing distinguishes a conversation from a cultural corpus search.",
+    ),
+  },
+  {
+    title: t("Retrouver les événements", "Retrieve events"),
+    tool: "Mistral embeddings → FAISS",
+    text: t(
+      "La demande est représentée par un vecteur pour retrouver les documents proches dans l’index. La pertinence de cette recherche conditionne le contexte disponible.",
+      "The request is represented as a vector to retrieve similar documents from the index. Retrieval relevance determines the available context.",
+    ),
+  },
+  {
+    title: t("Construire la réponse", "Build the answer"),
+    tool: "LangChain / LCEL → Mistral",
+    text: t(
+      "Le modèle reçoit la question, le contexte récupéré et l’historique. Le prompt demande une réponse fondée sur les événements fournis et leurs sources.",
+      "The model receives the question, retrieved context and history. The prompt asks for an answer grounded in the supplied events and their sources.",
+    ),
+  },
+  {
+    title: t("Conserver le fil", "Keep the context"),
+    tool: "PostgreSQL",
+    text: t(
+      "Les échanges sont reliés à une session et persistés. L’évaluation enregistrée examine ensuite la latence et la couverture de mots-clés des réponses.",
+      "Exchanges are linked to a session and persisted. The recorded evaluation then examines latency and keyword coverage in the answers.",
+    ),
+  },
+];
+---
+
+<article class="rag-story">
+  <a class="rag-back" href={`${prefix}/realisations/`}
+    >{t("← Toutes les réalisations", "← All work")}</a
+  >
+  <header class="rag-hero">
+    <div class="rag-intro">
+      <p class="rag-context">
+        {
+          t(
+            "Assistant culturel · Étude de cas",
+            "Cultural assistant · Case study",
+          )
+        }
+      </p>
+      <h1>
+        <HighlightedText
+          text={study.title[locale]}
+          highlight={t("événement", "events")}
+        />
+      </h1>
+      <p class="rag-lead">{study.intro[locale]}</p>
+      <p class="rag-role">
+        {
+          t(
+            "Mon rôle : pipeline IA, API, interface et évaluation.",
+            "My role: AI pipeline, API, interface and evaluation.",
+          )
+        }
+      </p>
+      <a class="rag-primary" href="#resultats"
+        >{t("Voir les résultats", "View results")}
+        <span aria-hidden="true">↘</span></a
+      >
+    </div>
+    <section class="rag-architecture" aria-labelledby="architecture-title">
+      <div class="rag-architecture-heading">
+        <h2 id="architecture-title">
+          {t("De la demande à la réponse", "From request to answer")}
+        </h2>
+        <p>
+          {
+            t(
+              "Architecture du projet · Explore chaque étape",
+              "Project architecture · Explore each step",
+            )
+          }
+        </p>
+      </div>
+      <blockquote class="rag-example">
+        <p>
+          {
+            t(
+              "« Je cherche une exposition d’art contemporain à Marseille. »",
+              "“I’m looking for a contemporary art exhibition in Marseille.”",
+            )
+          }
+        </p>
+        <cite
+          >{
+            t(
+              "Question de l’évaluation enregistrée",
+              "Question from the recorded evaluation (translated)",
+            )
+          }</cite
+        >
+      </blockquote>
+      <div class="rag-steps">
+        {
+          steps.map((step, index) => (
+            <details class="rag-step" name="rag-pipeline" open={index === 0}>
+              <summary>
+                <span class="rag-step-number" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <span class="rag-step-label">
+                  <>
+                    <strong>{step.title}</strong>
+                    <small>{step.tool}</small>
+                  </>
+                </span>
+                <span class="rag-step-toggle" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <div class="rag-step-content">
+                <p>{step.text}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+      <p class="rag-architecture-note">
+        {
+          t(
+            "Schéma explicatif du pipeline, sans exécution du modèle.",
+            "An explanatory pipeline diagram, without running the model.",
+          )
+        }
+      </p>
+    </section>
+  </header>
+
+  <nav
+    class="rag-nav"
+    aria-label={t("Dans cette étude de cas", "In this case study")}
+  >
+    <a href="#conception">{t("Conception", "Design")}</a>
+    <a href="#resultats">{t("Résultats & limites", "Results & limitations")}</a>
+    <a href="#preuves">{t("Code & preuves", "Code & evidence")}</a>
+  </nav>
+
+  <section
+    id="conception"
+    class="rag-section rag-design"
+    aria-labelledby="design-title"
+  >
+    <div>
+      <h2 id="design-title">
+        {
+          t(
+            "Relier une intention à des données réelles.",
+            "Connecting intent to real data.",
+          )
+        }
+      </h2>
+      <p class="rag-section-lead">{study.need[locale]}</p>
+      <p>{study.role[locale]}</p>
+    </div>
+    <div class="rag-decisions">
+      <h3>
+        {
+          t(
+            "Trois choix qui structurent le produit",
+            "Three choices shaping the product",
+          )
+        }
+      </h3>
+      <ul>{study.choices[locale].map((choice) => <li>{choice}</li>)}</ul>
+      <p class="rag-stack">Python / FastAPI / React / PostgreSQL / FAISS</p>
+    </div>
+  </section>
+
+  <section
+    id="resultats"
+    class="rag-section rag-results"
+    aria-labelledby="results-title"
+  >
+    <div class="rag-result-reading">
+      <h2 id="results-title">
+        {t("Ce qui a été mesuré.", "What was measured.")}
+      </h2>
+      <p class="rag-measure">
+        <strong>{t("2,412", "2.412")}</strong><span
+          >{t("secondes de latence moyenne", "seconds mean latency")}</span
+        >
+      </p>
+      <p class="rag-sample">
+        {
+          t(
+            "12 questions enregistrées : 9 requêtes RAG et 3 conversations.",
+            "12 recorded questions: 9 RAG requests and 3 conversations.",
+          )
+        }
+      </p>
+      <p class="rag-result-source">
+        {
+          t(
+            "Évaluation sauvegardée du 16 janvier 2026, examinée dans l’audit du 9 octobre. Mesure non reproduite pour ce portfolio.",
+            "Saved evaluation from 16 January 2026, inspected in the 9 October audit. Measurement not reproduced for this portfolio.",
+          )
+        }
+      </p>
+    </div>
+    <div class="rag-limitations">
+      <h3>{t("Ce que j’en retiens", "What I learned")}</h3>
+      <p>
+        {
+          t(
+            "Ce petit échantillon permet d’examiner le pipeline. Il ne démontre pas une qualité générale des réponses.",
+            "This small sample helps inspect the pipeline. It does not establish general answer quality.",
+          )
+        }
+      </p>
+      <p>{study.limits[locale]}</p>
+      <p class="rag-next">
+        {
+          t(
+            "La prochaine étape : évaluer séparément la recherche, la fidélité aux sources et le respect des contraintes temporelles.",
+            "Next: separately evaluate retrieval, source faithfulness and adherence to temporal constraints.",
+          )
+        }
+      </p>
+    </div>
+  </section>
+
+  <section
+    id="preuves"
+    class="rag-section rag-evidence"
+    aria-labelledby="evidence-title"
+  >
+    <div>
+      <h2 id="evidence-title">
+        {
+          t(
+            "Explorer le travail derrière le projet.",
+            "Explore the work behind the project.",
+          )
+        }
+      </h2>
+      <p>
+        {
+          t(
+            "Projet réalisé dans le parcours AI Engineer d’OpenClassrooms. Le code et le dossier détaillé permettent de retrouver les choix, les fichiers évalués et les limites de cette étude.",
+            "Built during the OpenClassrooms AI Engineer programme. The code and detailed report document the choices, evaluated files and limitations of this study.",
+          )
+        }
+      </p>
+    </div>
+    <div class="rag-evidence-links">
+      <a href={project.repo_url} target="_blank" rel="noopener noreferrer"
+        ><strong>{t("Le dépôt GitHub", "GitHub repository")}</strong><span
+          >{
+            t("Pipeline, API et interface", "Pipeline, API and interface")
+          }</span
+        ><b aria-hidden="true">↗</b></a
+      >
+      <a href={`${prefix}/formation/p7/`}
+        ><strong>{t("Le dossier technique", "Technical report")}</strong><span
+          >{
+            t(
+              "Évaluation et sources examinées",
+              "Evaluation and inspected sources",
+            )
+          }</span
+        ><b aria-hidden="true">↗</b></a
+      >
+    </div>
+  </section>
+
+  <nav
+    class="rag-related"
+    aria-label={t("Continuer la découverte", "Explore further")}
+  >
+    <a href={`${prefix}/competences/#carte`}
+      >{t("Explorer mes compétences", "Explore my skills")}</a
+    >
+    <a href={`${prefix}/parcours/`}
+      >{t("Découvrir mon parcours", "Discover my background")}</a
+    >
+    <a href={`${prefix}/realisations/scoring-mlops/`}
+      >{t("Étude suivante : scoring & MLOps", "Next case: scoring & MLOps")}
+      <span aria-hidden="true">→</span></a
+    >
+  </nav>
+</article>

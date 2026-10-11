@@ -1,0 +1,110 @@
+---
+import HighlightedText from "./HighlightedText.astro";
+import Layout from "../layouts/Layout.astro";
+import CaseVisual from "./CaseVisual.astro";
+import { projects } from "../data/projects";
+import { selectedCases } from "../data/selected-cases";
+import { localizeProject, type Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+---
+
+<Layout
+  locale={locale}
+  title={t("Réalisations — Pierre Pluton", "Selected work — Pierre Pluton")}
+>
+  <article class="journey">
+    <h1>
+      <HighlightedText
+        text={t(
+          "Des produits construits. Des choix expliqués.",
+          "Products built. Decisions explained.",
+        )}
+        highlight={t("produits", "Products")}
+      />
+    </h1><p class="intro">
+      {
+        t(
+          "Une sélection de produits professionnels et personnels, suivie de deux études de cas d’ingénierie IA. Chaque réalisation précise mon rôle et le contexte du travail.",
+          "A selection of professional and personal products, followed by two AI engineering case studies. Each project explains my role and the context of the work.",
+        )
+      }
+    </p>
+    <section>
+      <h2>{t("Web, mobile et produit", "Web, mobile and product")}</h2><div
+        class="project-grid"
+      >
+        {
+          projects.map((raw) => {
+            const p = localizeProject(raw, locale);
+            return (
+              <article class={`project project-${p.slug}`}>
+                <>
+                  <a
+                    class="project-visual"
+                    href={`${prefix}/projets/${p.slug}/`}
+                    style={`--project-color:${p.color}`}
+                  >
+                    <div class="project-screen">
+                      <img
+                        src={p.image}
+                        alt={p.alt}
+                        loading="lazy"
+                        width="1280"
+                        height="720"
+                      />
+                    </div>
+                  </a>
+                  <div class="project-meta">
+                    <h3>
+                      <a href={`${prefix}/projets/${p.slug}/`}>{p.name}</a>
+                    </h3>
+                  </div>
+                  <p class="project-role">{p.role}</p>
+                  <p>{p.description}</p>
+                </>
+              </article>
+            );
+          })
+        }
+      </div>
+    </section>
+    <section>
+      <h2>
+        {
+          t(
+            "Ingénierie IA : deux études de cas",
+            "AI engineering: two case studies",
+          )
+        }
+      </h2><div class="journey-projects">
+        {
+          selectedCases.map((c) => (
+            <a href={`${prefix}/realisations/${c.slug}/`}>
+              <CaseVisual project={c.project} locale={locale} />
+              <>
+                <strong>{c.title[locale]}</strong>
+                <span>{c.intro[locale]}</span>
+              </>
+            </a>
+          ))
+        }
+      </div><p class="journey-note">
+        {
+          t(
+            "Ces études de cas ont été réalisées dans le cadre du parcours OpenClassrooms. Le dossier pédagogique complet reste consultable dans Formation & acquis.",
+            "These case studies were developed within the OpenClassrooms programme. The complete learning dossier is available under Training & learning.",
+          )
+        }
+      </p>
+    </section>
+    <a href={`${prefix}/#contact`}
+      >{t("Parlons de votre projet ↗", "Let’s discuss your project ↗")}</a
+    >
+  </article></Layout
+>

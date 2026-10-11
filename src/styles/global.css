@@ -31,7 +31,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 122px;
 }
 body {
   margin: 0;
@@ -73,9 +73,13 @@ button {
 .site-header {
   height: 106px;
   padding: 0 5%;
-  position: relative;
-  z-index: 20;
-  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--header);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
 }
 .wordmark {
   font-size: 24px;
@@ -203,8 +207,9 @@ button {
 .line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.07em;
-  margin-bottom: -0.04em;
+  /* Keep descenders inside the reveal mask without changing the line spacing. */
+  padding-bottom: 0.2em;
+  margin-bottom: -0.17em;
 }
 .line > span {
   display: inline-block;

@@ -1,0 +1,56 @@
+﻿domaine,competence,projets,preuves_par_projet,portee
+Cadrage & produit,Identifier et formaliser un besoin,"P1,P9,P13",P1:J; P9:J; P13:J,Besoins et contexte confirmés par les bilans OC.
+Cadrage & produit,Étudier la faisabilité technique,"P9,P13",P9:J; P13:J+C,Faisabilité P9 validée ; note d’extension vidéo/MCP P13.
+Cadrage & produit,Prioriser des user stories,P9,P9:J,Priorisation selon les intérêts du client dans l’évaluation P9.
+Cadrage & produit,"Planifier ressources, budget et sprints","P9,P13",P9:J; P13:J+C,"Planning P9 ; estimations de l’étude P13, pas coûts réels."
+Cadrage & produit,"Analyser risques, éthique et RGPD","P9,P13,P14",P9:J; P13:J+C; P14:C,"Cadrage validé P9 ; limites, droits et garde-fous documentés P13/P14."
+Données & pipelines,Explorer et nettoyer des données,"P3,P4,P6,P10",P3:J; P4:J+C; P6:J+C; P10:J+C,EDA et préparation ; code public absent pour P3.
+Données & pipelines,Encoder et transformer les variables,"P3,P4,P6",P3:J; P4:J+C; P6:J+C,"Pipelines, encodage, mise à l’échelle et features."
+Données & pipelines,Construire des features métier,"P4,P6",P4:J+C; P6:J+C,Attrition et scoring ; validation explicite P6.
+Données & pipelines,Collecter via API et scraping,P12,P12:J+C,Quatre extracteurs actifs du pipeline multimodal.
+Données & pipelines,Orchestrer un ETL avec Airflow,P12,P12:J+C,DAG de neuf tâches et démonstration mentionnée par le jury.
+Données & pipelines,"Normaliser, valider et conserver la provenance",P12,P12:C,Schéma Pydantic et documents de qualité ; vigilance sur les labels Guardian.
+Données & pipelines,Préparer un corpus FR/EN et des splits,P14,P14:C,4 700 paires QA ; absence de labels de triage explicitée.
+ML supervisé,Comparer des modèles de régression,P3,P3:J,"Régression linéaire, bagging, boosting : évaluation OC."
+ML supervisé,Comparer des classifieurs,"P4,P6",P4:J+C+R; P6:J+C+R,LR/SVM/LGBM/KNN/dummy et scoring crédit.
+ML supervisé,Utiliser validation croisée et GridSearchCV,"P3,P4,P6",P3:J; P4:J+C; P6:J+C,Contrôle de sélection ; P3 décrit par le jury.
+ML supervisé,"Interpréter précision, rappel et F-score","P4,P10",P4:J+C+R; P10:J+C+R,Classification asymétrique et F5 ; limites du protocole P10.
+ML supervisé,Choisir un seuil selon un coût métier,P6,P6:C+R,FN ×10 et FP ×1 ; versions de seuil à réconcilier.
+ML supervisé,Expliquer les prédictions avec SHAP,P4,P4:C,Dashboard et notebook ; importance non causale.
+Vision & semi-supervisé,Exploiter un modèle de segmentation préentraîné,P2,P2:J+C,Hugging Face ; pas d’entraînement du modèle dans P2.
+Vision & semi-supervisé,Décoder les masques et calculer l’IoU,P2,P2:C+R,Masques base64 et conventions de classes/fond.
+Vision & semi-supervisé,Extraire des embeddings et transférer un backbone,P10,P10:J+C,ResNet/ImageNet et comparaison RadImageNet.
+Vision & semi-supervisé,Comparer clustering et propagation de labels,P10,P10:J+C+R,Approche transductive explicitée ; test non indépendant.
+Vision & semi-supervisé,Appliquer le self-training,P10,P10:C+R,Ensemble de features inclus dans le protocole semi-supervisé.
+Vision & semi-supervisé,Prétraiter des IRM,P10,P10:J+C,"Otsu, Z-score, CLAHE et transformations d’images."
+Vision & semi-supervisé,Explorer la reconnaissance de positions en vidéo,P13,P13:C+R,Démonstrateur synthétique ; qualité générale non prouvée.
+Apprentissage par renforcement,"Modéliser états, actions et récompense",P11,P11:J+C,LunarLander et exercices d’introduction.
+Apprentissage par renforcement,Entraîner et comparer PPO/DQN,P11,P11:J+C+R,Notebooks MISSION et sorties enregistrées.
+Apprentissage par renforcement,Ajuster les hyperparamètres RL,P11,P11:C+R,"learning_rate, gamma, n_steps ; essais documentés."
+Apprentissage par renforcement,Évaluer une politique en simulation,P11,P11:C+R,100 épisodes ; pas de preuve multi-seed ou hors simulation.
+"RAG, agents & LLM",Indexer et rechercher par embeddings,"P7,P13",P7:C; P13:C,FAISS pour les événements ; Milvus pour le contexte d’échecs.
+"RAG, agents & LLM",Construire un RAG avec routage,P7,P7:J+C,Pipeline LangChain/LCEL et routage conversation/recherche.
+"RAG, agents & LLM",Évaluer les réponses d’un RAG,P7,P7:C+R,"12 questions ; mots-clés et latence, RAGAS non renseigné."
+"RAG, agents & LLM",Orchestrer des outils avec LangGraph,P13,P13:J+C,Graphe déterminé Lichess/Stockfish/contexte/vidéos.
+"RAG, agents & LLM",Adapter un LLM par SFT/LoRA,P14,P14:C+R,SFT v39 ; résultat QA distinct du triage.
+"RAG, agents & LLM",Comparer une étape DPO,P14,P14:C+R,DPO v41 non retenu ; NLL et revue qualitative.
+"RAG, agents & LLM","Analyser sorties, hallucinations et contrat JSON",P14,P14:C+R,Réserve 18 scénarios et 0/18 JSON conformes du SFT brut.
+"RAG, agents & LLM",Concevoir une extension MCP,P13,P13:C,Étude de conception uniquement ; service MCP non livré.
+API & applications,Consommer une API d’inférence,P2,P2:J+C,Appel HTTP Hugging Face ; timeout/retry à améliorer.
+API & applications,Exposer un modèle via FastAPI,"P5,P7,P8,P13,P14",P5:J+C; P7:J+C; P8:J+C; P13:J+C; P14:C,Sources de service ; état de fonctionnement actuel non testé.
+API & applications,Définir des contrats et schémas de données,"P5,P12,P13,P14",P5:C; P12:C; P13:C; P14:C,"Pydantic, réponses API et validation des structures."
+API & applications,Modéliser et utiliser SQL/SQLAlchemy,P5,P5:J+C,"Table employees, PostgreSQL/SQLite."
+API & applications,"Intégrer SQL, MongoDB et Milvus","P7,P12,P13",P7:J+C; P12:J+C; P13:J+C,"Sessions SQL, stockage ETL, contexte vectoriel et catalogue."
+API & applications,Construire des interfaces de démonstration,"P5,P7,P8,P11,P13",P5:C; P7:C; P8:C; P11:C; P13:C,Streamlit/React/Angular ; adoption non mesurée.
+API & applications,Prévoir des replis de services,P13,P13:C,Stockfish et catalogue local avec avertissements.
+MLOps & exploitation,Tracer les expériences avec MLflow,P6,P6:J+C,Tracking d’essais ; registry à mieux mettre en évidence.
+MLOps & exploitation,Conteneuriser et décrire les environnements,"P5,P8,P12,P13",P5:J+C; P8:J+C; P12:J+C; P13:J+C,Docker et configurations ; aucun conteneur lancé dans l’audit.
+MLOps & exploitation,Automatiser tests et déploiement CI/CD,"P5,P7,P8,P14",P5:J+C; P7:J+C; P8:J+C; P14:C,Workflows et preuves historiques ; pas de nouveau run.
+MLOps & exploitation,Journaliser et surveiller le data drift,P8,P8:J+C,"Logging, monitoring et analyse de dérive."
+MLOps & exploitation,Mesurer une optimisation d’inférence ONNX,P8,P8:C+R,"Microbenchmark local ≈57,7× ; pas latence HTTP."
+MLOps & exploitation,Versionner code et artefacts,"P4,P6,P8,P14",P4:C; P6:C; P8:C; P14:C,"Liens à préciser entre modèle, données, seuil et run."
+Communication & recul,Présenter simplement une architecture,"P7,P12,P13",P7:J; P12:J; P13:J,Retours récurrents sur la clarté des explications.
+Communication & recul,Justifier le choix d’un modèle,"P3,P4,P6,P10,P11",P3:J; P4:J+C; P6:J+C; P10:J+C; P11:J+C,"Comparaison, contraintes et métriques."
+Communication & recul,Documenter un projet technique,"P1,P2,P5,P7,P10,P13",P1:J; P2:J+C; P5:J+C; P7:J+C; P10:J+C; P13:J+C,Documentation appréciée ; répétitions à réduire.
+Communication & recul,Expliquer aux interlocuteurs métier,"P3,P8,P9",P3:J; P8:J; P9:J,Forces en P8/P9 ; recommandation de vulgarisation en P3.
+Communication & recul,Déclarer les limites et résultats négatifs,"P10,P13,P14",P10:C; P13:C; P14:C,"Protocole IRM, démonstrateur vision et réserve LLM."

@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/formation.json";
+import "../styles/formation.css";
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+---
+
+<Layout
+  locale={locale}
+  title={t(
+    "Bilan du parcours AI Engineer — Pierre Pluton",
+    "AI Engineer learning report — Pierre Pluton",
+  )}
+>
+  <article class="journey">
+    <a href={prefix + "/formation/"}
+      >{t("Retour aux compétences", "Back to skills")}</a
+    ><h1>
+      {
+        t(
+          "Du modèle au produit : mon parcours AI Engineer.",
+          "From model to product: my AI Engineer learning path.",
+        )
+      }
+    </h1><p class="intro">
+      {
+        t(
+          "De juillet 2025 à octobre 2026, j’ai travaillé sur quatorze projets. Ce bilan relie les méthodes apprises aux réalisations, aux résultats et aux limites que je dois encore approfondir.",
+          "From July 2025 to October 2026, I worked on fourteen projects. This report connects the methods I learned with my work, results and areas that need further development.",
+        )
+      }
+    </p>
+    <section>
+      <h2>
+        {t("Une progression en trois temps", "Three stages of progress")}
+      </h2><ol class="journey-timeline">
+        <li>
+          <h3>
+            {
+              t(
+                "Comprendre les données et comparer les modèles",
+                "Understand data and compare models",
+              )
+            }
+          </h3><p>
+            {
+              t(
+                "Des API préentraînées à la régression et à la classification : préparer les données, choisir une métrique et expliquer les prédictions.",
+                "From pretrained APIs to regression and classification: preparing data, choosing metrics and explaining predictions.",
+              )
+            }
+          </p>
+        </li><li>
+          <h3>
+            {
+              t(
+                "Relier les composants d’une application",
+                "Connect application components",
+              )
+            }
+          </h3><p>
+            {
+              t(
+                "API, RAG, stockage et MLOps : apprendre à relier le modèle au service, suivre ses versions et ses expériences, puis analyser son comportement.",
+                "APIs, RAG, storage and MLOps: connecting models to services, tracking versions and experiments, and examining behaviour.",
+              )
+            }
+          </p>
+        </li><li>
+          <h3>
+            {
+              t(
+                "Expérimenter et savoir conclure",
+                "Experiment and draw conclusions",
+              )
+            }
+          </h3><p>
+            {
+              t(
+                "Vision, RL, données multimodales, orchestration et adaptation de LLM. Les résultats négatifs et les limites de protocole font partie du travail d’ingénierie.",
+                "Vision, RL, multimodal data, orchestration and LLM adaptation. Negative results and protocol limitations are part of engineering work.",
+              )
+            }
+          </p>
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h2>
+        {t("Les réalisations, une par une", "The projects, one by one")}
+      </h2><ul class="oc-report-index">
+        {
+          data.projects.map((p) => (
+            <li>
+              <a href={`${prefix}/formation/p${p.n}/`}>
+                P{p.n} — {p.short_title[locale]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section>
+      <h2>{t("Ce que je veux mieux faire", "What I want to improve")}</h2><p>
+        {
+          t(
+            "Renforcer les évaluations indépendantes, la fidélité des réponses RAG et la cohérence des versions servies. Documenter plus clairement les coûts, l’exploitation et ce que je peux refaire seul. La compétence d’authentification du P5 reste non validée dans le retour OC.",
+            "Strengthen independent evaluations, RAG response faithfulness and served-version consistency. Better document costs, operations and what I can reproduce independently. The P5 authentication competency remains unvalidated in OC feedback.",
+          )
+        }
+      </p><p>
+        {
+          t(
+            "Mon expérience full stack me permet de penser l’application entière. La formation me pousse à rendre aussi explicites les choix de données, de modèles et de protocoles, avec leurs limites.",
+            "My full-stack experience helps me consider the whole application. Training pushes me to make data, model and protocol choices explicit, including their limitations.",
+          )
+        }
+      </p>
+    </section>
+    <section>
+      <h2>{t("La méthode et les preuves", "Method and evidence")}</h2><p>
+        {
+          t(
+            "Le bilan détaillé s’appuie sur les retours OC et les fichiers publics consultés dans les dépôts. Un résultat enregistré, un avis du jury et un fonctionnement actuel sont des preuves différentes. Aucun projet n’a été exécuté pendant cet audit.",
+            "The detailed report uses OC feedback and inspected public repository files. A recorded result, assessor feedback and current functioning are different evidence. No project was run during this audit.",
+          )
+        }
+      </p><p>
+        {
+          t(
+            "Quatorze projets validés. Le statut du P14 a été actualisé sur confirmation de Pierre le 11 octobre 2026 ; les preuves techniques restent celles de l’audit du 9 octobre. La délivrance du titre RNCP niveau 7 a été confirmée par Pierre le 11 octobre 2026.",
+            "Fourteen validated projects. P14 status was updated following Pierre’s confirmation on 11 October 2026; technical evidence remains from the 9 October audit. Pierre confirmed the award of the RNCP level 7 certification on 11 October 2026.",
+          )
+        }
+      </p>
+    </section>
+  </article></Layout
+>

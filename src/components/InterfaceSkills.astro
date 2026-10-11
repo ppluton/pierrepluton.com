@@ -1,0 +1,109 @@
+---
+import type { Locale } from "../data/i18n";
+import { projects } from "../data/projects";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+const skills = [
+  {
+    title: t("Design d’interface", "Interface design"),
+    text: t(
+      "Passer du besoin à un parcours lisible : architecture des écrans, hiérarchie visuelle et cohérence des interactions.",
+      "Turn a need into a clear journey: screen structure, visual hierarchy and consistent interactions.",
+    ),
+    tools: "Design produit · UI · responsive",
+    projects: [
+      { slug: "unifete", name: "Unifête" },
+      { slug: "provoc", name: "Prov’Oc" },
+      { slug: "maxxbud", name: "MaxxBud" },
+    ],
+  },
+  {
+    title: t("Front-end mobile first", "Mobile-first frontend"),
+    text: t(
+      "Concevoir d’abord sur petit écran : contenu prioritaire, lisibilité, navigation tactile et formulaires. Adapter ensuite les compositions aux écrans plus larges.",
+      "Design for small screens first: priority content, readability, touch navigation and forms. Then adapt layouts to larger screens.",
+    ),
+    tools: "React · Next.js · TypeScript · accessibilité",
+    projects: [
+      { slug: "unifete", name: "Unifête" },
+      { slug: "lgdm", name: "Le Grenier du Motard" },
+    ],
+  },
+  {
+    title: t("Applications mobiles", "Mobile applications"),
+    text: t(
+      "Développer des parcours iOS et Android avec React Native et Expo, en gardant la cohérence entre le produit web et les applications.",
+      "Build iOS and Android journeys with React Native and Expo, keeping web and app experiences consistent.",
+    ),
+    tools: "React Native · Expo · iOS · Android",
+    projects: [
+      { slug: "lgdm", name: "Le Grenier du Motard" },
+      { slug: "motquete", name: "MotQuête" },
+    ],
+  },
+];
+---
+
+<section id="interfaces" class="interface-skills">
+  <h2>
+    {
+      t(
+        "Front-end, design et usages mobiles",
+        "Frontend, design and mobile use",
+      )
+    }
+  </h2><p>
+    {
+      t(
+        "Une pratique développée dans mes produits et mes missions, en complément de mon parcours d’ingénierie IA.",
+        "A practice developed through my products and client work, alongside AI engineering.",
+      )
+    }
+  </p>
+  <div class="interface-skills-grid">
+    {
+      skills.map((s, index) => (
+        <article>
+          <a
+            class="interface-proof"
+            href={`${prefix}/projets/${s.projects[index > 0 ? 1 : 0].slug}/`}
+          >
+            <img
+              src={
+                projects.find(
+                  (p) => p.slug === s.projects[index > 0 ? 1 : 0].slug,
+                )!.image
+              }
+              alt={t(
+                `Aperçu du site web ${s.projects[index > 0 ? 1 : 0].name}`,
+                `${s.projects[index > 0 ? 1 : 0].name} website preview`,
+              )}
+              width="1280"
+              height="720"
+              loading="lazy"
+            />
+            <span>
+              {s.projects[index > 0 ? 1 : 0].name} ·{" "}
+              {t("Aperçu web", "Web preview")} <b aria-hidden="true">↗</b>
+            </span>
+          </a>
+          <>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+            <small>{s.tools}</small>
+            <nav aria-label={`${t("Exemples", "Examples")} : ${s.title}`}>
+              {s.projects.map((p) => (
+                <a href={`${prefix}/projets/${p.slug}/`}>{p.name} ↗</a>
+              ))}
+            </nav>
+          </>
+        </article>
+      ))
+    }
+  </div>
+</section>

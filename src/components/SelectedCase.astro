@@ -1,0 +1,103 @@
+---
+import HighlightedText from "./HighlightedText.astro";
+import Layout from "../layouts/Layout.astro";
+import { selectedCases } from "../data/selected-cases";
+import evidence from "../data/formation.json";
+import type { Locale } from "../data/i18n";
+import "../styles/formation.css";
+import RagStory from "./RagStory.astro";
+import CaseVisual from "./CaseVisual.astro";
+interface Props {
+  study: (typeof selectedCases)[number];
+  locale?: Locale;
+}
+const { study: c, locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const p = evidence.projects.find((p) => p.n === c.project)!;
+const t = (fr: string, english: string) => (en ? english : fr);
+---
+
+<Layout
+  locale={locale}
+  title={`${c.title[locale]} — Pierre Pluton`}
+  description={c.intro[locale]}
+>
+  {
+    c.project === 7 ? (
+      <RagStory study={c} locale={locale} />
+    ) : (
+      <article class="journey oc-case">
+        <a href={`${prefix}/realisations/`}>
+          {t("← Toutes les réalisations", "← All work")}
+        </a>
+        <>
+          <p class="case-role">{c.stack}</p>
+          <h1>
+            <HighlightedText text={c.title[locale]} highlight="scoring" />
+          </h1>
+          <p class="case-lead">{c.intro[locale]}</p>
+          <CaseVisual project={c.project} locale={locale} />
+        </>
+        <div class="oc-case-grid">
+          <>
+            <div>
+              <section>
+                <>
+                  <h2>{t("Le problème à résoudre", "The problem")}</h2>
+                  <p>{c.need[locale]}</p>
+                </>
+              </section>
+              <section>
+                <>
+                  <h2>{t("Mon rôle et mes choix", "My role and choices")}</h2>
+                  <p>{c.role[locale]}</p>
+                  <ul>
+                    {c.choices[locale].map((choice) => (
+                      <li>{choice}</li>
+                    ))}
+                  </ul>
+                </>
+              </section>
+              <section>
+                <>
+                  <h2>{t("Les résultats", "Results")}</h2>
+                  <p>{c.results[locale]}</p>
+                </>
+              </section>
+              <section>
+                <>
+                  <h2>
+                    {t("Les limites et la suite", "Limitations and next steps")}
+                  </h2>
+                  <p>{c.limits[locale]}</p>
+                </>
+              </section>
+            </div>
+            <aside>
+              <>
+                <h2>{t("Le code", "Code")}</h2>
+                <a href={p.repo_url} target="_blank" rel="noopener noreferrer">
+                  GitHub ↗
+                </a>
+                <h2>{t("Le contexte", "Context")}</h2>
+                <p>
+                  {t(
+                    "Étude de cas réalisée dans le parcours AI Engineer d’OpenClassrooms. Les résultats présentés proviennent des fichiers examinés dans l’audit du 9 octobre 2026 ; ils n’ont pas été reproduits pour ce portfolio.",
+                    "A case study developed in the OpenClassrooms AI Engineer programme. Results come from files inspected in the 9 October 2026 audit; they were not reproduced for this portfolio.",
+                  )}
+                </p>
+                <a href={`${prefix}/formation/p${c.project}/`}>
+                  {t(
+                    "Consulter les preuves et le bilan détaillé ↗",
+                    "Explore evidence and the detailed report ↗",
+                  )}
+                </a>
+              </>
+            </aside>
+          </>
+        </div>
+      </article>
+    )
+  }
+</Layout>

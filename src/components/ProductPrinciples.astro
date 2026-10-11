@@ -1,0 +1,104 @@
+---
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const items = en
+  ? [
+      [
+        "Connection",
+        "Connect interfaces, APIs, data and models within one coherent user journey.",
+      ],
+      [
+        "Simplicity",
+        "Keep useful actions clear, reduce friction and design for small screens first.",
+      ],
+      [
+        "Performance",
+        "Measure, test and monitor before optimising. Make technical choices serve the experience.",
+      ],
+    ]
+  : [
+      [
+        "Connexion",
+        "Relier interfaces, API, données et modèles dans un parcours cohérent.",
+      ],
+      [
+        "Simplicité",
+        "Rendre les actions utiles évidentes, réduire les frictions et concevoir d’abord sur petit écran.",
+      ],
+      [
+        "Performances",
+        "Mesurer, tester et suivre avant d’optimiser. Faire servir les choix techniques à l’expérience.",
+      ],
+    ];
+---
+
+<section
+  id="priorites" class="product-principles section-pad"
+  aria-labelledby="product-principles-title"
+>
+  <div class="section-heading">
+    <h2 id="product-principles-title">
+      {en ? "Making the parts work together." : "Faire tenir l’ensemble."}
+    </h2><p>
+      {
+        en
+          ? "Three priorities that guide my product decisions."
+          : "Trois priorités qui guident mes choix de produit."
+      }
+    </p>
+  </div>
+  <div class="principles-grid">
+    {
+      items.map(([title, description], index) => (
+        <article>
+          <>
+            <svg
+              viewBox="0 0 160 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              {index === 0 && (
+                <>
+                  <path d="M35 30 80 50l45-25M80 50l45 28M80 50 35 78" />
+                  <circle cx="80" cy="50" r="16" class="principle-core" />
+                  <circle cx="35" cy="30" r="10" />
+                  <circle cx="125" cy="25" r="10" />
+                  <circle cx="125" cy="78" r="10" />
+                  <circle cx="35" cy="78" r="10" />
+                </>
+              )}
+              {index === 1 && (
+                <>
+                  <path d="M20 25h30l30 25M20 50h60M20 75h30l30-25M80 50h32" />
+                  <circle cx="128" cy="50" r="20" class="principle-core" />
+                  <path d="m119 50 6 6 12-13" />
+                </>
+              )}
+              {index === 2 && (
+                <>
+                  <path d="M30 75a50 50 0 0 1 100 0M38 75h8m8-35 5 7m21-22v9m26 6-5 7m21 28h-8" />
+                  <path d="m80 75 27-31" />
+                  <circle cx="80" cy="75" r="8" class="principle-core" />
+                </>
+              )}
+            </svg>
+            <div>
+              <>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </>
+            </div>
+          </>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -26,14 +26,21 @@ const copy = homeCopy[locale];
 >
   <article class:list={["case-study", `case-${project.slug}`]}>
     <div class="case-intro section-pad">
-      <a href={`${locale === "en" ? "/en/" : "/"}#projets`} class="back-link"
-        >{copy.caseBack}</a
+      <a
+        href={`${locale === "en" ? "/en" : ""}/realisations/`}
+        class="back-link">{copy.caseBack}</a
       ><p class="case-role">
         {project.role}
       </p><h1>{project.name}</h1><p class="case-tagline">{project.title}</p>
     </div>
     <div class="case-image" style={`--project-color:${project.color}`}>
-      <img src={project.image} alt={project.alt} />
+      <img
+        src={project.image}
+        alt={project.alt}
+        width="1280"
+        height={["lgdm", "unifete"].includes(project.slug) ? 720 : 850}
+        fetchpriority="high"
+      />
     </div>
     <div class="case-content section-pad">
       <div>
@@ -54,6 +61,38 @@ const copy = homeCopy[locale];
         </ul><p class="case-note">{project.note}</p>
       </aside>
     </div>
+    {
+      ["lgdm", "unifete"].includes(project.slug) && (
+        <section class="section-pad mobile-case-focus">
+          <>
+            <h2>
+              {locale === "en"
+                ? "Designing for mobile use"
+                : "Concevoir pour les usages mobiles"}
+            </h2>
+            <p>
+              {locale === "en"
+                ? "My approach starts with small screens: prioritise useful content, keep navigation clear and consider touch interaction before extending the layout to desktop."
+                : "Mon approche part du petit écran : prioriser le contenu utile, garder une navigation lisible et penser les interactions tactiles avant d’étendre la composition à l’ordinateur."}
+            </p>
+            <p>
+              {project.slug === "lgdm"
+                ? locale === "en"
+                  ? "At Le Grenier du Motard, this work connects the web marketplace with the iOS and Android applications, as part of my architecture and development responsibilities."
+                  : "Au Grenier du Motard, ce travail relie la marketplace web et les applications iOS et Android, dans le cadre de mes responsabilités d’architecture et de développement."
+                : locale === "en"
+                  ? "For Unifête, product design and interface development connect the couple and guest journeys within the web platform."
+                  : "Pour Unifête, la conception produit et le développement des interfaces relient les parcours des couples et des invités au sein de la plateforme web."}
+            </p>
+            <a href={`${locale === "en" ? "/en" : ""}/competences/#interfaces`}>
+              {locale === "en"
+                ? "Explore frontend and design skills ↗"
+                : "Explorer mes compétences front-end et design ↗"}
+            </a>
+          </>
+        </section>
+      )
+    }
     <a
       class="next-project section-pad"
       href={`${locale === "en" ? "/en" : ""}/projets/${next.slug}/`}

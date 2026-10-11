@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
+    "seo:check": "python3 scripts/check_seo.py",
     "format": "prettier --write src astro.config.mjs",
     "format:check": "prettier --check src astro.config.mjs"
   },

@@ -1,0 +1,264 @@
+---
+import Portrait from "./Portrait.astro";
+import HighlightedText from "./HighlightedText.astro";
+import Layout from "../layouts/Layout.astro";
+import CapabilityMark from "./CapabilityMark.astro";
+import "../styles/journey.css";
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const prefix = en ? "/en" : "";
+const t = (fr: string, english: string) => (en ? english : fr);
+const stages = [
+  [
+    t("Comprendre les personnes", "Understanding people"),
+    t(
+      "Diplômé en sciences politiques à Paris 1 Panthéon-Sorbonne, puis formé en sociologie. Ce parcours nourrit mon attention aux usages, au contexte social et aux conséquences concrètes d’un produit.",
+      "A political science graduate from Paris 1 Panthéon-Sorbonne, followed by studies in sociology. This background informs my attention to people, social context and the practical effects of a product.",
+    ),
+  ],
+  [
+    t("Construire avec le no-code", "Building with no-code"),
+    t(
+      "Une première formation en développement web avec Bubble, puis la conception de parcours, l’intégration d’API et la manipulation de données. Le no-code m’a appris à passer d’un besoin à un outil utilisable.",
+      "My first web development training used Bubble, followed by user journeys, API integration and data handling. No-code taught me to turn a need into a usable tool.",
+    ),
+  ],
+  [
+    t("Contribuer à Lecturer", "Contributing to Lecturer"),
+    t(
+      "Près d’un an et demi en alternance, en contribuant à la création d’un outil pour l’enseignement supérieur. Une expérience à la jonction de la pédagogie, du produit et de la technique.",
+      "Nearly eighteen months as an apprentice, contributing to the creation of a higher education tool. An experience connecting education, product development and technology.",
+    ),
+  ],
+  [
+    t(
+      "Approfondir le développement et la data",
+      "Developing software and data skills",
+    ),
+    t(
+      "Python, API, scraping et back-end, puis TypeScript, React, Next.js, NestJS et applications mobiles avec Expo. Certifications GitHub et DataCamp, apprentissage autonome et pratique dans mes projets.",
+      "Python, APIs, scraping and back-end development, followed by TypeScript, React, Next.js, NestJS and mobile apps with Expo. GitHub and DataCamp certifications, independent learning and project work.",
+    ),
+  ],
+  [
+    t("Créer et faire évoluer des produits", "Creating and evolving products"),
+    t(
+      "Cofondateur d’Unifête et CTO du Grenier du Motard. Je relie conception, interface, architecture, développement web et mobile, intégrations et suivi des évolutions.",
+      "Co-founder of Unifête and CTO of Le Grenier du Motard. I connect product design, interfaces, architecture, web and mobile development, integrations and ongoing improvements.",
+    ),
+  ],
+  [
+    t("Structurer ma pratique de l’IA", "Building a structured AI practice"),
+    t(
+      "Le parcours AI Engineer d’OpenClassrooms complète cette pratique avec la modélisation, l’évaluation, le RAG, le MLOps et l’adaptation de modèles. Je suis diplômé du titre « Expert en ingénierie et science des données », RNCP niveau 7 (Bac+5).",
+      "The OpenClassrooms AI Engineer programme complements my practice with modelling, evaluation, RAG, MLOps and model adaptation. I hold the professional certification “Expert en ingénierie et science des données”, RNCP level 7 (Bac+5).",
+    ),
+  ],
+];
+const soft = [
+  [
+    t("Curiosité et analyse", "Curiosity and analysis"),
+    t(
+      "Je cherche à comprendre les tenants et les aboutissants : le besoin, les contraintes et les raisons d’un choix technique. Mon parcours en sciences sociales nourrit cette démarche.",
+      "I want to understand the need, constraints and reasons behind a technical choice. My social science background informs this approach.",
+    ),
+  ],
+  [
+    t("Autonomie et apprentissage", "Autonomy and learning"),
+    t(
+      "J’apprends en construisant et en recherchant par moi-même. Le passage du no-code au développement full stack, puis à l’ingénierie IA, reflète cette progression.",
+      "I learn through building and independent research. Moving from no-code to full-stack development and AI engineering reflects this progression.",
+    ),
+  ],
+  [
+    t("Organisation et responsabilité", "Organisation and responsibility"),
+    t(
+      "Je veille à relier les priorités produit aux décisions d’architecture et aux évolutions livrées. Mon rôle de CTO implique aussi le suivi de la qualité et des incidents.",
+      "I connect product priorities with architectural decisions and delivered improvements. My CTO role also includes quality and incident follow-up.",
+    ),
+  ],
+  [
+    t("Communication et recul", "Communication and reflection"),
+    t(
+      "Je veux expliquer les choix, rendre les limites visibles et distinguer une démonstration d’un résultat réellement validé. Les retours pédagogiques de ma formation apportent des exemples de cette pratique.",
+      "I aim to explain choices, make limitations visible and distinguish a demonstration from a validated result. Feedback from my training provides examples of this practice.",
+    ),
+  ],
+];
+---
+
+<Layout
+  locale={locale}
+  title={t("Mon parcours — Pierre Pluton", "My background — Pierre Pluton")}
+  description={t(
+    "Des sciences sociales au no-code, au développement full stack et à l’ingénierie IA : mon parcours et ma façon de travailler.",
+    "From social sciences to no-code, full-stack development and AI engineering: my background and approach.",
+  )}
+>
+  <article class="journey background-page">
+    <a href={prefix + "/"}>{t("Retour à l’accueil", "Back to home")}</a>
+    <div class="journey-portrait-intro">
+      <div>
+        <h1>
+          <HighlightedText
+            text={t(
+              "Comprendre le réel. Construire des outils utiles.",
+              "Understand real needs. Build useful tools.",
+            )}
+            highlight={t("utiles", "useful")}
+          />
+        </h1>
+        <p class="intro">
+          {
+            t(
+              "Je suis Pierre Pluton. Mon parcours relie sciences sociales, conception de produits et ingénierie logicielle. Je cherche à créer des outils qui répondent à des besoins concrets, avec une IA dont je peux expliquer l’utilité et les limites.",
+              "I’m Pierre Pluton. My background connects social sciences, product design and software engineering. I build tools for practical needs, using AI whose value and limitations I can explain.",
+            )
+          }
+        </p>
+      </div><figure class="journey-portrait">
+        <Portrait loading="eager" fetchpriority="high" /><figcaption>
+          Pierre Pluton
+        </figcaption>
+      </figure>
+    </div>
+    <nav class="journey-nav" aria-label={t("Dans cette page", "On this page")}>
+      <a href="#parcours">{t("Mon parcours", "My background")}</a><a
+        href="#approche">{t("Ma façon de travailler", "My approach")}</a
+      ><a href={prefix + "/formation/"}
+        >{t("Compétences et formation", "Skills and training")}</a
+      >
+    </nav>
+    <div class="journey-grid">
+      <section id="parcours">
+        <h2>
+          {
+            t(
+              "Un parcours qui se construit par la pratique",
+              "A background built through practice",
+            )
+          }
+        </h2><ol class="journey-timeline">
+          {
+            stages.map(([title, text], index) => (
+              <li>
+                <>
+                  <span class="timeline-mark">
+                    <CapabilityMark
+                      kind={
+                        (
+                          [
+                            "people",
+                            "interface",
+                            "people",
+                            "code",
+                            "product",
+                            "ai",
+                          ] as const
+                        )[index]
+                      }
+                    />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+      </section><aside class="journey-aside">
+        <h2>{t("Ce que je cherche aujourd’hui", "What I’m looking for")}</h2><p>
+          {
+            t(
+              "Des missions freelance où je peux concevoir et réaliser un produit web, mobile ou IA, du cadrage à la démonstration et à la mise en ligne.",
+              "Freelance work where I can design and build web, mobile or AI products, from initial scoping to demonstration and delivery.",
+            )
+          }
+        </p><p>
+          {
+            t(
+              "Je développe avec des outils d’assistance IA. Les choix techniques, la vérification et l’explication du résultat restent des responsabilités que je prends en charge.",
+              "I develop with AI-assisted tools. Technical choices, verification and explaining the result remain responsibilities I take on.",
+            )
+          }
+        </p><a href={prefix + "/#contact"}
+          >{t("Parlons de votre projet", "Let’s discuss your project")}</a
+        >
+      </aside>
+    </div>
+    <section id="approche">
+      <h2>{t("Ma façon de travailler", "My approach")}</h2><div
+        class="journey-skills"
+      >
+        {
+          soft.map(([title, text]) => (
+            <div class="journey-skill">
+              <>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </>
+            </div>
+          ))
+        }
+      </div><p class="journey-note">
+        {
+          t(
+            "Cette présentation reflète mon autoévaluation et mes expériences. Elle ne constitue pas une mesure chiffrée de mes soft skills.",
+            "This presentation reflects my self-assessment and experience. It is not a numerical measurement of soft skills.",
+          )
+        }
+      </p>
+    </section>
+    <section>
+      <h2>
+        {
+          t(
+            "Des réalisations pour étayer ce parcours",
+            "Projects supporting this background",
+          )
+        }
+      </h2><div class="journey-projects">
+        <a href={prefix + "/projets/lgdm/"}
+          ><img
+            class="journey-project-preview"
+            src="/assets/lgdm-2026.png"
+            alt={t(
+              "Aperçu du site Le Grenier du Motard",
+              "Le Grenier du Motard website preview",
+            )}
+            width="1280"
+            height="720"
+            loading="lazy"
+          /><strong>Le Grenier du Motard</strong><span
+            >{
+              t(
+                "CTO : architecture, web, mobile et évolution du produit.",
+                "CTO: architecture, web, mobile and product development.",
+              )
+            }</span
+          ></a
+        ><a href={prefix + "/projets/unifete/"}
+          ><img
+            class="journey-project-preview"
+            src="/assets/unifete-2026.png"
+            alt={t("Aperçu du site Unifête", "Unifête website preview")}
+            width="1280"
+            height="720"
+            loading="lazy"
+          /><strong>Unifête</strong><span
+            >{
+              t(
+                "Cofondateur : conception, design et développement.",
+                "Co-founder: product design and development.",
+              )
+            }</span
+          ></a
+        >
+      </div>
+    </section>
+  </article></Layout
+>
