@@ -49,7 +49,7 @@ const edges = data.domains.flatMap((d, i) =>
           ? "Select a domain to explore its projects."
           : "Choisis un domaine pour explorer ses projets."
       }
-    </p><button type="button" data-reset
+    </p><button type="button" data-reset hidden
       >{en ? "Show everything" : "Tout afficher"}</button
     >
   </div>
@@ -82,12 +82,11 @@ const edges = data.domains.flatMap((d, i) =>
       >
       {
         data.domains.map((d, i) => (
-          <button
-            type="button"
+          <a
+            href={`#domain-${d.id}`}
             class="skill-node"
             data-domain={d.id}
             style={`--x:${positions[i][0]}%;--y:${positions[i][1]}%`}
-            aria-pressed={d.id === "genai"}
             aria-controls={`domain-${d.id}`}
           >
             <>
@@ -104,7 +103,7 @@ const edges = data.domains.flatMap((d, i) =>
                     : "projets"}
               </small>
             </>
-          </button>
+          </a>
         ))
       }
     </div><div class="skill-reading" aria-live="polite">
@@ -133,11 +132,7 @@ const edges = data.domains.flatMap((d, i) =>
       </div>
       {
         data.domains.map((d) => (
-          <section
-            id={`domain-${d.id}`}
-            data-domain-panel={d.id}
-            hidden={d.id !== "genai"}
-          >
+          <section id={`domain-${d.id}`} data-domain-panel={d.id}>
             <p class="skill-kicker">
               {en ? "Skills in practice" : "Les compétences mobilisées"}
             </p>
@@ -231,7 +226,7 @@ const edges = data.domains.flatMap((d, i) =>
   for (const explorer of document.querySelectorAll<HTMLElement>(
     "[data-skill-explorer]",
   )) {
-    const nodes = explorer.querySelectorAll<HTMLButtonElement>("[data-domain]");
+    const nodes = explorer.querySelectorAll<HTMLAnchorElement>("[data-domain]");
     const panels = explorer.querySelectorAll<HTMLElement>(
       "[data-domain-panel]",
     );
@@ -244,7 +239,7 @@ const edges = data.domains.flatMap((d, i) =>
     const en = document.documentElement.lang === "en";
     function select(id: string | null) {
       nodes.forEach((n) =>
-        n.setAttribute("aria-pressed", String(n.dataset.domain === id)),
+        n.setAttribute("aria-current", String(n.dataset.domain === id)),
       );
       panels.forEach((p) => (p.hidden = p.dataset.domainPanel !== id));
       overview.hidden = id !== null;
@@ -269,9 +264,13 @@ const edges = data.domains.flatMap((d, i) =>
       reset.setAttribute("aria-pressed", String(id === null));
     }
     nodes.forEach((n) =>
-      n.addEventListener("click", () => select(n.dataset.domain!)),
+      n.addEventListener("click", (event) => {
+        event.preventDefault();
+        select(n.dataset.domain!);
+      }),
     );
     reset.addEventListener("click", () => select(null));
     select("genai");
+    reset.hidden = false;
   }
 </script>
