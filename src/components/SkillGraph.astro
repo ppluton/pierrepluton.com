@@ -277,16 +277,25 @@ const edges = data.domains.flatMap((d, i) =>
         select(n.dataset.domain!);
       }),
     );
-    reset.addEventListener("click", () => select(null));
+    reset.addEventListener("click", () => {
+      if (window.location.hash) {
+        window.history.pushState(
+          window.history.state,
+          "",
+          window.location.pathname + window.location.search,
+        );
+      }
+      select(null);
+    });
     function linkedDomain() {
       const id = window.location.hash.replace(/^#domain-/, "");
       return [...nodes].find((node) => node.dataset.domain === id)?.dataset
         .domain;
     }
     window.addEventListener("hashchange", () => {
-      select(linkedDomain() ?? "genai");
+      select(linkedDomain() ?? null);
     });
-    select(linkedDomain() ?? "genai");
+    select(linkedDomain() ?? null);
     reset.hidden = false;
   }
 </script>
