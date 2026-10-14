@@ -124,6 +124,132 @@ const t = (fr: string, english: string) => (en ? english : fr);
         }
       </p>
     </section>
+    <section id="recul-personnel">
+      <h2>
+        {
+          t(
+            "Ce qui a changé dans ma vision du métier",
+            "How my view of the profession changed",
+          )
+        }
+      </h2>
+      <p>
+        {
+          t(
+            "Avant la formation, je voyais surtout le métier comme l’intégration de l’IA dans des applications. J’ai découvert le travail nécessaire pour préparer les données et comprendre le problème métier avant de choisir une solution. Aujourd’hui, je pense la chaîne entière : besoin, données, modèle, évaluation, déploiement et suivi.",
+            "Before training, I mainly saw the job as integrating AI into applications. I discovered the work needed to prepare data and understand the business problem before choosing a solution. Today I consider the entire chain: needs, data, models, evaluation, deployment and monitoring.",
+          )
+        }
+      </p>
+      <p>
+        {
+          t(
+            "Les choix techniques doivent servir la performance, les coûts et la sécurité du produit. Cela demande une vision globale, de la veille et la capacité à ajuster plusieurs composants. Les petits modèles open source adaptés à des besoins ciblés sont aussi une piste que je souhaite explorer.",
+            "Technical choices must serve product performance, costs and security. This requires a broad perspective, ongoing learning and the ability to adjust multiple components. Small open-source models tailored to specific needs are another direction I want to explore.",
+          )
+        }
+      </p>
+    </section>
+    <section>
+      <h2>
+        {
+          t(
+            "Deux projets qui m’ont fait progresser",
+            "Two projects that helped me progress",
+          )
+        }
+      </h2>
+      <h3>
+        {
+          t(
+            "Consommation des bâtiments : comprendre avant de comparer",
+            "Building consumption: understand before comparing",
+          )
+        }
+      </h3>
+      <p>
+        {
+          t(
+            "J’ai consacré beaucoup de temps à comprendre les modèles, les métriques et ce qui distingue une bonne évaluation d’un résultat trompeur. Ce projet m’a fait progresser en feature engineering et en prévention des fuites de données. Si je le recommençais, je traiterais plus soigneusement les valeurs manquantes et aberrantes, je travaillerais davantage la sélection et la création des variables et je comparerais plusieurs méthodes d’ajustement des hyperparamètres.",
+            "I spent considerable time understanding models, metrics and what distinguishes sound evaluation from misleading results. This project developed my feature engineering and data leakage prevention skills. If I repeated it, I would handle missing values and outliers more carefully, focus more on feature selection and creation, and compare several hyperparameter tuning approaches.",
+          )
+        }
+      </p>
+      <a href={`${prefix}/formation/p3/`}
+        >{t("Revenir au projet bâtiments", "Explore the building project")} ↗</a
+      >
+      <h3>
+        {
+          t(
+            "Scoring et MLOps : relier le modèle à un service",
+            "Scoring and MLOps: connect a model to a service",
+          )
+        }
+      </h3>
+      <p>
+        {
+          t(
+            "Le déploiement du modèle de scoring m’a permis de relier le travail de modélisation à une API, aux tests unitaires, au versionnage, à la conteneurisation et à la CI/CD. J’ai mieux compris pourquoi la mise en ligne et le suivi comptent autant que l’entraînement. L’apprentissage par renforcement m’a également beaucoup intéressé, notamment pour analyser le comportement d’un agent et tester des ajustements.",
+            "Deploying the scoring model connected modelling work with an API, unit tests, versioning, containers and CI/CD. I better understood why deployment and monitoring matter as much as training. Reinforcement learning also interested me, particularly analysing agent behaviour and testing adjustments.",
+          )
+        }
+      </p>
+      <a href={`${prefix}/formation/p8/`}
+        >{t("Revenir au projet MLOps", "Explore the MLOps project")} ↗</a
+      >
+    </section>
+    <section>
+      <h2>
+        {
+          t(
+            "Ma priorité : mieux évaluer les RAG et les agents",
+            "My priority: stronger RAG and agent evaluation",
+          )
+        }
+      </h2>
+      <p>
+        {
+          t(
+            "Je veux améliorer la pertinence des documents retrouvés et la fidélité des réponses à leurs sources. Mon objectif est de construire des tests permettant de comparer les versions et de vérifier qu’une modification améliore réellement les réponses. C’est une priorité de progression, pas une capacité déjà démontrée par mes anciens résultats.",
+            "I want to improve retrieved-document relevance and answer faithfulness to sources. My goal is to build tests that compare versions and establish whether a change genuinely improves answers. This is a development priority, not a capability already demonstrated by past results.",
+          )
+        }
+      </p>
+    </section>
+    <section>
+      <h2>
+        {
+          t(
+            "Expliquer les choix et mieux me situer",
+            "Explain choices and understand my strengths",
+          )
+        }
+      </h2>
+      <p>
+        {
+          t(
+            "Dans mon quotidien, j’explique les usages de l’IA à différents niveaux de détail. Je cherche d’abord à justifier l’intérêt d’une solution avec une comparaison accessible, puis à approfondir si la personne le souhaite. Par exemple, expliquer pourquoi un LLM bénéficie de sources, d’outils et de contrôles rend les choix d’un RAG plus compréhensibles. Ces composants aident à réduire et détecter les erreurs ; ils ne garantissent pas une réponse correcte.",
+            "In my daily work, I explain AI uses at different levels of detail. I first justify a solution with an accessible comparison, then go deeper if requested. For example, explaining why an LLM benefits from sources, tools and checks makes RAG design choices easier to understand. These components help reduce and detect errors; they do not guarantee a correct answer.",
+          )
+        }
+      </p>
+      <p>
+        {
+          t(
+            "Je me reconnais dans la pédagogie, la curiosité, l’autonomie et la patience. La construction de ce portfolio m’aide à identifier plus clairement mes compétences et mes limites, et à mieux expliquer mes projets et mes décisions techniques.",
+            "I identify with clear communication, curiosity, independence and patience. Building this portfolio helps me identify my skills and limitations more clearly, and better explain my projects and technical decisions.",
+          )
+        }
+      </p>
+      <a href={`${prefix}/competences/#autoevaluation`}
+        >{
+          t(
+            "Voir mon autoévaluation et mes langues",
+            "Explore my self-assessment and languages",
+          )
+        } ↗</a
+      >
+    </section>
     <section>
       <h2>{t("La méthode et les preuves", "Method and evidence")}</h2><p>
         {

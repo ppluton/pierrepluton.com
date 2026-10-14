@@ -52,7 +52,7 @@ const t = (fr: string, english: string) => (en ? english : fr);
                 <>
                   <h2>{t("Mon rôle et mes choix", "My role and choices")}</h2>
                   <p>{c.role[locale]}</p>
-                  <ul>
+                  <ul class="content-list">
                     {c.choices[locale].map((choice) => (
                       <li>{choice}</li>
                     ))}

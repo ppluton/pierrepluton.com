@@ -82,9 +82,6 @@
 .journey-skill h3 {
   margin: 0 0 12px;
 }
-.journey-skill ul {
-  padding-left: 20px;
-}
 .journey-status {
   display: inline-block;
   background: var(--soft);
@@ -425,4 +422,28 @@
   .interface-skills-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/* Use visible markers and separate rows for editorial lists. */
+.journey .content-list,
+.case-content .content-list {
+  list-style: disc outside;
+  padding-inline-start: 1.15em;
+  margin-block: 1.25rem 1.75rem;
+}
+.journey .content-list > li,
+.case-content .content-list > li {
+  padding-block: 0;
+  padding-inline-start: 0.35em;
+  border: 0;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.journey .content-list > li + li,
+.case-content .content-list > li + li {
+  margin-block-start: 0.85rem;
+}
+.content-list > li::marker {
+  color: var(--accent);
+  font-size: 0.9em;
 }

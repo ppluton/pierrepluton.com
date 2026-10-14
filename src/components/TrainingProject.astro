@@ -64,11 +64,15 @@ const skills = data.skills.filter((s) => s.projects.includes(p.n));
     <div class="oc-case-grid">
       <div>
         <section>
-          <h2>{t("Le travail réalisé", "The work")}</h2><p>{p.mission}</p><ul>
+          <h2>{t("Le travail réalisé", "The work")}</h2><p>{p.mission}</p><ul
+            class="content-list"
+          >
             {p.work.slice(0, 2).map((item) => <li>{item}</li>)}
           </ul>
         </section><section>
-          <h2>{t("Les résultats disponibles", "Available results")}</h2><ul>
+          <h2>{t("Les résultats disponibles", "Available results")}</h2><ul
+            class="content-list"
+          >
             {p.results.slice(0, 2).map((item) => <li>{item}</li>)}
           </ul>{
             p.results.length > 2 && (
@@ -80,7 +84,7 @@ const skills = data.skills.filter((s) => s.projects.includes(p.n));
                       "Additional results and observations",
                     )}
                   </summary>
-                  <ul>
+                  <ul class="content-list">
                     {p.results.slice(2).map((item) => (
                       <li>{item}</li>
                     ))}
@@ -107,7 +111,9 @@ const skills = data.skills.filter((s) => s.projects.includes(p.n));
                   "Limitations and next steps",
                 )
               }</summary
-            ><ul>{p.limits.map((item) => <li>{item}</li>)}</ul>
+            ><ul class="content-list">
+              {p.limits.map((item) => <li>{item}</li>)}
+            </ul>
           </details>
         </section>
       </div>
@@ -116,7 +122,9 @@ const skills = data.skills.filter((s) => s.projects.includes(p.n));
           class="oc-domain-labels"
         >
           {p.domains.map((id) => <span>{domainTitle(id)}</span>)}
-        </div><ul>{skills.map((s) => <li>{s.name}</li>)}</ul><h2>
+        </div><ul class="content-list">
+          {skills.map((s) => <li>{s.name}</li>)}
+        </ul><h2>
           {t("Code et références", "Code and references")}
         </h2><div class="case-proof-links">
           {
@@ -133,7 +141,7 @@ const skills = data.skills.filter((s) => s.projects.includes(p.n));
             }</summary
           >{
             p.source_links.length ? (
-              <ul>
+              <ul class="content-list">
                 {p.source_links.map((s) => (
                   <li>
                     <a href={s.url}>{s.path}</a>

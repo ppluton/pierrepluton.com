@@ -78,8 +78,8 @@ const gaps = [
   [
     t("Exploitation et autonomie", "Operations and autonomy"),
     t(
-      "Rattacher les performances aux versions et aux environnements, documenter les coûts et la maintenance. Mon autonomie par compétence et mes niveaux de langue restent à préciser dans mon autoévaluation.",
-      "Connect performance with versions and environments, and document costs and maintenance. My autonomy by skill and language levels remain to be specified in my self-assessment.",
+      "Rattacher les performances aux versions et aux environnements, documenter les coûts et la maintenance. Mon autoévaluation précise les tâches que je peux mener en autonomie et les domaines qui nécessitent encore un appui.",
+      "Connect performance with versions and environments, and document costs and maintenance. My self-assessment identifies tasks I can handle independently and areas where I still need support.",
     ),
   ],
 ];
@@ -124,6 +124,8 @@ const gaps = [
         >{t("Carte interactive", "Interactive map")}</a
       ><a href={prefix + "/competences/#carte"}
         >{t("Tous les projets OC", "All OC projects")}</a
+      ><a href={prefix + "/competences/#autoevaluation"}
+        >{t("Autonomie & langues", "Independence & languages")}</a
       ><a href="#progression"
         >{t("Axes de progression", "Areas for development")}</a
       ><a href="#ressources">{t("Bilan du parcours", "Learning report")}</a>
@@ -144,7 +146,7 @@ const gaps = [
                 <CapabilityMark kind={index === 0 ? "product" : "ai"} />
                 <h3>{g.title}</h3>
                 <p>{g.text}</p>
-                <ul>
+                <ul class="content-list">
                   {g.skills.map((item) => (
                     <li>{item}</li>
                   ))}
