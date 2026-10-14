@@ -42,10 +42,18 @@ const prefix = en ? "/en" : "";
       class="journey-nav skills-entry-nav"
       aria-label={en ? "Explore skills" : "Explorer les compétences"}
     >
-      <a href="#stack"
-        >{en ? "Technical toolbox" : "Boîte à outils technique"}</a
+      <a class="skills-entry-card" href="#stack"
+        ><CapabilityMark kind="code" /><span
+          >{en ? "Technical toolbox" : "Boîte à outils technique"}<small
+            >{
+              en
+                ? "Languages, frameworks and tools"
+                : "Langages, frameworks et outils"
+            }</small
+          ></span
+        ><b aria-hidden="true">↘</b></a
       >
-      <a href="#interfaces"
+      <a class="skills-entry-card" href="#interfaces"
         ><CapabilityMark kind="interface" /><span
           >{en ? "Frontend & design" : "Front-end & design"}<small
             >{
@@ -56,7 +64,7 @@ const prefix = en ? "/en" : "";
           ></span
         ><b aria-hidden="true">↘</b></a
       >
-      <a href="#carte"
+      <a class="skills-entry-card" href="#carte"
         ><CapabilityMark kind="ai" /><span
           >{en ? "AI skills graph" : "Graphe des acquis IA"}<small
             >{
@@ -67,9 +75,9 @@ const prefix = en ? "/en" : "";
           ></span
         ><b aria-hidden="true">↘</b></a
       >
-      <a href={`${prefix}/realisations/`}
+      <a class="skills-entry-link" href={`${prefix}/realisations/`}
         >{en ? "Selected work" : "Réalisations sélectionnées"}</a
-      ><a href={`${prefix}/formation/`}
+      ><a class="skills-entry-link" href={`${prefix}/formation/`}
         >{
           en
             ? "Skill origins & learning report"

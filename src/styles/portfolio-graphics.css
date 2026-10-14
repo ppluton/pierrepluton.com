@@ -86,7 +86,7 @@
   gap: 16px;
   margin: 26px 0 40px;
 }
-.skills-entry-nav > a:nth-child(-n + 2) {
+.journey .skills-entry-nav > .skills-entry-card {
   display: flex;
   align-items: center;
   gap: 18px;
@@ -96,7 +96,7 @@
   text-decoration: none;
   transition: background 180ms ease;
 }
-.skills-entry-nav > a:nth-child(-n + 2):hover {
+.skills-entry-nav > .skills-entry-card:hover {
   background: var(--hero);
 }
 .skills-entry-nav span {
@@ -116,7 +116,7 @@
   color: var(--accent);
   font-size: 24px;
 }
-.skills-entry-nav > a:nth-child(n + 3) {
+.skills-entry-nav > .skills-entry-link {
   padding: 8px 0;
   font-size: 14px;
 }
@@ -269,6 +269,11 @@
   }
   .skills-entry-nav {
     grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1000px) {
+  .skills-entry-nav {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (prefers-reduced-motion: reduce) {
