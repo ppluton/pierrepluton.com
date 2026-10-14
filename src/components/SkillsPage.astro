@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import InterfaceSkills from "./InterfaceSkills.astro";
 import SkillGraph from "./SkillGraph.astro";
+import SelfAssessment from "./SelfAssessment.astro";
 import CapabilityMark from "./CapabilityMark.astro";
 import TechnologyStack from "./TechnologyStack.astro";
 import HighlightedText from "./HighlightedText.astro";
@@ -76,6 +77,9 @@ const prefix = en ? "/en" : "";
         }</a
       >
     </nav>
+    <a class="skills-map-link" href="#autoevaluation"
+      >{en ? "My independence & languages" : "Mon autonomie & mes langues"} ↘</a
+    >
     <TechnologyStack locale={locale} />
     <InterfaceSkills locale={locale} />
     <section id="carte" class="formation-map">
@@ -94,5 +98,6 @@ const prefix = en ? "/en" : "";
       </p>
       <SkillGraph locale={locale} />
     </section>
+    <SelfAssessment locale={locale} />
   </article></Layout
 >

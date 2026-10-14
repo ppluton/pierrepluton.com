@@ -1,0 +1,251 @@
+---
+import type { Locale } from "../data/i18n";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "fr" } = Astro.props;
+const en = locale === "en";
+const t = (fr: string, english: string) => (en ? english : fr);
+const levels = {
+  independent: t("Projet mené en autonomie", "Independent project delivery"),
+  routine: t("Autonome sur les cas courants", "Independent on routine tasks"),
+  supported: t(
+    "Autonomie avec appui ponctuel",
+    "Independent with occasional support",
+  ),
+  developing: t("Pratique à approfondir", "Practice to develop"),
+};
+const domains = [
+  [
+    "cadrage",
+    t("Cadrage métier", "Business scoping"),
+    "independent",
+    t(
+      "Clarifier le problème, évaluer la pertinence de l’IA et définir les critères de réussite.",
+      "Clarify the problem, assess whether AI is appropriate and define success criteria.",
+    ),
+  ],
+  [
+    "data",
+    t("Préparation des données", "Data preparation"),
+    "independent",
+    t(
+      "Choisir la méthode, contrôler la qualité et vérifier la séparation des données pour éviter les fuites.",
+      "Choose the method, check data quality and verify data separation to prevent leakage.",
+    ),
+  ],
+  [
+    "ml",
+    t("ML supervisé", "Supervised ML"),
+    "independent",
+    t(
+      "Choisir les métriques, comparer les modèles, examiner le surapprentissage et justifier le modèle retenu.",
+      "Choose metrics, compare models, examine overfitting and justify the selected model.",
+    ),
+  ],
+  [
+    "vision",
+    t("Vision", "Computer vision"),
+    "developing",
+    t(
+      "Une pratique encore limitée aux expériences de formation ; un domaine à approfondir.",
+      "Practice still limited to training projects; an area for further development.",
+    ),
+  ],
+  [
+    "rl",
+    t("Apprentissage par renforcement", "Reinforcement learning"),
+    "supported",
+    t(
+      "Analyser les résultats et tester des améliorations, avec parfois de l’aide pour le diagnostic et les ajustements.",
+      "Analyse results and test improvements, sometimes seeking help with diagnosis and adjustments.",
+    ),
+  ],
+  [
+    "genai",
+    "RAG, agents & LLM",
+    "independent",
+    t(
+      "Mener un projet, comprendre ses composants et superviser les résultats ; renforcer l’évaluation reste ma priorité.",
+      "Deliver a project, understand its components and oversee results; stronger evaluation remains my priority.",
+    ),
+  ],
+  [
+    "integration",
+    t("API & applications", "APIs & applications"),
+    "independent",
+    t(
+      "Concevoir et réaliser une application, relier les composants et vérifier le résultat.",
+      "Design and build an application, connect its components and verify the result.",
+    ),
+  ],
+  [
+    "ops",
+    "MLOps",
+    "routine",
+    t(
+      "Mettre en œuvre les pratiques courantes de déploiement et de suivi ; approfondir les situations complexes.",
+      "Apply routine deployment and monitoring practices; develop experience with complex situations.",
+    ),
+  ],
+] as const;
+const languages = [
+  [t("Français", "French"), t("Natif", "Native")],
+  [t("Anglais", "English"), "C1"],
+  [t("Espagnol", "Spanish"), "A2"],
+  [t("Russe", "Russian"), "A1"],
+];
+---
+
+<section
+  id="autoevaluation"
+  class="self-assessment"
+  aria-labelledby="assessment-title"
+>
+  <p class="assessment-date">
+    {t("Autoévaluation · 14 octobre 2026", "Self-assessment · 14 October 2026")}
+  </p>
+  <h2 id="assessment-title">
+    {t("Mon autonomie dans la pratique", "My independence in practice")}
+  </h2>
+  <p>
+    {
+      t(
+        "Je m’appuie sur l’IA pour écrire du code et approfondir certains points techniques. Mon autonomie repose sur ma capacité à choisir la méthode, comprendre les composants et vérifier le résultat.",
+        "I use AI to write code and explore technical details. My independence rests on choosing the method, understanding the components and verifying the result.",
+      )
+    }
+  </p>
+  <p class="assessment-note">
+    {
+      t(
+        "Ces niveaux sont déclarés, pas des notes de jury ni des pourcentages calculés à partir des projets. Ils décrivent les tâches ci-dessous, sans attribuer le même niveau à chaque technologie du domaine.",
+        "These levels are self-reported, not assessor grades or percentages calculated from projects. They describe the tasks below, without assigning the same level to every technology in a domain.",
+      )
+    }
+  </p>
+  <ul class="assessment-grid">
+    {
+      domains.map(([id, title, level, description]) => (
+        <li class="assessment-card" data-level={level}>
+          <span class="assessment-level">{levels[level]}</span>
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <a href={`#domain-${id}`} data-skill-domain={id}>
+            {t(
+              "Voir les compétences et les preuves",
+              "Explore skills and evidence",
+            )}{" "}
+            ↗
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <h3>{t("Langues", "Languages")}</h3>
+  <ul class="assessment-languages">
+    {
+      languages.map(([language, level]) => (
+        <li>
+          <>
+            <strong>{language}</strong>
+            <span>{level}</span>
+          </>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="assessment-note">
+    {
+      t(
+        "Niveaux de langue autoévalués ; aucune certification linguistique n’est revendiquée.",
+        "Self-assessed language levels; no language certification is claimed.",
+      )
+    }
+  </p>
+  <p>
+    <a href={`${en ? "/en" : ""}/formation/bilan/`}
+      >{
+        t(
+          "Lire mon recul sur le parcours et mes priorités",
+          "Read my reflections and priorities",
+        )
+      } ↗</a
+    > · <a href={`${en ? "/en" : ""}/parcours/#approche`}
+      >{t("Découvrir ma façon de travailler", "Explore how I work")} ↗</a
+    >
+  </p>
+</section>
+<style>
+  .self-assessment {
+    scroll-margin-top: 110px;
+  }
+  .assessment-date,
+  .assessment-note {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .assessment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 28px 0;
+  }
+  .assessment-card {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    background: var(--paper);
+  }
+  .assessment-card h3 {
+    font-size: 23px;
+    margin: 16px 0 10px;
+  }
+  .assessment-card p {
+    font-size: 15px;
+  }
+  .assessment-card a {
+    font-size: 14px;
+  }
+  .assessment-level {
+    display: inline-block;
+    border-left: 4px solid var(--accent);
+    padding: 5px 10px;
+    background: var(--soft);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  [data-level="routine"] .assessment-level {
+    border-left-style: double;
+  }
+  [data-level="supported"] .assessment-level {
+    border-left-style: dashed;
+  }
+  [data-level="developing"] .assessment-level {
+    border-left-style: dotted;
+  }
+  .assessment-languages {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 12px;
+  }
+  .assessment-languages li {
+    display: flex;
+    gap: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 18px;
+  }
+  @media (max-width: 640px) {
+    .assessment-grid {
+      grid-template-columns: 1fr;
+    }
+    .assessment-card {
+      padding: 20px;
+    }
+  }
+</style>

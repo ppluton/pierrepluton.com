@@ -263,7 +263,11 @@ const edges = data.domains.flatMap((d, i) =>
       count.textContent = `${visible} ${en ? "projects" : "projets"}`;
       reset.setAttribute("aria-pressed", String(id === null));
     }
-    nodes.forEach((n) =>
+    const triggers = [
+      ...nodes,
+      ...document.querySelectorAll<HTMLAnchorElement>("[data-skill-domain]"),
+    ];
+    triggers.forEach((n) =>
       n.addEventListener("click", (event) => {
         if (
           event instanceof MouseEvent &&
@@ -274,7 +278,7 @@ const edges = data.domains.flatMap((d, i) =>
             event.altKey)
         )
           return;
-        select(n.dataset.domain!);
+        select(n.dataset.domain ?? n.dataset.skillDomain!);
       }),
     );
     reset.addEventListener("click", () => {
