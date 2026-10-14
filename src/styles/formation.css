@@ -261,9 +261,6 @@
 .oc-case h2 {
   font-size: 30px;
 }
-.oc-case ul {
-  padding-left: 20px;
-}
 .oc-case .case-proof-links {
   display: flex;
   flex-wrap: wrap;
